@@ -39,7 +39,8 @@ class TestFilesystemExport(unittest.TestCase):
             return FilesystemExport(
                 task = '0', 
                 publication = '0', 
-                repository_version = '0'
+                repository_version = '0', 
+                start_repository_version = '0'
             )
         else :
             return FilesystemExport(

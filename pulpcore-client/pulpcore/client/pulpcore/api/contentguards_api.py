@@ -37,16 +37,17 @@ class ContentguardsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List content guards  # noqa: E501
 
         Endpoint to list all contentguards.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param str name: Filter results where name matches value
         :param str name__contains: Filter results where name contains value
@@ -61,8 +62,8 @@ class ContentguardsApi(object):
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `name` - Name * `-name` - Name (descending) * `description` - Description * `-description` - Description (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
+        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.
@@ -78,18 +79,19 @@ class ContentguardsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List content guards  # noqa: E501
 
         Endpoint to list all contentguards.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param str name: Filter results where name matches value
         :param str name__contains: Filter results where name contains value
@@ -104,8 +106,8 @@ class ContentguardsApi(object):
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `name` - Name * `-name` - Name (descending) * `description` - Description * `-description` - Description (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
+        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.
@@ -126,6 +128,7 @@ class ContentguardsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'limit',
             'name',
             'name__contains',
@@ -163,10 +166,16 @@ class ContentguardsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -229,7 +238,7 @@ class ContentguardsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/contentguards/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/contentguards/', 'GET',
             path_params,
             query_params,
             header_params,

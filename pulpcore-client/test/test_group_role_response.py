@@ -44,7 +44,8 @@ class TestGroupRoleResponse(unittest.TestCase):
                 description = '0', 
                 permissions = [
                     '0'
-                    ]
+                    ], 
+                domain = '0'
             )
         else :
             return GroupRoleResponse(

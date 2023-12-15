@@ -1,15 +1,15 @@
 # pulpcore.client.pulpcore.SigningServicesApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](SigningServicesApi.md#list) | **GET** /pulp/api/v3/signing-services/ | List signing services
+[**list**](SigningServicesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/signing-services/ | List signing services
 [**read**](SigningServicesApi.md#read) | **GET** {signing_service_href} | Inspect a signing service
 
 
 # **list**
-> PaginatedSigningServiceResponseList list(limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+> PaginatedSigningServiceResponseList list(pulp_domain, limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
 
 List signing services
 
@@ -24,10 +24,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -43,7 +43,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -55,7 +55,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.SigningServicesApi(api_client)
-    limit = 56 # int | Number of results to return per page. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `name` - Name * `-name` - Name (descending) * `public_key` - Public key * `-public_key` - Public key (descending) * `pubkey_fingerprint` - Pubkey fingerprint * `-pubkey_fingerprint` - Pubkey fingerprint (descending) * `script` - Script * `-script` - Script (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -67,7 +68,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List signing services
-        api_response = api_instance.list(limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling SigningServicesApi->list: %s\n" % e)
@@ -80,10 +81,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -99,7 +100,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -111,7 +112,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.SigningServicesApi(api_client)
-    limit = 56 # int | Number of results to return per page. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `name` - Name * `-name` - Name (descending) * `public_key` - Public key * `-public_key` - Public key (descending) * `pubkey_fingerprint` - Pubkey fingerprint * `-pubkey_fingerprint` - Pubkey fingerprint (descending) * `script` - Script * `-script` - Script (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
@@ -123,7 +125,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List signing services
-        api_response = api_instance.list(limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, name=name, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling SigningServicesApi->list: %s\n" % e)
@@ -133,6 +135,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **name** | **str**| Filter results where name matches value | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
@@ -179,10 +182,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -198,7 +201,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -229,10 +232,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -248,7 +251,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

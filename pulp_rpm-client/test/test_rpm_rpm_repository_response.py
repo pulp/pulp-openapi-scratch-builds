@@ -40,7 +40,9 @@ class TestRpmRpmRepositoryResponse(unittest.TestCase):
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 versions_href = '0', 
-                pulp_labels = pulpcore.client.pulp_rpm.models.pulp_labels.pulp_labels(), 
+                pulp_labels = {
+                    'key' : '0'
+                    }, 
                 latest_version_href = '0', 
                 name = '0', 
                 description = '0', 
@@ -53,7 +55,8 @@ class TestRpmRpmRepositoryResponse(unittest.TestCase):
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                sqlite_metadata = True
+                sqlite_metadata = True, 
+                repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config()
             )
         else :
             return RpmRpmRepositoryResponse(

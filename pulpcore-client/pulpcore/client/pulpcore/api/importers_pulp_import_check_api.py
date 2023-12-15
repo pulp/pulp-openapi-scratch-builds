@@ -37,16 +37,17 @@ class ImportersPulpImportCheckApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def pulp_import_check_post(self, pulp_import_check,  **kwargs):  # noqa: E501
+    def pulp_import_check_post(self, pulp_import_check, pulp_domain="default", **kwargs):  # noqa: E501
         """Validate the parameters to be used for a PulpImport call  # noqa: E501
 
         Evaluates validity of proposed PulpImport parameters 'toc', 'path', and 'repo_mapping'.  * Checks that toc, path are in ALLOWED_IMPORT_PATHS * if ALLOWED:   * Checks that toc, path exist and are readable   * If toc specified, checks that containing dir is writeable * Checks that repo_mapping is valid JSON  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.pulp_import_check_post(pulp_import_check, async_req=True)
+        >>> thread = api.pulp_import_check_post(pulp_domain, pulp_import_check, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param PulpImportCheck pulp_import_check: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class ImportersPulpImportCheckApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.pulp_import_check_post_with_http_info(pulp_import_check,  **kwargs)  # noqa: E501
+        return self.pulp_import_check_post_with_http_info(pulp_import_check, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def pulp_import_check_post_with_http_info(self, pulp_import_check,  **kwargs):  # noqa: E501
+    def pulp_import_check_post_with_http_info(self, pulp_import_check, pulp_domain="default", **kwargs):  # noqa: E501
         """Validate the parameters to be used for a PulpImport call  # noqa: E501
 
         Evaluates validity of proposed PulpImport parameters 'toc', 'path', and 'repo_mapping'.  * Checks that toc, path are in ALLOWED_IMPORT_PATHS * if ALLOWED:   * Checks that toc, path exist and are readable   * If toc specified, checks that containing dir is writeable * Checks that repo_mapping is valid JSON  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.pulp_import_check_post_with_http_info(pulp_import_check, async_req=True)
+        >>> thread = api.pulp_import_check_post_with_http_info(pulp_domain, pulp_import_check, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param PulpImportCheck pulp_import_check: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class ImportersPulpImportCheckApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'pulp_import_check'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class ImportersPulpImportCheckApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `pulp_import_check_post`")  # noqa: E501
         # verify the required parameter 'pulp_import_check' is set
         if self.api_client.client_side_validation and ('pulp_import_check' not in local_var_params or  # noqa: E501
                                                         local_var_params['pulp_import_check'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class ImportersPulpImportCheckApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class ImportersPulpImportCheckApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/importers/core/pulp/import-check/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/', 'POST',
             path_params,
             query_params,
             header_params,

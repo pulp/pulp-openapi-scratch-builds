@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.RepairApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post**](RepairApi.md#post) | **POST** /pulp/api/v3/repair/ | Repair Artifact Storage
+[**post**](RepairApi.md#post) | **POST** /pulp/{pulp_domain}/api/v3/repair/ | Repair Artifact Storage
 
 
 # **post**
-> AsyncOperationResponse post(repair)
+> AsyncOperationResponse post(pulp_domain, repair)
 
 Repair Artifact Storage
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,11 +54,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepairApi(api_client)
-    repair = pulpcore.client.pulpcore.Repair() # Repair | 
+    pulp_domain = 'pulp_domain_example' # str | 
+repair = pulpcore.client.pulpcore.Repair() # Repair | 
 
     try:
         # Repair Artifact Storage
-        api_response = api_instance.post(repair)
+        api_response = api_instance.post(pulp_domain, repair)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepairApi->post: %s\n" % e)
@@ -71,10 +72,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -90,7 +91,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -102,11 +103,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepairApi(api_client)
-    repair = pulpcore.client.pulpcore.Repair() # Repair | 
+    pulp_domain = 'pulp_domain_example' # str | 
+repair = pulpcore.client.pulpcore.Repair() # Repair | 
 
     try:
         # Repair Artifact Storage
-        api_response = api_instance.post(repair)
+        api_response = api_instance.post(pulp_domain, repair)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepairApi->post: %s\n" % e)
@@ -116,6 +118,7 @@ with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **repair** | [**Repair**](Repair.md)|  | 
 
 ### Return type

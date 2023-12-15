@@ -1,16 +1,16 @@
 # pulpcore.client.pulp_rpm.ContentModulemdsApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentModulemdsApi.md#create) | **POST** /pulp/api/v3/content/rpm/modulemds/ | Create a modulemd
-[**list**](ContentModulemdsApi.md#list) | **GET** /pulp/api/v3/content/rpm/modulemds/ | List modulemds
+[**create**](ContentModulemdsApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/modulemds/ | Create a modulemd
+[**list**](ContentModulemdsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/modulemds/ | List modulemds
 [**read**](ContentModulemdsApi.md#read) | **GET** {rpm_modulemd_href} | Inspect a modulemd
 
 
 # **create**
-> AsyncOperationResponse create(rpm_modulemd)
+> AsyncOperationResponse create(pulp_domain, rpm_modulemd)
 
 Create a modulemd
 
@@ -25,10 +25,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,7 +44,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -56,11 +56,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentModulemdsApi(api_client)
-    rpm_modulemd = pulpcore.client.pulp_rpm.RpmModulemd() # RpmModulemd | 
+    pulp_domain = 'pulp_domain_example' # str | 
+rpm_modulemd = pulpcore.client.pulp_rpm.RpmModulemd() # RpmModulemd | 
 
     try:
         # Create a modulemd
-        api_response = api_instance.create(rpm_modulemd)
+        api_response = api_instance.create(pulp_domain, rpm_modulemd)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentModulemdsApi->create: %s\n" % e)
@@ -73,10 +74,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -92,7 +93,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -104,11 +105,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentModulemdsApi(api_client)
-    rpm_modulemd = pulpcore.client.pulp_rpm.RpmModulemd() # RpmModulemd | 
+    pulp_domain = 'pulp_domain_example' # str | 
+rpm_modulemd = pulpcore.client.pulp_rpm.RpmModulemd() # RpmModulemd | 
 
     try:
         # Create a modulemd
-        api_response = api_instance.create(rpm_modulemd)
+        api_response = api_instance.create(pulp_domain, rpm_modulemd)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentModulemdsApi->create: %s\n" % e)
@@ -118,6 +120,7 @@ with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **rpm_modulemd** | [**RpmModulemd**](RpmModulemd.md)|  | 
 
 ### Return type
@@ -141,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedrpmModulemdResponseList list(arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
+> PaginatedrpmModulemdResponseList list(pulp_domain, arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
 
 List modulemds
 
@@ -156,10 +159,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -175,7 +178,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -187,7 +190,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentModulemdsApi(api_client)
-    arch = 'arch_example' # str | Filter results where arch matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+arch = 'arch_example' # str | Filter results where arch matches value (optional)
 arch__in = ['arch__in_example'] # list[str] | Filter results where arch is in a comma-separated list of values (optional)
 context = 'context_example' # str | Filter results where context matches value (optional)
 context__in = ['context__in_example'] # list[str] | Filter results where context is in a comma-separated list of values (optional)
@@ -212,7 +216,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List modulemds
-        api_response = api_instance.list(arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentModulemdsApi->list: %s\n" % e)
@@ -225,10 +229,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -244,7 +248,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -256,7 +260,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentModulemdsApi(api_client)
-    arch = 'arch_example' # str | Filter results where arch matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+arch = 'arch_example' # str | Filter results where arch matches value (optional)
 arch__in = ['arch__in_example'] # list[str] | Filter results where arch is in a comma-separated list of values (optional)
 context = 'context_example' # str | Filter results where context matches value (optional)
 context__in = ['context__in_example'] # list[str] | Filter results where context is in a comma-separated list of values (optional)
@@ -281,7 +286,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List modulemds
-        api_response = api_instance.list(arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, arch=arch, arch__in=arch__in, context=context, context__in=context__in, limit=limit, name=name, name__in=name__in, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, stream=stream, stream__in=stream__in, version=version, version__in=version__in, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentModulemdsApi->list: %s\n" % e)
@@ -291,6 +296,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **arch** | **str**| Filter results where arch matches value | [optional] 
  **arch__in** | [**list[str]**](str.md)| Filter results where arch is in a comma-separated list of values | [optional] 
  **context** | **str**| Filter results where context matches value | [optional] 
@@ -350,10 +356,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -369,7 +375,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -400,10 +406,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -419,7 +425,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

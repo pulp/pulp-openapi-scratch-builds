@@ -34,56 +34,125 @@ class ArtifactDistributionResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
         'hidden': 'bool',
-        'content_guard': 'str',
-        'pulp_labels': 'dict(str, str)',
+        'base_url': 'str',
         'pulp_created': 'datetime',
+        'name': 'str',
+        'content_guard': 'str',
         'pulp_href': 'str',
-        'base_path': 'str',
-        'base_url': 'str'
+        'pulp_labels': 'dict(str, str)',
+        'base_path': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
         'hidden': 'hidden',
-        'content_guard': 'content_guard',
-        'pulp_labels': 'pulp_labels',
+        'base_url': 'base_url',
         'pulp_created': 'pulp_created',
+        'name': 'name',
+        'content_guard': 'content_guard',
         'pulp_href': 'pulp_href',
-        'base_path': 'base_path',
-        'base_url': 'base_url'
+        'pulp_labels': 'pulp_labels',
+        'base_path': 'base_path'
     }
 
-    def __init__(self, name=None, hidden=False, content_guard=None, pulp_labels=None, pulp_created=None, pulp_href=None, base_path=None, base_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, hidden=False, base_url=None, pulp_created=None, name=None, content_guard=None, pulp_href=None, pulp_labels=None, base_path=None, local_vars_configuration=None):  # noqa: E501
         """ArtifactDistributionResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._name = None
         self._hidden = None
-        self._content_guard = None
-        self._pulp_labels = None
-        self._pulp_created = None
-        self._pulp_href = None
-        self._base_path = None
         self._base_url = None
+        self._pulp_created = None
+        self._name = None
+        self._content_guard = None
+        self._pulp_href = None
+        self._pulp_labels = None
+        self._base_path = None
         self.discriminator = None
 
-        self.name = name
         if hidden is not None:
             self.hidden = hidden
-        self.content_guard = content_guard
-        if pulp_labels is not None:
-            self.pulp_labels = pulp_labels
-        if pulp_created is not None:
-            self.pulp_created = pulp_created
-        if pulp_href is not None:
-            self.pulp_href = pulp_href
-        self.base_path = base_path
         if base_url is not None:
             self.base_url = base_url
+        if pulp_created is not None:
+            self.pulp_created = pulp_created
+        self.name = name
+        self.content_guard = content_guard
+        if pulp_href is not None:
+            self.pulp_href = pulp_href
+        if pulp_labels is not None:
+            self.pulp_labels = pulp_labels
+        self.base_path = base_path
+
+    @property
+    def hidden(self):
+        """Gets the hidden of this ArtifactDistributionResponse.  # noqa: E501
+
+        Whether this distribution should be shown in the content app.  # noqa: E501
+
+        :return: The hidden of this ArtifactDistributionResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hidden
+
+    @hidden.setter
+    def hidden(self, hidden):
+        """Sets the hidden of this ArtifactDistributionResponse.
+
+        Whether this distribution should be shown in the content app.  # noqa: E501
+
+        :param hidden: The hidden of this ArtifactDistributionResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._hidden = hidden
+
+    @property
+    def base_url(self):
+        """Gets the base_url of this ArtifactDistributionResponse.  # noqa: E501
+
+        The URL for accessing the publication as defined by this distribution.  # noqa: E501
+
+        :return: The base_url of this ArtifactDistributionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._base_url
+
+    @base_url.setter
+    def base_url(self, base_url):
+        """Sets the base_url of this ArtifactDistributionResponse.
+
+        The URL for accessing the publication as defined by this distribution.  # noqa: E501
+
+        :param base_url: The base_url of this ArtifactDistributionResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._base_url = base_url
+
+    @property
+    def pulp_created(self):
+        """Gets the pulp_created of this ArtifactDistributionResponse.  # noqa: E501
+
+        Timestamp of creation.  # noqa: E501
+
+        :return: The pulp_created of this ArtifactDistributionResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_created
+
+    @pulp_created.setter
+    def pulp_created(self, pulp_created):
+        """Sets the pulp_created of this ArtifactDistributionResponse.
+
+        Timestamp of creation.  # noqa: E501
+
+        :param pulp_created: The pulp_created of this ArtifactDistributionResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_created = pulp_created
 
     @property
     def name(self):
@@ -111,29 +180,6 @@ class ArtifactDistributionResponse(object):
         self._name = name
 
     @property
-    def hidden(self):
-        """Gets the hidden of this ArtifactDistributionResponse.  # noqa: E501
-
-        Whether this distribution should be shown in the content app.  # noqa: E501
-
-        :return: The hidden of this ArtifactDistributionResponse.  # noqa: E501
-        :rtype: bool
-        """
-        return self._hidden
-
-    @hidden.setter
-    def hidden(self, hidden):
-        """Sets the hidden of this ArtifactDistributionResponse.
-
-        Whether this distribution should be shown in the content app.  # noqa: E501
-
-        :param hidden: The hidden of this ArtifactDistributionResponse.  # noqa: E501
-        :type: bool
-        """
-
-        self._hidden = hidden
-
-    @property
     def content_guard(self):
         """Gets the content_guard of this ArtifactDistributionResponse.  # noqa: E501
 
@@ -157,50 +203,6 @@ class ArtifactDistributionResponse(object):
         self._content_guard = content_guard
 
     @property
-    def pulp_labels(self):
-        """Gets the pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
-
-
-        :return: The pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._pulp_labels
-
-    @pulp_labels.setter
-    def pulp_labels(self, pulp_labels):
-        """Sets the pulp_labels of this ArtifactDistributionResponse.
-
-
-        :param pulp_labels: The pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._pulp_labels = pulp_labels
-
-    @property
-    def pulp_created(self):
-        """Gets the pulp_created of this ArtifactDistributionResponse.  # noqa: E501
-
-        Timestamp of creation.  # noqa: E501
-
-        :return: The pulp_created of this ArtifactDistributionResponse.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._pulp_created
-
-    @pulp_created.setter
-    def pulp_created(self, pulp_created):
-        """Sets the pulp_created of this ArtifactDistributionResponse.
-
-        Timestamp of creation.  # noqa: E501
-
-        :param pulp_created: The pulp_created of this ArtifactDistributionResponse.  # noqa: E501
-        :type: datetime
-        """
-
-        self._pulp_created = pulp_created
-
-    @property
     def pulp_href(self):
         """Gets the pulp_href of this ArtifactDistributionResponse.  # noqa: E501
 
@@ -220,6 +222,27 @@ class ArtifactDistributionResponse(object):
         """
 
         self._pulp_href = pulp_href
+
+    @property
+    def pulp_labels(self):
+        """Gets the pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
+
+
+        :return: The pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._pulp_labels
+
+    @pulp_labels.setter
+    def pulp_labels(self, pulp_labels):
+        """Sets the pulp_labels of this ArtifactDistributionResponse.
+
+
+        :param pulp_labels: The pulp_labels of this ArtifactDistributionResponse.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._pulp_labels = pulp_labels
 
     @property
     def base_path(self):
@@ -245,29 +268,6 @@ class ArtifactDistributionResponse(object):
             raise ValueError("Invalid value for `base_path`, must not be `None`")  # noqa: E501
 
         self._base_path = base_path
-
-    @property
-    def base_url(self):
-        """Gets the base_url of this ArtifactDistributionResponse.  # noqa: E501
-
-        The URL for accessing the publication as defined by this distribution.  # noqa: E501
-
-        :return: The base_url of this ArtifactDistributionResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._base_url
-
-    @base_url.setter
-    def base_url(self, base_url):
-        """Sets the base_url of this ArtifactDistributionResponse.
-
-        The URL for accessing the publication as defined by this distribution.  # noqa: E501
-
-        :param base_url: The base_url of this ArtifactDistributionResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._base_url = base_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

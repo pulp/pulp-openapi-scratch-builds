@@ -1,15 +1,15 @@
 # pulpcore.client.pulpcore.WorkersApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](WorkersApi.md#list) | **GET** /pulp/api/v3/workers/ | List workers
+[**list**](WorkersApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/workers/ | List workers
 [**read**](WorkersApi.md#read) | **GET** {worker_href} | Inspect a worker
 
 
 # **list**
-> PaginatedWorkerResponseList list(last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+> PaginatedWorkerResponseList list(pulp_domain, last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
 
 List workers
 
@@ -24,10 +24,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -43,7 +43,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -55,7 +55,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.WorkersApi(api_client)
-    last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat matches value (optional)
 last_heartbeat__gt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is greater than value (optional)
 last_heartbeat__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is greater than or equal to value (optional)
 last_heartbeat__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is less than value (optional)
@@ -83,7 +84,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List workers
-        api_response = api_instance.list(last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WorkersApi->list: %s\n" % e)
@@ -96,10 +97,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +116,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -127,7 +128,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.WorkersApi(api_client)
-    last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat matches value (optional)
 last_heartbeat__gt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is greater than value (optional)
 last_heartbeat__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is greater than or equal to value (optional)
 last_heartbeat__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where last_heartbeat is less than value (optional)
@@ -155,7 +157,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List workers
-        api_response = api_instance.list(last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, last_heartbeat=last_heartbeat, last_heartbeat__gt=last_heartbeat__gt, last_heartbeat__gte=last_heartbeat__gte, last_heartbeat__lt=last_heartbeat__lt, last_heartbeat__lte=last_heartbeat__lte, last_heartbeat__range=last_heartbeat__range, limit=limit, missing=missing, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, online=online, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WorkersApi->list: %s\n" % e)
@@ -165,6 +167,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **last_heartbeat** | **datetime**| Filter results where last_heartbeat matches value | [optional] 
  **last_heartbeat__gt** | **datetime**| Filter results where last_heartbeat is greater than value | [optional] 
  **last_heartbeat__gte** | **datetime**| Filter results where last_heartbeat is greater than or equal to value | [optional] 
@@ -227,10 +230,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -246,7 +249,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -277,10 +280,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -296,7 +299,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

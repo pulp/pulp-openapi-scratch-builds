@@ -1,6 +1,6 @@
 # pulpcore.client.pulpcore.GroupsUsersApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,10 +25,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,7 +44,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -74,10 +74,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,7 +93,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -159,10 +159,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -178,7 +178,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -206,10 +206,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -225,7 +225,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -288,10 +288,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -307,7 +307,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -340,10 +340,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -359,7 +359,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

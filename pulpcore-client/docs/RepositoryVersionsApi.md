@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.RepositoryVersionsApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](RepositoryVersionsApi.md#list) | **GET** /pulp/api/v3/repository_versions/ | List repository versions
+[**list**](RepositoryVersionsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repository_versions/ | List repository versions
 
 
 # **list**
-> PaginatedRepositoryVersionResponseList list(content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
+> PaginatedRepositoryVersionResponseList list(pulp_domain, content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
 
 List repository versions
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,7 +54,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoryVersionsApi(api_client)
-    content = 'content_example' # str | Content Unit referenced by HREF (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+content = 'content_example' # str | Content Unit referenced by HREF (optional)
 content__in = 'content__in_example' # str | Content Unit referenced by HREF (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 number = 56 # int | Filter results where number matches value (optional)
@@ -78,7 +79,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List repository versions
-        api_response = api_instance.list(content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoryVersionsApi->list: %s\n" % e)
@@ -91,10 +92,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -110,7 +111,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -122,7 +123,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoryVersionsApi(api_client)
-    content = 'content_example' # str | Content Unit referenced by HREF (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+content = 'content_example' # str | Content Unit referenced by HREF (optional)
 content__in = 'content__in_example' # str | Content Unit referenced by HREF (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 number = 56 # int | Filter results where number matches value (optional)
@@ -146,7 +148,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List repository versions
-        api_response = api_instance.list(content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoryVersionsApi->list: %s\n" % e)
@@ -156,6 +158,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **content** | **str**| Content Unit referenced by HREF | [optional] 
  **content__in** | **str**| Content Unit referenced by HREF | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 

@@ -53,10 +53,10 @@ import pulpcore.client.pulp_file
 from pulpcore.client.pulp_file.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_file.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -72,7 +72,7 @@ configuration = pulpcore.client.pulp_file.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_file.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -99,14 +99,14 @@ nested_role = pulpcore.client.pulp_file.NestedRole() # NestedRole |
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AcsFileApi* | [**add_role**](docs/AcsFileApi.md#add_role) | **POST** {file_file_alternate_content_source_href}add_role/ | Add a role
-*AcsFileApi* | [**create**](docs/AcsFileApi.md#create) | **POST** /pulp/api/v3/acs/file/file/ | Create a file alternate content source
+*AcsFileApi* | [**create**](docs/AcsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/acs/file/file/ | Create a file alternate content source
 *AcsFileApi* | [**delete**](docs/AcsFileApi.md#delete) | **DELETE** {file_file_alternate_content_source_href} | Delete a file alternate content source
-*AcsFileApi* | [**list**](docs/AcsFileApi.md#list) | **GET** /pulp/api/v3/acs/file/file/ | List file alternate content sources
+*AcsFileApi* | [**list**](docs/AcsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/acs/file/file/ | List file alternate content sources
 *AcsFileApi* | [**list_roles**](docs/AcsFileApi.md#list_roles) | **GET** {file_file_alternate_content_source_href}list_roles/ | List roles
 *AcsFileApi* | [**my_permissions**](docs/AcsFileApi.md#my_permissions) | **GET** {file_file_alternate_content_source_href}my_permissions/ | List user permissions
 *AcsFileApi* | [**partial_update**](docs/AcsFileApi.md#partial_update) | **PATCH** {file_file_alternate_content_source_href} | Update a file alternate content source
@@ -114,13 +114,13 @@ Class | Method | HTTP request | Description
 *AcsFileApi* | [**refresh**](docs/AcsFileApi.md#refresh) | **POST** {file_file_alternate_content_source_href}refresh/ | Refresh metadata
 *AcsFileApi* | [**remove_role**](docs/AcsFileApi.md#remove_role) | **POST** {file_file_alternate_content_source_href}remove_role/ | Remove a role
 *AcsFileApi* | [**update**](docs/AcsFileApi.md#update) | **PUT** {file_file_alternate_content_source_href} | Update a file alternate content source
-*ContentFilesApi* | [**create**](docs/ContentFilesApi.md#create) | **POST** /pulp/api/v3/content/file/files/ | Create a file content
-*ContentFilesApi* | [**list**](docs/ContentFilesApi.md#list) | **GET** /pulp/api/v3/content/file/files/ | List file contents
+*ContentFilesApi* | [**create**](docs/ContentFilesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/file/files/ | Create a file content
+*ContentFilesApi* | [**list**](docs/ContentFilesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/file/files/ | List file contents
 *ContentFilesApi* | [**read**](docs/ContentFilesApi.md#read) | **GET** {file_file_content_href} | Inspect a file content
 *DistributionsFileApi* | [**add_role**](docs/DistributionsFileApi.md#add_role) | **POST** {file_file_distribution_href}add_role/ | Add a role
-*DistributionsFileApi* | [**create**](docs/DistributionsFileApi.md#create) | **POST** /pulp/api/v3/distributions/file/file/ | Create a file distribution
+*DistributionsFileApi* | [**create**](docs/DistributionsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/distributions/file/file/ | Create a file distribution
 *DistributionsFileApi* | [**delete**](docs/DistributionsFileApi.md#delete) | **DELETE** {file_file_distribution_href} | Delete a file distribution
-*DistributionsFileApi* | [**list**](docs/DistributionsFileApi.md#list) | **GET** /pulp/api/v3/distributions/file/file/ | List file distributions
+*DistributionsFileApi* | [**list**](docs/DistributionsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/file/file/ | List file distributions
 *DistributionsFileApi* | [**list_roles**](docs/DistributionsFileApi.md#list_roles) | **GET** {file_file_distribution_href}list_roles/ | List roles
 *DistributionsFileApi* | [**my_permissions**](docs/DistributionsFileApi.md#my_permissions) | **GET** {file_file_distribution_href}my_permissions/ | List user permissions
 *DistributionsFileApi* | [**partial_update**](docs/DistributionsFileApi.md#partial_update) | **PATCH** {file_file_distribution_href} | Update a file distribution
@@ -130,17 +130,17 @@ Class | Method | HTTP request | Description
 *DistributionsFileApi* | [**unset_label**](docs/DistributionsFileApi.md#unset_label) | **POST** {file_file_distribution_href}unset_label/ | Unset a label
 *DistributionsFileApi* | [**update**](docs/DistributionsFileApi.md#update) | **PUT** {file_file_distribution_href} | Update a file distribution
 *PublicationsFileApi* | [**add_role**](docs/PublicationsFileApi.md#add_role) | **POST** {file_file_publication_href}add_role/ | Add a role
-*PublicationsFileApi* | [**create**](docs/PublicationsFileApi.md#create) | **POST** /pulp/api/v3/publications/file/file/ | Create a file publication
+*PublicationsFileApi* | [**create**](docs/PublicationsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/publications/file/file/ | Create a file publication
 *PublicationsFileApi* | [**delete**](docs/PublicationsFileApi.md#delete) | **DELETE** {file_file_publication_href} | Delete a file publication
-*PublicationsFileApi* | [**list**](docs/PublicationsFileApi.md#list) | **GET** /pulp/api/v3/publications/file/file/ | List file publications
+*PublicationsFileApi* | [**list**](docs/PublicationsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/publications/file/file/ | List file publications
 *PublicationsFileApi* | [**list_roles**](docs/PublicationsFileApi.md#list_roles) | **GET** {file_file_publication_href}list_roles/ | List roles
 *PublicationsFileApi* | [**my_permissions**](docs/PublicationsFileApi.md#my_permissions) | **GET** {file_file_publication_href}my_permissions/ | List user permissions
 *PublicationsFileApi* | [**read**](docs/PublicationsFileApi.md#read) | **GET** {file_file_publication_href} | Inspect a file publication
 *PublicationsFileApi* | [**remove_role**](docs/PublicationsFileApi.md#remove_role) | **POST** {file_file_publication_href}remove_role/ | Remove a role
 *RemotesFileApi* | [**add_role**](docs/RemotesFileApi.md#add_role) | **POST** {file_file_remote_href}add_role/ | Add a role
-*RemotesFileApi* | [**create**](docs/RemotesFileApi.md#create) | **POST** /pulp/api/v3/remotes/file/file/ | Create a file remote
+*RemotesFileApi* | [**create**](docs/RemotesFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/remotes/file/file/ | Create a file remote
 *RemotesFileApi* | [**delete**](docs/RemotesFileApi.md#delete) | **DELETE** {file_file_remote_href} | Delete a file remote
-*RemotesFileApi* | [**list**](docs/RemotesFileApi.md#list) | **GET** /pulp/api/v3/remotes/file/file/ | List file remotes
+*RemotesFileApi* | [**list**](docs/RemotesFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/remotes/file/file/ | List file remotes
 *RemotesFileApi* | [**list_roles**](docs/RemotesFileApi.md#list_roles) | **GET** {file_file_remote_href}list_roles/ | List roles
 *RemotesFileApi* | [**my_permissions**](docs/RemotesFileApi.md#my_permissions) | **GET** {file_file_remote_href}my_permissions/ | List user permissions
 *RemotesFileApi* | [**partial_update**](docs/RemotesFileApi.md#partial_update) | **PATCH** {file_file_remote_href} | Update a file remote
@@ -150,9 +150,9 @@ Class | Method | HTTP request | Description
 *RemotesFileApi* | [**unset_label**](docs/RemotesFileApi.md#unset_label) | **POST** {file_file_remote_href}unset_label/ | Unset a label
 *RemotesFileApi* | [**update**](docs/RemotesFileApi.md#update) | **PUT** {file_file_remote_href} | Update a file remote
 *RepositoriesFileApi* | [**add_role**](docs/RepositoriesFileApi.md#add_role) | **POST** {file_file_repository_href}add_role/ | Add a role
-*RepositoriesFileApi* | [**create**](docs/RepositoriesFileApi.md#create) | **POST** /pulp/api/v3/repositories/file/file/ | Create a file repository
+*RepositoriesFileApi* | [**create**](docs/RepositoriesFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/repositories/file/file/ | Create a file repository
 *RepositoriesFileApi* | [**delete**](docs/RepositoriesFileApi.md#delete) | **DELETE** {file_file_repository_href} | Delete a file repository
-*RepositoriesFileApi* | [**list**](docs/RepositoriesFileApi.md#list) | **GET** /pulp/api/v3/repositories/file/file/ | List file repositorys
+*RepositoriesFileApi* | [**list**](docs/RepositoriesFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repositories/file/file/ | List file repositorys
 *RepositoriesFileApi* | [**list_roles**](docs/RepositoriesFileApi.md#list_roles) | **GET** {file_file_repository_href}list_roles/ | List roles
 *RepositoriesFileApi* | [**modify**](docs/RepositoriesFileApi.md#modify) | **POST** {file_file_repository_href}modify/ | Modify Repository Content
 *RepositoriesFileApi* | [**my_permissions**](docs/RepositoriesFileApi.md#my_permissions) | **GET** {file_file_repository_href}my_permissions/ | List user permissions

@@ -37,16 +37,17 @@ class RolesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create(self, role,  **kwargs):  # noqa: E501
+    def create(self, role, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a role  # noqa: E501
 
         ViewSet for Role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(role, async_req=True)
+        >>> thread = api.create(pulp_domain, role, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Role role: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class RolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(role,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(role, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, role,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, role, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a role  # noqa: E501
 
         ViewSet for Role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(role, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, role, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Role role: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class RolesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'role'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class RolesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'role' is set
         if self.api_client.client_side_validation and ('role' not in local_var_params or  # noqa: E501
                                                         local_var_params['role'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class RolesApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class RolesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/roles/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/roles/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -265,16 +274,17 @@ class RolesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List roles  # noqa: E501
 
         ViewSet for Role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param list[str] contains_permission: Filter roles that have any of the permissions in the list.
         :param str description: Filter results where description matches value
         :param str description__contains: Filter results where description contains value
@@ -311,18 +321,19 @@ class RolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List roles  # noqa: E501
 
         ViewSet for Role.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param list[str] contains_permission: Filter roles that have any of the permissions in the list.
         :param str description: Filter results where description matches value
         :param str description__contains: Filter results where description contains value
@@ -364,6 +375,7 @@ class RolesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'contains_permission',
             'description',
             'description__contains',
@@ -406,10 +418,16 @@ class RolesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'contains_permission' in local_var_params and local_var_params['contains_permission'] is not None:  # noqa: E501
@@ -482,7 +500,7 @@ class RolesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/roles/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/roles/', 'GET',
             path_params,
             query_params,
             header_params,

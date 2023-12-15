@@ -1,13 +1,13 @@
 # pulpcore.client.pulp_rpm.DistributionsRpmApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](DistributionsRpmApi.md#add_role) | **POST** {rpm_rpm_distribution_href}add_role/ | Add a role
-[**create**](DistributionsRpmApi.md#create) | **POST** /pulp/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
+[**create**](DistributionsRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
 [**delete**](DistributionsRpmApi.md#delete) | **DELETE** {rpm_rpm_distribution_href} | Delete a rpm distribution
-[**list**](DistributionsRpmApi.md#list) | **GET** /pulp/api/v3/distributions/rpm/rpm/ | List rpm distributions
+[**list**](DistributionsRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | List rpm distributions
 [**list_roles**](DistributionsRpmApi.md#list_roles) | **GET** {rpm_rpm_distribution_href}list_roles/ | List roles
 [**my_permissions**](DistributionsRpmApi.md#my_permissions) | **GET** {rpm_rpm_distribution_href}my_permissions/ | List user permissions
 [**partial_update**](DistributionsRpmApi.md#partial_update) | **PATCH** {rpm_rpm_distribution_href} | Update a rpm distribution
@@ -34,10 +34,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -53,7 +53,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -83,10 +83,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -102,7 +102,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create**
-> AsyncOperationResponse create(rpm_rpm_distribution)
+> AsyncOperationResponse create(pulp_domain, rpm_rpm_distribution)
 
 Create a rpm distribution
 
@@ -168,10 +168,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -187,7 +187,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -199,11 +199,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.DistributionsRpmApi(api_client)
-    rpm_rpm_distribution = pulpcore.client.pulp_rpm.RpmRpmDistribution() # RpmRpmDistribution | 
+    pulp_domain = 'pulp_domain_example' # str | 
+rpm_rpm_distribution = pulpcore.client.pulp_rpm.RpmRpmDistribution() # RpmRpmDistribution | 
 
     try:
         # Create a rpm distribution
-        api_response = api_instance.create(rpm_rpm_distribution)
+        api_response = api_instance.create(pulp_domain, rpm_rpm_distribution)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsRpmApi->create: %s\n" % e)
@@ -216,10 +217,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -235,7 +236,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -247,11 +248,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.DistributionsRpmApi(api_client)
-    rpm_rpm_distribution = pulpcore.client.pulp_rpm.RpmRpmDistribution() # RpmRpmDistribution | 
+    pulp_domain = 'pulp_domain_example' # str | 
+rpm_rpm_distribution = pulpcore.client.pulp_rpm.RpmRpmDistribution() # RpmRpmDistribution | 
 
     try:
         # Create a rpm distribution
-        api_response = api_instance.create(rpm_rpm_distribution)
+        api_response = api_instance.create(pulp_domain, rpm_rpm_distribution)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsRpmApi->create: %s\n" % e)
@@ -261,6 +263,7 @@ with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **rpm_rpm_distribution** | [**RpmRpmDistribution**](RpmRpmDistribution.md)|  | 
 
 ### Return type
@@ -299,10 +302,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -318,7 +321,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -347,10 +350,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -366,7 +369,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -415,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedrpmRpmDistributionResponseList list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+> PaginatedrpmRpmDistributionResponseList list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
 
 List rpm distributions
 
@@ -430,10 +433,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -449,7 +452,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -461,7 +464,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.DistributionsRpmApi(api_client)
-    base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
 base_path__contains = 'base_path__contains_example' # str | Filter results where base_path contains value (optional)
 base_path__icontains = 'base_path__icontains_example' # str | Filter results where base_path contains value (optional)
 base_path__in = ['base_path__in_example'] # list[str] | Filter results where base_path is in a comma-separated list of values (optional)
@@ -489,7 +493,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List rpm distributions
-        api_response = api_instance.list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsRpmApi->list: %s\n" % e)
@@ -502,10 +506,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -521,7 +525,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -533,7 +537,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.DistributionsRpmApi(api_client)
-    base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
 base_path__contains = 'base_path__contains_example' # str | Filter results where base_path contains value (optional)
 base_path__icontains = 'base_path__icontains_example' # str | Filter results where base_path contains value (optional)
 base_path__in = ['base_path__in_example'] # list[str] | Filter results where base_path is in a comma-separated list of values (optional)
@@ -561,7 +566,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List rpm distributions
-        api_response = api_instance.list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsRpmApi->list: %s\n" % e)
@@ -571,6 +576,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **base_path** | **str**| Filter results where base_path matches value | [optional] 
  **base_path__contains** | **str**| Filter results where base_path contains value | [optional] 
  **base_path__icontains** | **str**| Filter results where base_path contains value | [optional] 
@@ -633,10 +639,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -652,7 +658,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -683,10 +689,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -702,7 +708,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -770,10 +776,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -789,7 +795,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -820,10 +826,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -839,7 +845,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -907,10 +913,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -926,7 +932,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -956,10 +962,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -975,7 +981,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1041,10 +1047,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1060,7 +1066,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1091,10 +1097,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1110,7 +1116,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1178,10 +1184,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1197,7 +1203,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1227,10 +1233,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1246,7 +1252,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1312,10 +1318,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1331,7 +1337,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1361,10 +1367,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1380,7 +1386,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1446,10 +1452,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1465,7 +1471,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1495,10 +1501,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1514,7 +1520,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1580,10 +1586,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1599,7 +1605,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1629,10 +1635,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1648,7 +1654,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

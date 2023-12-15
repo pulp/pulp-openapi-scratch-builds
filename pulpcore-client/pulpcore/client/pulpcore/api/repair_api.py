@@ -37,16 +37,17 @@ class RepairApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def post(self, repair,  **kwargs):  # noqa: E501
+    def post(self, repair, pulp_domain="default", **kwargs):  # noqa: E501
         """Repair Artifact Storage  # noqa: E501
 
         Trigger an asynchronous task that checks for missing or corrupted artifacts, and attempts to redownload them.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post(repair, async_req=True)
+        >>> thread = api.post(pulp_domain, repair, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Repair repair: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class RepairApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.post_with_http_info(repair,  **kwargs)  # noqa: E501
+        return self.post_with_http_info(repair, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def post_with_http_info(self, repair,  **kwargs):  # noqa: E501
+    def post_with_http_info(self, repair, pulp_domain="default", **kwargs):  # noqa: E501
         """Repair Artifact Storage  # noqa: E501
 
         Trigger an asynchronous task that checks for missing or corrupted artifacts, and attempts to redownload them.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_with_http_info(repair, async_req=True)
+        >>> thread = api.post_with_http_info(pulp_domain, repair, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Repair repair: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class RepairApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'repair'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class RepairApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `post`")  # noqa: E501
         # verify the required parameter 'repair' is set
         if self.api_client.client_side_validation and ('repair' not in local_var_params or  # noqa: E501
                                                         local_var_params['repair'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class RepairApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class RepairApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/repair/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/repair/', 'POST',
             path_params,
             query_params,
             header_params,

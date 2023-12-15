@@ -37,7 +37,9 @@ class TestPatchedrpmRpmRepository(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.patchedrpm_rpm_repository.PatchedrpmRpmRepository()  # noqa: E501
         if include_optional :
             return PatchedrpmRpmRepository(
-                pulp_labels = None, 
+                pulp_labels = {
+                    'key' : '0'
+                    }, 
                 name = '0', 
                 description = '0', 
                 retain_repo_versions = 1, 
@@ -49,7 +51,8 @@ class TestPatchedrpmRpmRepository(unittest.TestCase):
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                sqlite_metadata = True
+                sqlite_metadata = True, 
+                repo_config = None
             )
         else :
             return PatchedrpmRpmRepository(

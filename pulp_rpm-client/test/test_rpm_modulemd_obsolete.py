@@ -37,26 +37,27 @@ class TestRpmModulemdObsolete(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.rpm_modulemd_obsolete.RpmModulemdObsolete()  # noqa: E501
         if include_optional :
             return RpmModulemdObsolete(
-                modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                repository = '0', 
+                modified = '0', 
                 module_name = '0', 
                 module_stream = '0', 
                 message = '0', 
                 override_previous = '0', 
                 module_context = '0', 
-                eol_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                eol_date = '0', 
                 obsoleted_by_module_name = '0', 
                 obsoleted_by_module_stream = '0', 
                 snippet = '0'
             )
         else :
             return RpmModulemdObsolete(
-                modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                modified = '0',
                 module_name = '0',
                 module_stream = '0',
                 message = '0',
                 override_previous = '0',
                 module_context = '0',
-                eol_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                eol_date = '0',
                 obsoleted_by_module_name = '0',
                 obsoleted_by_module_stream = '0',
                 snippet = '0',

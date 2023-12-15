@@ -1,16 +1,16 @@
 # pulpcore.client.pulp_rpm.ContentPackagesApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentPackagesApi.md#create) | **POST** /pulp/api/v3/content/rpm/packages/ | Create a package
-[**list**](ContentPackagesApi.md#list) | **GET** /pulp/api/v3/content/rpm/packages/ | List packages
+[**create**](ContentPackagesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | Create a package
+[**list**](ContentPackagesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | List packages
 [**read**](ContentPackagesApi.md#read) | **GET** {rpm_package_href} | Inspect a package
 
 
 # **create**
-> AsyncOperationResponse create(repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
+> AsyncOperationResponse create(pulp_domain, repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
 
 Create a package
 
@@ -25,10 +25,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,7 +44,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -56,7 +56,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentPackagesApi(api_client)
-    repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
 artifact = 'artifact_example' # str | Artifact file representing the physical content (optional)
 relative_path = 'relative_path_example' # str | Path where the artifact is located relative to distributions base_path (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
@@ -64,7 +65,7 @@ upload = 'upload_example' # str | An uncommitted upload that may be turned into 
 
     try:
         # Create a package
-        api_response = api_instance.create(repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentPackagesApi->create: %s\n" % e)
@@ -77,10 +78,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -96,7 +97,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -108,7 +109,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentPackagesApi(api_client)
-    repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
 artifact = 'artifact_example' # str | Artifact file representing the physical content (optional)
 relative_path = 'relative_path_example' # str | Path where the artifact is located relative to distributions base_path (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
@@ -116,7 +118,7 @@ upload = 'upload_example' # str | An uncommitted upload that may be turned into 
 
     try:
         # Create a package
-        api_response = api_instance.create(repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, repository=repository, artifact=artifact, relative_path=relative_path, file=file, upload=upload)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentPackagesApi->create: %s\n" % e)
@@ -126,6 +128,7 @@ upload = 'upload_example' # str | An uncommitted upload that may be turned into 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **repository** | **str**| A URI of a repository the new content unit should be associated with. | [optional] 
  **artifact** | **str**| Artifact file representing the physical content | [optional] 
  **relative_path** | **str**| Path where the artifact is located relative to distributions base_path | [optional] 
@@ -153,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedrpmPackageResponseList list(arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
+> PaginatedrpmPackageResponseList list(pulp_domain, arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
 
 List packages
 
@@ -168,10 +171,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -187,7 +190,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -199,7 +202,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentPackagesApi(api_client)
-    arch = 'arch_example' # str | Filter results where arch matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+arch = 'arch_example' # str | Filter results where arch matches value (optional)
 arch__contains = 'arch__contains_example' # str | Filter results where arch contains value (optional)
 arch__in = ['arch__in_example'] # list[str] | Filter results where arch is in a comma-separated list of values (optional)
 arch__ne = 'arch__ne_example' # str | Filter results where arch not equal to value (optional)
@@ -241,7 +245,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List packages
-        api_response = api_instance.list(arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentPackagesApi->list: %s\n" % e)
@@ -254,10 +258,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -273,7 +277,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -285,7 +289,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentPackagesApi(api_client)
-    arch = 'arch_example' # str | Filter results where arch matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+arch = 'arch_example' # str | Filter results where arch matches value (optional)
 arch__contains = 'arch__contains_example' # str | Filter results where arch contains value (optional)
 arch__in = ['arch__in_example'] # list[str] | Filter results where arch is in a comma-separated list of values (optional)
 arch__ne = 'arch__ne_example' # str | Filter results where arch not equal to value (optional)
@@ -327,7 +332,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List packages
-        api_response = api_instance.list(arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, arch=arch, arch__contains=arch__contains, arch__in=arch__in, arch__ne=arch__ne, arch__startswith=arch__startswith, checksum_type=checksum_type, checksum_type__in=checksum_type__in, checksum_type__ne=checksum_type__ne, epoch=epoch, epoch__in=epoch__in, epoch__ne=epoch__ne, filename=filename, limit=limit, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, name__startswith=name__startswith, offset=offset, ordering=ordering, pkg_id=pkg_id, pkg_id__in=pkg_id__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, release=release, release__contains=release__contains, release__in=release__in, release__ne=release__ne, release__startswith=release__startswith, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, version=version, version__in=version__in, version__ne=version__ne, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentPackagesApi->list: %s\n" % e)
@@ -337,6 +342,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **arch** | **str**| Filter results where arch matches value | [optional] 
  **arch__contains** | **str**| Filter results where arch contains value | [optional] 
  **arch__in** | [**list[str]**](str.md)| Filter results where arch is in a comma-separated list of values | [optional] 
@@ -413,10 +419,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -432,7 +438,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -463,10 +469,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -482,7 +488,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

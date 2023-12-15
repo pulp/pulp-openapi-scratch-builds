@@ -1,14 +1,14 @@
 # pulpcore.client.pulp_rpm.RpmCopyApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**copy_content**](RpmCopyApi.md#copy_content) | **POST** /pulp/api/v3/rpm/copy/ | Copy content
+[**copy_content**](RpmCopyApi.md#copy_content) | **POST** /pulp/{pulp_domain}/api/v3/rpm/copy/ | Copy content
 
 
 # **copy_content**
-> AsyncOperationResponse copy_content(copy)
+> AsyncOperationResponse copy_content(pulp_domain, copy)
 
 Copy content
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,11 +54,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.RpmCopyApi(api_client)
-    copy = pulpcore.client.pulp_rpm.Copy() # Copy | 
+    pulp_domain = 'pulp_domain_example' # str | 
+copy = pulpcore.client.pulp_rpm.Copy() # Copy | 
 
     try:
         # Copy content
-        api_response = api_instance.copy_content(copy)
+        api_response = api_instance.copy_content(pulp_domain, copy)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RpmCopyApi->copy_content: %s\n" % e)
@@ -71,10 +72,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -90,7 +91,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -102,11 +103,12 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.RpmCopyApi(api_client)
-    copy = pulpcore.client.pulp_rpm.Copy() # Copy | 
+    pulp_domain = 'pulp_domain_example' # str | 
+copy = pulpcore.client.pulp_rpm.Copy() # Copy | 
 
     try:
         # Copy content
-        api_response = api_instance.copy_content(copy)
+        api_response = api_instance.copy_content(pulp_domain, copy)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RpmCopyApi->copy_content: %s\n" % e)
@@ -116,6 +118,7 @@ with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **copy** | [**Copy**](Copy.md)|  | 
 
 ### Return type

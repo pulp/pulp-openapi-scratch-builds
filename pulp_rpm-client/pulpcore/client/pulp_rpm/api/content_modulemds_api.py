@@ -37,16 +37,17 @@ class ContentModulemdsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create(self, rpm_modulemd,  **kwargs):  # noqa: E501
+    def create(self, rpm_modulemd, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a modulemd  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(rpm_modulemd, async_req=True)
+        >>> thread = api.create(pulp_domain, rpm_modulemd, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param RpmModulemd rpm_modulemd: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class ContentModulemdsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(rpm_modulemd,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(rpm_modulemd, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, rpm_modulemd,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, rpm_modulemd, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a modulemd  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(rpm_modulemd, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, rpm_modulemd, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param RpmModulemd rpm_modulemd: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class ContentModulemdsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'rpm_modulemd'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class ContentModulemdsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'rpm_modulemd' is set
         if self.api_client.client_side_validation and ('rpm_modulemd' not in local_var_params or  # noqa: E501
                                                         local_var_params['rpm_modulemd'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class ContentModulemdsApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class ContentModulemdsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/rpm/modulemds/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/content/rpm/modulemds/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -155,16 +164,17 @@ class ContentModulemdsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List modulemds  # noqa: E501
 
         ViewSet for Modulemd.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str arch: Filter results where arch matches value
         :param list[str] arch__in: Filter results where arch is in a comma-separated list of values
         :param str context: Filter results where context matches value
@@ -199,18 +209,19 @@ class ContentModulemdsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List modulemds  # noqa: E501
 
         ViewSet for Modulemd.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str arch: Filter results where arch matches value
         :param list[str] arch__in: Filter results where arch is in a comma-separated list of values
         :param str context: Filter results where context matches value
@@ -250,6 +261,7 @@ class ContentModulemdsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'arch',
             'arch__in',
             'context',
@@ -290,10 +302,16 @@ class ContentModulemdsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'arch' in local_var_params and local_var_params['arch'] is not None:  # noqa: E501
@@ -365,7 +383,7 @@ class ContentModulemdsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/rpm/modulemds/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/content/rpm/modulemds/', 'GET',
             path_params,
             query_params,
             header_params,

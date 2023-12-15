@@ -37,16 +37,17 @@ class RpmCopyApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def copy_content(self, copy,  **kwargs):  # noqa: E501
+    def copy_content(self, copy, pulp_domain="default", **kwargs):  # noqa: E501
         """Copy content  # noqa: E501
 
         Trigger an asynchronous task to copy RPM contentfrom one repository into another, creating a newrepository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.copy_content(copy, async_req=True)
+        >>> thread = api.copy_content(pulp_domain, copy, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Copy copy: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class RpmCopyApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.copy_content_with_http_info(copy,  **kwargs)  # noqa: E501
+        return self.copy_content_with_http_info(copy, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def copy_content_with_http_info(self, copy,  **kwargs):  # noqa: E501
+    def copy_content_with_http_info(self, copy, pulp_domain="default", **kwargs):  # noqa: E501
         """Copy content  # noqa: E501
 
         Trigger an asynchronous task to copy RPM contentfrom one repository into another, creating a newrepository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.copy_content_with_http_info(copy, async_req=True)
+        >>> thread = api.copy_content_with_http_info(pulp_domain, copy, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Copy copy: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class RpmCopyApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'copy'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class RpmCopyApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `copy_content`")  # noqa: E501
         # verify the required parameter 'copy' is set
         if self.api_client.client_side_validation and ('copy' not in local_var_params or  # noqa: E501
                                                         local_var_params['copy'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class RpmCopyApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class RpmCopyApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/rpm/copy/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/rpm/copy/', 'POST',
             path_params,
             query_params,
             header_params,

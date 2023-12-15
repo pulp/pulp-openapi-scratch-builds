@@ -274,16 +274,17 @@ class TasksApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List tasks  # noqa: E501
 
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str child_tasks: Filter results where child_tasks matches value
         :param str created_resources:
         :param str exclusive_resources:
@@ -339,18 +340,19 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List tasks  # noqa: E501
 
         A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str child_tasks: Filter results where child_tasks matches value
         :param str created_resources:
         :param str exclusive_resources:
@@ -411,6 +413,7 @@ class TasksApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'child_tasks',
             'created_resources',
             'exclusive_resources',
@@ -472,10 +475,16 @@ class TasksApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'child_tasks' in local_var_params and local_var_params['child_tasks'] is not None:  # noqa: E501
@@ -593,7 +602,7 @@ class TasksApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/tasks/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/tasks/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -860,16 +869,17 @@ class TasksApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def purge(self, purge,  **kwargs):  # noqa: E501
+    def purge(self, purge, pulp_domain="default", **kwargs):  # noqa: E501
         """Purge Completed Tasks  # noqa: E501
 
         Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.purge(purge, async_req=True)
+        >>> thread = api.purge(pulp_domain, purge, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Purge purge: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -883,18 +893,19 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.purge_with_http_info(purge,  **kwargs)  # noqa: E501
+        return self.purge_with_http_info(purge, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def purge_with_http_info(self, purge,  **kwargs):  # noqa: E501
+    def purge_with_http_info(self, purge, pulp_domain="default", **kwargs):  # noqa: E501
         """Purge Completed Tasks  # noqa: E501
 
         Trigger an asynchronous task that deletes completed tasks that finished prior to a specified timestamp.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.purge_with_http_info(purge, async_req=True)
+        >>> thread = api.purge_with_http_info(pulp_domain, purge, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Purge purge: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -913,6 +924,7 @@ class TasksApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'purge'
         ]
         all_params.extend(
@@ -932,6 +944,10 @@ class TasksApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `purge`")  # noqa: E501
         # verify the required parameter 'purge' is set
         if self.api_client.client_side_validation and ('purge' not in local_var_params or  # noqa: E501
                                                         local_var_params['purge'] is None):  # noqa: E501
@@ -940,6 +956,8 @@ class TasksApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -963,7 +981,7 @@ class TasksApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/tasks/purge/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/tasks/purge/', 'POST',
             path_params,
             query_params,
             header_params,

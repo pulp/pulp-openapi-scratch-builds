@@ -37,16 +37,17 @@ class ContentPackagesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create(self,  **kwargs):  # noqa: E501
+    def create(self, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a package  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param str artifact: Artifact file representing the physical content
         :param str relative_path: Path where the artifact is located relative to distributions base_path
@@ -64,18 +65,19 @@ class ContentPackagesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info( **kwargs)  # noqa: E501
+        return self.create_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a package  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param str artifact: Artifact file representing the physical content
         :param str relative_path: Path where the artifact is located relative to distributions base_path
@@ -98,6 +100,7 @@ class ContentPackagesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'repository',
             'artifact',
             'relative_path',
@@ -121,6 +124,10 @@ class ContentPackagesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
 
         if self.api_client.client_side_validation and ('relative_path' in local_var_params and  # noqa: E501
                                                         len(local_var_params['relative_path']) < 1):  # noqa: E501
@@ -128,6 +135,8 @@ class ContentPackagesApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -159,7 +168,7 @@ class ContentPackagesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/rpm/packages/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/content/rpm/packages/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -174,16 +183,17 @@ class ContentPackagesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List packages  # noqa: E501
 
         A ViewSet for Package.  Define endpoint name which will appear in the API endpoint for this content type. For example::     http://pulp.example.com/pulp/api/v3/content/rpm/packages/  Also specify queryset and serializer for Package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str arch: Filter results where arch matches value
         :param str arch__contains: Filter results where arch contains value
         :param list[str] arch__in: Filter results where arch is in a comma-separated list of values
@@ -235,18 +245,19 @@ class ContentPackagesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List packages  # noqa: E501
 
         A ViewSet for Package.  Define endpoint name which will appear in the API endpoint for this content type. For example::     http://pulp.example.com/pulp/api/v3/content/rpm/packages/  Also specify queryset and serializer for Package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str arch: Filter results where arch matches value
         :param str arch__contains: Filter results where arch contains value
         :param list[str] arch__in: Filter results where arch is in a comma-separated list of values
@@ -303,6 +314,7 @@ class ContentPackagesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'arch',
             'arch__contains',
             'arch__in',
@@ -360,10 +372,16 @@ class ContentPackagesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'arch' in local_var_params and local_var_params['arch'] is not None:  # noqa: E501
@@ -471,7 +489,7 @@ class ContentPackagesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/rpm/packages/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/content/rpm/packages/', 'GET',
             path_params,
             query_params,
             header_params,

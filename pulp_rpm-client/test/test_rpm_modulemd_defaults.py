@@ -37,6 +37,7 @@ class TestRpmModulemdDefaults(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.rpm_modulemd_defaults.RpmModulemdDefaults()  # noqa: E501
         if include_optional :
             return RpmModulemdDefaults(
+                repository = '0', 
                 module = '0', 
                 stream = '0', 
                 profiles = None, 

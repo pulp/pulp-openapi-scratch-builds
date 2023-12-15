@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.RemotesApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](RemotesApi.md#list) | **GET** /pulp/api/v3/remotes/ | List remotes
+[**list**](RemotesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/remotes/ | List remotes
 
 
 # **list**
-> PaginatedRemoteResponseList list(limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
+> PaginatedRemoteResponseList list(pulp_domain, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
 
 List remotes
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,7 +54,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RemotesApi(api_client)
-    limit = 56 # int | Number of results to return per page. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 name__contains = 'name__contains_example' # str | Filter results where name contains value (optional)
 name__icontains = 'name__icontains_example' # str | Filter results where name contains value (optional)
@@ -75,15 +76,15 @@ pulp_last_updated__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results
 pulp_last_updated__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than value (optional)
 pulp_last_updated__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than or equal to value (optional)
 pulp_last_updated__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_last_updated is between two comma separated values (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `ansible.role` - ansible.role * `ansible.collection` - ansible.collection * `ansible.git` - ansible.git * `container.container` - container.container * `deb.apt-remote` - deb.apt-remote * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ansible.role` - ansible.role * `ansible.collection` - ansible.collection * `ansible.git` - ansible.git * `container.container` - container.container * `deb.apt-remote` - deb.apt-remote * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
 exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
 
     try:
         # List remotes
-        api_response = api_instance.list(limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RemotesApi->list: %s\n" % e)
@@ -96,10 +97,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,7 +116,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -127,7 +128,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RemotesApi(api_client)
-    limit = 56 # int | Number of results to return per page. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 name__contains = 'name__contains_example' # str | Filter results where name contains value (optional)
 name__icontains = 'name__icontains_example' # str | Filter results where name contains value (optional)
@@ -148,15 +150,15 @@ pulp_last_updated__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results
 pulp_last_updated__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than value (optional)
 pulp_last_updated__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than or equal to value (optional)
 pulp_last_updated__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_last_updated is between two comma separated values (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `ansible.role` - ansible.role * `ansible.collection` - ansible.collection * `ansible.git` - ansible.git * `container.container` - container.container * `deb.apt-remote` - deb.apt-remote * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ansible.role` - ansible.role * `ansible.collection` - ansible.collection * `ansible.git` - ansible.git * `container.container` - container.container * `deb.apt-remote` - deb.apt-remote * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
 exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
 
     try:
         # List remotes
-        api_response = api_instance.list(limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_last_updated=pulp_last_updated, pulp_last_updated__gt=pulp_last_updated__gt, pulp_last_updated__gte=pulp_last_updated__gte, pulp_last_updated__lt=pulp_last_updated__lt, pulp_last_updated__lte=pulp_last_updated__lte, pulp_last_updated__range=pulp_last_updated__range, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RemotesApi->list: %s\n" % e)
@@ -166,6 +168,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **name** | **str**| Filter results where name matches value | [optional] 
  **name__contains** | **str**| Filter results where name contains value | [optional] 
@@ -187,8 +190,8 @@ Name | Type | Description  | Notes
  **pulp_last_updated__lt** | **datetime**| Filter results where pulp_last_updated is less than value | [optional] 
  **pulp_last_updated__lte** | **datetime**| Filter results where pulp_last_updated is less than or equal to value | [optional] 
  **pulp_last_updated__range** | [**list[datetime]**](datetime.md)| Filter results where pulp_last_updated is between two comma separated values | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection&#x60; - ansible.collection * &#x60;ansible.git&#x60; - ansible.git * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-remote&#x60; - deb.apt-remote * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;ansible.role&#x60; - ansible.role * &#x60;ansible.collection&#x60; - ansible.collection * &#x60;ansible.git&#x60; - ansible.git * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-remote&#x60; - deb.apt-remote * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **fields** | [**list[str]**](str.md)| A list of fields to include in the response. | [optional] 
  **exclude_fields** | [**list[str]**](str.md)| A list of fields to exclude from the response. | [optional] 

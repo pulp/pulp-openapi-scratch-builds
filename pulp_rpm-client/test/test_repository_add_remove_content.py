@@ -38,10 +38,10 @@ class TestRepositoryAddRemoveContent(unittest.TestCase):
         if include_optional :
             return RepositoryAddRemoveContent(
                 add_content_units = [
-                    null
+                    '0'
                     ], 
                 remove_content_units = [
-                    null
+                    '0'
                     ], 
                 base_version = '0'
             )

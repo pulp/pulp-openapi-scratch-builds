@@ -48,7 +48,9 @@ class TestRpmRpmRemote(unittest.TestCase):
                 proxy_password = '0', 
                 username = '0', 
                 password = '0', 
-                pulp_labels = None, 
+                pulp_labels = {
+                    'key' : '0'
+                    }, 
                 download_concurrency = 1, 
                 max_retries = 56, 
                 policy = null, 

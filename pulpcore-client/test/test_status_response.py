@@ -41,7 +41,8 @@ class TestStatusResponse(unittest.TestCase):
                     pulpcore.client.pulpcore.models.version_response.VersionResponse(
                         component = '0', 
                         version = '0', 
-                        package = '0', )
+                        package = '0', 
+                        domain_compatible = True, )
                     ], 
                 online_workers = [
                     pulpcore.client.pulpcore.models.worker_response.WorkerResponse(
@@ -49,17 +50,32 @@ class TestStatusResponse(unittest.TestCase):
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, 
                         current_task = '0', )
+                    ], 
+                online_api_apps = [
+                    pulpcore.client.pulpcore.models.api_app_status_response.ApiAppStatusResponse(
+                        name = '0', 
+                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, )
                     ], 
                 online_content_apps = [
                     pulpcore.client.pulpcore.models.content_app_status_response.ContentAppStatusResponse(
                         name = '0', 
-                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, )
                     ], 
                 database_connection = null, 
                 redis_connection = null, 
                 storage = null, 
-                content_settings = null
+                content_settings = null, 
+                domain_enabled = True
             )
         else :
             return StatusResponse(
@@ -67,7 +83,8 @@ class TestStatusResponse(unittest.TestCase):
                     pulpcore.client.pulpcore.models.version_response.VersionResponse(
                         component = '0', 
                         version = '0', 
-                        package = '0', )
+                        package = '0', 
+                        domain_compatible = True, )
                     ],
                 online_workers = [
                     pulpcore.client.pulpcore.models.worker_response.WorkerResponse(
@@ -75,15 +92,30 @@ class TestStatusResponse(unittest.TestCase):
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, 
                         current_task = '0', )
+                    ],
+                online_api_apps = [
+                    pulpcore.client.pulpcore.models.api_app_status_response.ApiAppStatusResponse(
+                        name = '0', 
+                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, )
                     ],
                 online_content_apps = [
                     pulpcore.client.pulpcore.models.content_app_status_response.ContentAppStatusResponse(
                         name = '0', 
-                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, )
                     ],
                 database_connection = null,
                 content_settings = null,
+                domain_enabled = True,
         )
 
     def testStatusResponse(self):

@@ -91,7 +91,7 @@ conf = pulpcore.client.pulpcore.Configuration(
 
     _default = None
 
-    def __init__(self, host="http://localhost:8080",
+    def __init__(self, host="http://localhost:5001",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
@@ -386,7 +386,7 @@ conf = pulpcore.client.pulpcore.Configuration(
         """
         return [
             {
-                'url': "http://localhost:8080/",
+                'url': "http://localhost:5001/",
                 'description': "No description provided",
             }
         ]

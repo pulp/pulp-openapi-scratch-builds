@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.RepositoriesReclaimSpaceApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reclaim**](RepositoriesReclaimSpaceApi.md#reclaim) | **POST** /pulp/api/v3/repositories/reclaim_space/ | 
+[**reclaim**](RepositoriesReclaimSpaceApi.md#reclaim) | **POST** /pulp/{pulp_domain}/api/v3/repositories/reclaim_space/ | 
 
 
 # **reclaim**
-> AsyncOperationResponse reclaim(reclaim_space)
+> AsyncOperationResponse reclaim(pulp_domain, reclaim_space)
 
 
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,10 +54,11 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoriesReclaimSpaceApi(api_client)
-    reclaim_space = pulpcore.client.pulpcore.ReclaimSpace() # ReclaimSpace | 
+    pulp_domain = 'pulp_domain_example' # str | 
+reclaim_space = pulpcore.client.pulpcore.ReclaimSpace() # ReclaimSpace | 
 
     try:
-        api_response = api_instance.reclaim(reclaim_space)
+        api_response = api_instance.reclaim(pulp_domain, reclaim_space)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoriesReclaimSpaceApi->reclaim: %s\n" % e)
@@ -70,10 +71,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -89,7 +90,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -101,10 +102,11 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoriesReclaimSpaceApi(api_client)
-    reclaim_space = pulpcore.client.pulpcore.ReclaimSpace() # ReclaimSpace | 
+    pulp_domain = 'pulp_domain_example' # str | 
+reclaim_space = pulpcore.client.pulpcore.ReclaimSpace() # ReclaimSpace | 
 
     try:
-        api_response = api_instance.reclaim(reclaim_space)
+        api_response = api_instance.reclaim(pulp_domain, reclaim_space)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoriesReclaimSpaceApi->reclaim: %s\n" % e)
@@ -114,6 +116,7 @@ with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **reclaim_space** | [**ReclaimSpace**](ReclaimSpace.md)|  | 
 
 ### Return type

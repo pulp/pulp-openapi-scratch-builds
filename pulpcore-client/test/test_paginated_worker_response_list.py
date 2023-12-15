@@ -46,6 +46,9 @@ class TestPaginatedWorkerResponseList(unittest.TestCase):
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions = {
+                            'key' : '0'
+                            }, 
                         current_task = '0', )
                     ]
             )

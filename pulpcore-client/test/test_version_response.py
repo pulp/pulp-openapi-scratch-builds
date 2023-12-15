@@ -39,13 +39,15 @@ class TestVersionResponse(unittest.TestCase):
             return VersionResponse(
                 component = '0', 
                 version = '0', 
-                package = '0'
+                package = '0', 
+                domain_compatible = True
             )
         else :
             return VersionResponse(
                 component = '0',
                 version = '0',
                 package = '0',
+                domain_compatible = True,
         )
 
     def testVersionResponse(self):

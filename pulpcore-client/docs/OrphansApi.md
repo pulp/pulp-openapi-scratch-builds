@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.OrphansApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete**](OrphansApi.md#delete) | **DELETE** /pulp/api/v3/orphans/ | Delete orphans
+[**delete**](OrphansApi.md#delete) | **DELETE** /pulp/{pulp_domain}/api/v3/orphans/ | Delete orphans
 
 
 # **delete**
-> AsyncOperationResponse delete()
+> AsyncOperationResponse delete(pulp_domain)
 
 Delete orphans
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,10 +54,11 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.OrphansApi(api_client)
-    
+    pulp_domain = 'pulp_domain_example' # str | 
+
     try:
         # Delete orphans
-        api_response = api_instance.delete()
+        api_response = api_instance.delete(pulp_domain)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrphansApi->delete: %s\n" % e)
@@ -70,10 +71,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -89,7 +90,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -101,17 +102,21 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.OrphansApi(api_client)
-    
+    pulp_domain = 'pulp_domain_example' # str | 
+
     try:
         # Delete orphans
-        api_response = api_instance.delete()
+        api_response = api_instance.delete(pulp_domain)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrphansApi->delete: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
 
 ### Return type
 

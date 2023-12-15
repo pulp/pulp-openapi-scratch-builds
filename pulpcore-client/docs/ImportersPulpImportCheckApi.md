@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.ImportersPulpImportCheckApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pulp_import_check_post**](ImportersPulpImportCheckApi.md#pulp_import_check_post) | **POST** /pulp/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
+[**pulp_import_check_post**](ImportersPulpImportCheckApi.md#pulp_import_check_post) | **POST** /pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
 
 
 # **pulp_import_check_post**
-> PulpImportCheckResponse pulp_import_check_post(pulp_import_check)
+> PulpImportCheckResponse pulp_import_check_post(pulp_domain, pulp_import_check)
 
 Validate the parameters to be used for a PulpImport call
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,11 +54,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.ImportersPulpImportCheckApi(api_client)
-    pulp_import_check = pulpcore.client.pulpcore.PulpImportCheck() # PulpImportCheck | 
+    pulp_domain = 'pulp_domain_example' # str | 
+pulp_import_check = pulpcore.client.pulpcore.PulpImportCheck() # PulpImportCheck | 
 
     try:
         # Validate the parameters to be used for a PulpImport call
-        api_response = api_instance.pulp_import_check_post(pulp_import_check)
+        api_response = api_instance.pulp_import_check_post(pulp_domain, pulp_import_check)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ImportersPulpImportCheckApi->pulp_import_check_post: %s\n" % e)
@@ -71,10 +72,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -90,7 +91,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -102,11 +103,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.ImportersPulpImportCheckApi(api_client)
-    pulp_import_check = pulpcore.client.pulpcore.PulpImportCheck() # PulpImportCheck | 
+    pulp_domain = 'pulp_domain_example' # str | 
+pulp_import_check = pulpcore.client.pulpcore.PulpImportCheck() # PulpImportCheck | 
 
     try:
         # Validate the parameters to be used for a PulpImport call
-        api_response = api_instance.pulp_import_check_post(pulp_import_check)
+        api_response = api_instance.pulp_import_check_post(pulp_domain, pulp_import_check)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ImportersPulpImportCheckApi->pulp_import_check_post: %s\n" % e)
@@ -116,6 +118,7 @@ with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **pulp_import_check** | [**PulpImportCheck**](PulpImportCheck.md)|  | 
 
 ### Return type

@@ -32,6 +32,7 @@ class TestDistributionsRpmApi(unittest.TestCase):
     def test_add_role(self):
         """Test case for add_role
 
+        Add a role  # noqa: E501
         """
         pass
 
@@ -59,12 +60,14 @@ class TestDistributionsRpmApi(unittest.TestCase):
     def test_list_roles(self):
         """Test case for list_roles
 
+        List roles  # noqa: E501
         """
         pass
 
     def test_my_permissions(self):
         """Test case for my_permissions
 
+        List user permissions  # noqa: E501
         """
         pass
 
@@ -85,6 +88,21 @@ class TestDistributionsRpmApi(unittest.TestCase):
     def test_remove_role(self):
         """Test case for remove_role
 
+        Remove a role  # noqa: E501
+        """
+        pass
+
+    def test_set_label(self):
+        """Test case for set_label
+
+        Set a label  # noqa: E501
+        """
+        pass
+
+    def test_unset_label(self):
+        """Test case for unset_label
+
+        Unset a label  # noqa: E501
         """
         pass
 

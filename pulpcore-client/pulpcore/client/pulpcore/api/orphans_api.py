@@ -37,16 +37,17 @@ class OrphansApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete(self,  **kwargs):  # noqa: E501
+    def delete(self, pulp_domain="default", **kwargs):  # noqa: E501
         """Delete orphans  # noqa: E501
 
         DEPRECATED! Trigger an asynchronous task that deletes all orphaned content and artifacts. Use the `POST /pulp/api/v3/orphans/cleanup/` call instead.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete(async_req=True)
+        >>> thread = api.delete(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -59,18 +60,19 @@ class OrphansApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_with_http_info( **kwargs)  # noqa: E501
+        return self.delete_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def delete_with_http_info(self,  **kwargs):  # noqa: E501
+    def delete_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """Delete orphans  # noqa: E501
 
         DEPRECATED! Trigger an asynchronous task that deletes all orphaned content and artifacts. Use the `POST /pulp/api/v3/orphans/cleanup/` call instead.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_with_http_info(async_req=True)
+        >>> thread = api.delete_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -88,6 +90,7 @@ class OrphansApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain'
         ]
         all_params.extend(
             [
@@ -106,10 +109,16 @@ class OrphansApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `delete`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -127,7 +136,7 @@ class OrphansApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/orphans/', 'DELETE',
+            '/pulp/{pulp_domain}/api/v3/orphans/', 'DELETE',
             path_params,
             query_params,
             header_params,

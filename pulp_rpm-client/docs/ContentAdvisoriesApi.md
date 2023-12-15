@@ -1,16 +1,16 @@
 # pulpcore.client.pulp_rpm.ContentAdvisoriesApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentAdvisoriesApi.md#create) | **POST** /pulp/api/v3/content/rpm/advisories/ | Create an update record
-[**list**](ContentAdvisoriesApi.md#list) | **GET** /pulp/api/v3/content/rpm/advisories/ | List update records
+[**create**](ContentAdvisoriesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | Create an update record
+[**list**](ContentAdvisoriesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | List update records
 [**read**](ContentAdvisoriesApi.md#read) | **GET** {rpm_update_record_href} | Inspect an update record
 
 
 # **create**
-> AsyncOperationResponse create(repository=repository, file=file, upload=upload)
+> AsyncOperationResponse create(pulp_domain, repository=repository, file=file, upload=upload)
 
 Create an update record
 
@@ -25,10 +25,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,7 +44,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -56,13 +56,14 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentAdvisoriesApi(api_client)
-    repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
 upload = 'upload_example' # str | An uncommitted upload that may be turned into the content unit. (optional)
 
     try:
         # Create an update record
-        api_response = api_instance.create(repository=repository, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, repository=repository, file=file, upload=upload)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentAdvisoriesApi->create: %s\n" % e)
@@ -75,10 +76,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -94,7 +95,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -106,13 +107,14 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentAdvisoriesApi(api_client)
-    repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+repository = 'repository_example' # str | A URI of a repository the new content unit should be associated with. (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
 upload = 'upload_example' # str | An uncommitted upload that may be turned into the content unit. (optional)
 
     try:
         # Create an update record
-        api_response = api_instance.create(repository=repository, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, repository=repository, file=file, upload=upload)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentAdvisoriesApi->create: %s\n" % e)
@@ -122,6 +124,7 @@ upload = 'upload_example' # str | An uncommitted upload that may be turned into 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **repository** | **str**| A URI of a repository the new content unit should be associated with. | [optional] 
  **file** | **file**| An uploaded file that may be turned into the content unit. | [optional] 
  **upload** | **str**| An uncommitted upload that may be turned into the content unit. | [optional] 
@@ -147,7 +150,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedrpmUpdateRecordResponseList list(id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
+> PaginatedrpmUpdateRecordResponseList list(pulp_domain, id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
 
 List update records
 
@@ -162,10 +165,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -181,7 +184,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -193,7 +196,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentAdvisoriesApi(api_client)
-    id = 'id_example' # str | Filter results where id matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+id = 'id_example' # str | Filter results where id matches value (optional)
 id__in = ['id__in_example'] # list[str] | Filter results where id is in a comma-separated list of values (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
@@ -218,7 +222,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List update records
-        api_response = api_instance.list(id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentAdvisoriesApi->list: %s\n" % e)
@@ -231,10 +235,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -250,7 +254,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -262,7 +266,8 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.ContentAdvisoriesApi(api_client)
-    id = 'id_example' # str | Filter results where id matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+id = 'id_example' # str | Filter results where id matches value (optional)
 id__in = ['id__in_example'] # list[str] | Filter results where id is in a comma-separated list of values (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
@@ -287,7 +292,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List update records
-        api_response = api_instance.list(id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, id=id, id__in=id__in, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, severity=severity, severity__in=severity__in, severity__ne=severity__ne, status=status, status__in=status__in, status__ne=status__ne, type=type, type__in=type__in, type__ne=type__ne, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentAdvisoriesApi->list: %s\n" % e)
@@ -297,6 +302,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **id** | **str**| Filter results where id matches value | [optional] 
  **id__in** | [**list[str]**](str.md)| Filter results where id is in a comma-separated list of values | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
@@ -356,10 +362,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -375,7 +381,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -406,10 +412,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -425,7 +431,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

@@ -1,14 +1,14 @@
 # pulpcore.client.pulp_rpm.RpmCompsApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**rpm_comps_upload**](RpmCompsApi.md#rpm_comps_upload) | **POST** /pulp/api/v3/rpm/comps/ | Upload comps.xml
+[**rpm_comps_upload**](RpmCompsApi.md#rpm_comps_upload) | **POST** /pulp/{pulp_domain}/api/v3/rpm/comps/ | Upload comps.xml
 
 
 # **rpm_comps_upload**
-> AsyncOperationResponse rpm_comps_upload(file, repository=repository, replace=replace)
+> AsyncOperationResponse rpm_comps_upload(pulp_domain, file, repository=repository, replace=replace)
 
 Upload comps.xml
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,13 +54,14 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.RpmCompsApi(api_client)
-    file = '/path/to/file' # file | Full path of a comps.xml file that may be parsed into comps.xml Content units.
+    pulp_domain = 'pulp_domain_example' # str | 
+file = '/path/to/file' # file | Full path of a comps.xml file that may be parsed into comps.xml Content units.
 repository = 'repository_example' # str | URI of an RPM repository the comps.xml content units should be associated to. (optional)
 replace = True # bool | If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository. (optional)
 
     try:
         # Upload comps.xml
-        api_response = api_instance.rpm_comps_upload(file, repository=repository, replace=replace)
+        api_response = api_instance.rpm_comps_upload(pulp_domain, file, repository=repository, replace=replace)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RpmCompsApi->rpm_comps_upload: %s\n" % e)
@@ -73,10 +74,10 @@ import time
 import pulpcore.client.pulp_rpm
 from pulpcore.client.pulp_rpm.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -92,7 +93,7 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_rpm.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -104,13 +105,14 @@ configuration = pulpcore.client.pulp_rpm.Configuration(
 with pulpcore.client.pulp_rpm.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_rpm.RpmCompsApi(api_client)
-    file = '/path/to/file' # file | Full path of a comps.xml file that may be parsed into comps.xml Content units.
+    pulp_domain = 'pulp_domain_example' # str | 
+file = '/path/to/file' # file | Full path of a comps.xml file that may be parsed into comps.xml Content units.
 repository = 'repository_example' # str | URI of an RPM repository the comps.xml content units should be associated to. (optional)
 replace = True # bool | If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository. (optional)
 
     try:
         # Upload comps.xml
-        api_response = api_instance.rpm_comps_upload(file, repository=repository, replace=replace)
+        api_response = api_instance.rpm_comps_upload(pulp_domain, file, repository=repository, replace=replace)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RpmCompsApi->rpm_comps_upload: %s\n" % e)
@@ -120,6 +122,7 @@ replace = True # bool | If true, incoming comps.xml replaces existing comps-rela
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **file** | **file**| Full path of a comps.xml file that may be parsed into comps.xml Content units. | 
  **repository** | **str**| URI of an RPM repository the comps.xml content units should be associated to. | [optional] 
  **replace** | **bool**| If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository. | [optional] 

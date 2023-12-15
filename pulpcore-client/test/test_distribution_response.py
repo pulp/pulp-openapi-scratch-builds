@@ -42,7 +42,10 @@ class TestDistributionResponse(unittest.TestCase):
                 base_path = '0', 
                 base_url = '0', 
                 content_guard = '0', 
-                pulp_labels = None, 
+                hidden = True, 
+                pulp_labels = {
+                    'key' : '0'
+                    }, 
                 name = '0', 
                 repository = '0'
             )

@@ -37,16 +37,17 @@ class UsersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create(self, user,  **kwargs):  # noqa: E501
+    def create(self, user, pulp_domain="default", **kwargs):  # noqa: E501
         """Create an user  # noqa: E501
 
         ViewSet for User.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(user, async_req=True)
+        >>> thread = api.create(pulp_domain, user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param User user: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(user,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(user, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, user,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, user, pulp_domain="default", **kwargs):  # noqa: E501
         """Create an user  # noqa: E501
 
         ViewSet for User.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(user, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, user, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param User user: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'user'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class UsersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'user' is set
         if self.api_client.client_side_validation and ('user' not in local_var_params or  # noqa: E501
                                                         local_var_params['user'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class UsersApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class UsersApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/users/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/users/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -265,16 +274,17 @@ class UsersApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List users  # noqa: E501
 
         ViewSet for User.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str email: Filter results where email matches value
         :param str email__contains: Filter results where email contains value
         :param str email__icontains: Filter results where email contains value
@@ -317,18 +327,19 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List users  # noqa: E501
 
         ViewSet for User.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str email: Filter results where email matches value
         :param str email__contains: Filter results where email contains value
         :param str email__icontains: Filter results where email contains value
@@ -376,6 +387,7 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'email',
             'email__contains',
             'email__icontains',
@@ -424,10 +436,16 @@ class UsersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'email' in local_var_params and local_var_params['email'] is not None:  # noqa: E501
@@ -514,7 +532,7 @@ class UsersApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/users/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/users/', 'GET',
             path_params,
             query_params,
             header_params,

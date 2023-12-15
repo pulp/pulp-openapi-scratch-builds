@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.DistributionsApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](DistributionsApi.md#list) | **GET** /pulp/api/v3/distributions/ | List distributions
+[**list**](DistributionsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/ | List distributions
 
 
 # **list**
-> PaginatedDistributionResponseList list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+> PaginatedDistributionResponseList list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
 
 List distributions
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,7 +54,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.DistributionsApi(api_client)
-    base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
 base_path__contains = 'base_path__contains_example' # str | Filter results where base_path contains value (optional)
 base_path__icontains = 'base_path__icontains_example' # str | Filter results where base_path contains value (optional)
 base_path__in = ['base_path__in_example'] # list[str] | Filter results where base_path is in a comma-separated list of values (optional)
@@ -73,8 +74,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Filter results where repository matches value (optional)
 repository__in = ['repository__in_example'] # list[str] | Filter results where repository is in a comma-separated list of values (optional)
@@ -84,7 +85,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List distributions
-        api_response = api_instance.list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsApi->list: %s\n" % e)
@@ -97,10 +98,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,7 +117,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -128,7 +129,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.DistributionsApi(api_client)
-    base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+base_path = 'base_path_example' # str | Filter results where base_path matches value (optional)
 base_path__contains = 'base_path__contains_example' # str | Filter results where base_path contains value (optional)
 base_path__icontains = 'base_path__icontains_example' # str | Filter results where base_path contains value (optional)
 base_path__in = ['base_path__in_example'] # list[str] | Filter results where base_path is in a comma-separated list of values (optional)
@@ -147,8 +149,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Filter results where repository matches value (optional)
 repository__in = ['repository__in_example'] # list[str] | Filter results where repository is in a comma-separated list of values (optional)
@@ -158,7 +160,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List distributions
-        api_response = api_instance.list(base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, base_path=base_path, base_path__contains=base_path__contains, base_path__icontains=base_path__icontains, base_path__in=base_path__in, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, repository=repository, repository__in=repository__in, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DistributionsApi->list: %s\n" % e)
@@ -168,6 +170,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **base_path** | **str**| Filter results where base_path matches value | [optional] 
  **base_path__contains** | **str**| Filter results where base_path contains value | [optional] 
  **base_path__icontains** | **str**| Filter results where base_path contains value | [optional] 
@@ -187,8 +190,8 @@ Name | Type | Description  | Notes
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_label_select** | **str**| Filter labels by search string | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;core.artifact&#x60; - core.artifact * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-distribution&#x60; - deb.apt-distribution * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;core.artifact&#x60; - core.artifact * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;deb.apt-distribution&#x60; - deb.apt-distribution * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;core.artifact&#x60; - core.artifact * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;core.artifact&#x60; - core.artifact * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **repository** | [**str**](.md)| Filter results where repository matches value | [optional] 
  **repository__in** | [**list[str]**](str.md)| Filter results where repository is in a comma-separated list of values | [optional] 

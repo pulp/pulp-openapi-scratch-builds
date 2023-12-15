@@ -37,16 +37,17 @@ class RpmCompsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def rpm_comps_upload(self, file,  **kwargs):  # noqa: E501
+    def rpm_comps_upload(self, file, pulp_domain="default", **kwargs):  # noqa: E501
         """Upload comps.xml  # noqa: E501
 
         Trigger an asynchronous task to upload a comps.xml file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.rpm_comps_upload(file, async_req=True)
+        >>> thread = api.rpm_comps_upload(pulp_domain, file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param file file: Full path of a comps.xml file that may be parsed into comps.xml Content units. (required)
         :param str repository: URI of an RPM repository the comps.xml content units should be associated to.
         :param bool replace: If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository.
@@ -62,18 +63,19 @@ class RpmCompsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.rpm_comps_upload_with_http_info(file,  **kwargs)  # noqa: E501
+        return self.rpm_comps_upload_with_http_info(file, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def rpm_comps_upload_with_http_info(self, file,  **kwargs):  # noqa: E501
+    def rpm_comps_upload_with_http_info(self, file, pulp_domain="default", **kwargs):  # noqa: E501
         """Upload comps.xml  # noqa: E501
 
         Trigger an asynchronous task to upload a comps.xml file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.rpm_comps_upload_with_http_info(file, async_req=True)
+        >>> thread = api.rpm_comps_upload_with_http_info(pulp_domain, file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param file file: Full path of a comps.xml file that may be parsed into comps.xml Content units. (required)
         :param str repository: URI of an RPM repository the comps.xml content units should be associated to.
         :param bool replace: If true, incoming comps.xml replaces existing comps-related ContentUnits in the specified repository.
@@ -94,6 +96,7 @@ class RpmCompsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'file',
             'repository',
             'replace'
@@ -115,6 +118,10 @@ class RpmCompsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `rpm_comps_upload`")  # noqa: E501
         # verify the required parameter 'file' is set
         if self.api_client.client_side_validation and ('file' not in local_var_params or  # noqa: E501
                                                         local_var_params['file'] is None):  # noqa: E501
@@ -123,6 +130,8 @@ class RpmCompsApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -150,7 +159,7 @@ class RpmCompsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/rpm/comps/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/rpm/comps/', 'POST',
             path_params,
             query_params,
             header_params,

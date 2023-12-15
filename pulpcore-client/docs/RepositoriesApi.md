@@ -1,14 +1,14 @@
 # pulpcore.client.pulpcore.RepositoriesApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](RepositoriesApi.md#list) | **GET** /pulp/api/v3/repositories/ | List repositories
+[**list**](RepositoriesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repositories/ | List repositories
 
 
 # **list**
-> PaginatedRepositoryResponseList list(latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+> PaginatedRepositoryResponseList list(pulp_domain, latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
 
 List repositories
 
@@ -23,10 +23,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -42,7 +42,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -54,7 +54,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoriesApi(api_client)
-    latest_with_content = 'latest_with_content_example' # str | Content Unit referenced by HREF (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+latest_with_content = 'latest_with_content_example' # str | Content Unit referenced by HREF (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 name__contains = 'name__contains_example' # str | Filter results where name contains value (optional)
@@ -70,8 +71,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `container.container-push` - container.container-push * `deb.deb` - deb.deb * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `container.container-push` - container.container-push * `deb.deb` - deb.deb * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 remote = 'remote_example' # str | Foreign Key referenced by HREF (optional)
 retain_repo_versions = 56 # int | Filter results where retain_repo_versions matches value (optional)
@@ -88,7 +89,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List repositories
-        api_response = api_instance.list(latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoriesApi->list: %s\n" % e)
@@ -101,10 +102,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -120,7 +121,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -132,7 +133,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.RepositoriesApi(api_client)
-    latest_with_content = 'latest_with_content_example' # str | Content Unit referenced by HREF (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+latest_with_content = 'latest_with_content_example' # str | Content Unit referenced by HREF (optional)
 limit = 56 # int | Number of results to return per page. (optional)
 name = 'name_example' # str | Filter results where name matches value (optional)
 name__contains = 'name__contains_example' # str | Filter results where name contains value (optional)
@@ -148,8 +150,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `container.container-push` - container.container-push * `deb.deb` - deb.deb * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `container.container-push` - container.container-push * `deb.deb` - deb.deb * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 remote = 'remote_example' # str | Foreign Key referenced by HREF (optional)
 retain_repo_versions = 56 # int | Filter results where retain_repo_versions matches value (optional)
@@ -166,7 +168,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List repositories
-        api_response = api_instance.list(latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, latest_with_content=latest_with_content, limit=limit, name=name, name__contains=name__contains, name__icontains=name__icontains, name__iexact=name__iexact, name__in=name__in, name__iregex=name__iregex, name__istartswith=name__istartswith, name__regex=name__regex, name__startswith=name__startswith, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, pulp_label_select=pulp_label_select, pulp_type=pulp_type, pulp_type__in=pulp_type__in, q=q, remote=remote, retain_repo_versions=retain_repo_versions, retain_repo_versions__gt=retain_repo_versions__gt, retain_repo_versions__gte=retain_repo_versions__gte, retain_repo_versions__isnull=retain_repo_versions__isnull, retain_repo_versions__lt=retain_repo_versions__lt, retain_repo_versions__lte=retain_repo_versions__lte, retain_repo_versions__ne=retain_repo_versions__ne, retain_repo_versions__range=retain_repo_versions__range, with_content=with_content, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RepositoriesApi->list: %s\n" % e)
@@ -176,6 +178,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **latest_with_content** | **str**| Content Unit referenced by HREF | [optional] 
  **limit** | **int**| Number of results to return per page. | [optional] 
  **name** | **str**| Filter results where name matches value | [optional] 
@@ -192,8 +195,8 @@ Name | Type | Description  | Notes
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_label_select** | **str**| Filter labels by search string | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;container.container-push&#x60; - container.container-push * &#x60;deb.deb&#x60; - deb.deb * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;ansible.ansible&#x60; - ansible.ansible * &#x60;container.container&#x60; - container.container * &#x60;container.container-push&#x60; - container.container-push * &#x60;deb.deb&#x60; - deb.deb * &#x60;gem.gem&#x60; - gem.gem * &#x60;maven.maven&#x60; - maven.maven * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;python.python&#x60; - python.python * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **remote** | [**str**](.md)| Foreign Key referenced by HREF | [optional] 
  **retain_repo_versions** | **int**| Filter results where retain_repo_versions matches value | [optional] 

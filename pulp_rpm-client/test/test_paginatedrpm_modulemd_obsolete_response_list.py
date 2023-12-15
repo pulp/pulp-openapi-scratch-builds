@@ -44,13 +44,13 @@ class TestPaginatedrpmModulemdObsoleteResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/modulemd_obsolete_response.rpm.ModulemdObsoleteResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        modified = '0', 
                         module_name = '0', 
                         module_stream = '0', 
                         message = '0', 
                         override_previous = '0', 
                         module_context = '0', 
-                        eol_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        eol_date = '0', 
                         obsoleted_by_module_name = '0', 
                         obsoleted_by_module_stream = '0', )
                     ]

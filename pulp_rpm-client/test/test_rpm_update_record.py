@@ -37,8 +37,9 @@ class TestRpmUpdateRecord(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.rpm_update_record.RpmUpdateRecord()  # noqa: E501
         if include_optional :
             return RpmUpdateRecord(
+                repository = '0', 
                 file = bytes(b'blah'), 
-                repository = '0'
+                upload = '0'
             )
         else :
             return RpmUpdateRecord(

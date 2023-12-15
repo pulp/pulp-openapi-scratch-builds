@@ -37,16 +37,17 @@ class DistributionsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List distributions  # noqa: E501
 
         Provides base viewset for Distributions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str base_path: Filter results where base_path matches value
         :param str base_path__contains: Filter results where base_path contains value
         :param str base_path__icontains: Filter results where base_path contains value
@@ -66,8 +67,8 @@ class DistributionsApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Filter results where repository matches value
         :param list[str] repository__in: Filter results where repository is in a comma-separated list of values
@@ -86,18 +87,19 @@ class DistributionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List distributions  # noqa: E501
 
         Provides base viewset for Distributions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str base_path: Filter results where base_path matches value
         :param str base_path__contains: Filter results where base_path contains value
         :param str base_path__icontains: Filter results where base_path contains value
@@ -117,8 +119,8 @@ class DistributionsApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `ansible.ansible` - ansible.ansible * `container.container` - container.container * `deb.apt-distribution` - deb.apt-distribution * `gem.gem` - gem.gem * `maven.maven` - maven.maven * `ostree.ostree` - ostree.ostree * `python.python` - python.python * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Filter results where repository matches value
         :param list[str] repository__in: Filter results where repository is in a comma-separated list of values
@@ -142,6 +144,7 @@ class DistributionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'base_path',
             'base_path__contains',
             'base_path__icontains',
@@ -187,10 +190,16 @@ class DistributionsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'base_path' in local_var_params and local_var_params['base_path'] is not None:  # noqa: E501
@@ -271,7 +280,7 @@ class DistributionsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/distributions/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/distributions/', 'GET',
             path_params,
             query_params,
             header_params,

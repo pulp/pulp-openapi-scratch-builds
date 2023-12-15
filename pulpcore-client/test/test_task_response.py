@@ -42,6 +42,7 @@ class TestTaskResponse(unittest.TestCase):
                 state = '0', 
                 name = '0', 
                 logging_cid = '0', 
+                created_by = '0', 
                 started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 error = {

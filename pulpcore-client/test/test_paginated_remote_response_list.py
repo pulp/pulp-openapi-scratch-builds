@@ -50,7 +50,9 @@ class TestPaginatedRemoteResponseList(unittest.TestCase):
                         client_cert = '0', 
                         tls_validation = True, 
                         proxy_url = '0', 
-                        pulp_labels = pulpcore.client.pulpcore.models.pulp_labels.pulp_labels(), 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
                         pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         download_concurrency = 1, 
                         max_retries = 56, 

@@ -50,7 +50,8 @@ class TestPaginatedrpmRpmPublicationResponseList(unittest.TestCase):
                         package_checksum_type = null, 
                         gpgcheck = 0, 
                         repo_gpgcheck = 0, 
-                        sqlite_metadata = True, )
+                        sqlite_metadata = True, 
+                        repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config(), )
                     ]
             )
         else :

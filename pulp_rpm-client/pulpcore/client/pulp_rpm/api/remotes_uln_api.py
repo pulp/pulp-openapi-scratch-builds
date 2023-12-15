@@ -164,16 +164,17 @@ class RemotesUlnApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create(self, rpm_uln_remote,  **kwargs):  # noqa: E501
+    def create(self, rpm_uln_remote, pulp_domain="default", **kwargs):  # noqa: E501
         """Create an uln remote  # noqa: E501
 
         A ViewSet for UlnRemote.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(rpm_uln_remote, async_req=True)
+        >>> thread = api.create(pulp_domain, rpm_uln_remote, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param RpmUlnRemote rpm_uln_remote: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -187,18 +188,19 @@ class RemotesUlnApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(rpm_uln_remote,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(rpm_uln_remote, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, rpm_uln_remote,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, rpm_uln_remote, pulp_domain="default", **kwargs):  # noqa: E501
         """Create an uln remote  # noqa: E501
 
         A ViewSet for UlnRemote.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(rpm_uln_remote, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, rpm_uln_remote, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param RpmUlnRemote rpm_uln_remote: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -217,6 +219,7 @@ class RemotesUlnApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'rpm_uln_remote'
         ]
         all_params.extend(
@@ -236,6 +239,10 @@ class RemotesUlnApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'rpm_uln_remote' is set
         if self.api_client.client_side_validation and ('rpm_uln_remote' not in local_var_params or  # noqa: E501
                                                         local_var_params['rpm_uln_remote'] is None):  # noqa: E501
@@ -244,6 +251,8 @@ class RemotesUlnApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -267,7 +276,7 @@ class RemotesUlnApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/remotes/rpm/uln/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -396,16 +405,17 @@ class RemotesUlnApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List uln remotes  # noqa: E501
 
         A ViewSet for UlnRemote.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param str name: Filter results where name matches value
         :param str name__contains: Filter results where name contains value
@@ -442,18 +452,19 @@ class RemotesUlnApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List uln remotes  # noqa: E501
 
         A ViewSet for UlnRemote.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param str name: Filter results where name matches value
         :param str name__contains: Filter results where name contains value
@@ -495,6 +506,7 @@ class RemotesUlnApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'limit',
             'name',
             'name__contains',
@@ -537,10 +549,16 @@ class RemotesUlnApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -613,7 +631,7 @@ class RemotesUlnApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/remotes/rpm/uln/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/', 'GET',
             path_params,
             query_params,
             header_params,

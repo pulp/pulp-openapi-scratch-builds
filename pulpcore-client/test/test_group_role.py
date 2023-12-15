@@ -38,7 +38,8 @@ class TestGroupRole(unittest.TestCase):
         if include_optional :
             return GroupRole(
                 role = '0', 
-                content_object = '0'
+                content_object = '0', 
+                domain = '0'
             )
         else :
             return GroupRole(

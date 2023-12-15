@@ -45,7 +45,9 @@ class TestPaginatedRepositoryResponseList(unittest.TestCase):
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         versions_href = '0', 
-                        pulp_labels = pulpcore.client.pulpcore.models.pulp_labels.pulp_labels(), 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
                         latest_version_href = '0', 
                         name = '0', 
                         description = '0', 

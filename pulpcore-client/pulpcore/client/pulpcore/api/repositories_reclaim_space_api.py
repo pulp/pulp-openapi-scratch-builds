@@ -37,16 +37,17 @@ class RepositoriesReclaimSpaceApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def reclaim(self, reclaim_space,  **kwargs):  # noqa: E501
+    def reclaim(self, reclaim_space, pulp_domain="default", **kwargs):  # noqa: E501
         """reclaim  # noqa: E501
 
         Trigger an asynchronous space reclaim operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reclaim(reclaim_space, async_req=True)
+        >>> thread = api.reclaim(pulp_domain, reclaim_space, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param ReclaimSpace reclaim_space: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class RepositoriesReclaimSpaceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.reclaim_with_http_info(reclaim_space,  **kwargs)  # noqa: E501
+        return self.reclaim_with_http_info(reclaim_space, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def reclaim_with_http_info(self, reclaim_space,  **kwargs):  # noqa: E501
+    def reclaim_with_http_info(self, reclaim_space, pulp_domain="default", **kwargs):  # noqa: E501
         """reclaim  # noqa: E501
 
         Trigger an asynchronous space reclaim operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reclaim_with_http_info(reclaim_space, async_req=True)
+        >>> thread = api.reclaim_with_http_info(pulp_domain, reclaim_space, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param ReclaimSpace reclaim_space: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class RepositoriesReclaimSpaceApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'reclaim_space'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class RepositoriesReclaimSpaceApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `reclaim`")  # noqa: E501
         # verify the required parameter 'reclaim_space' is set
         if self.api_client.client_side_validation and ('reclaim_space' not in local_var_params or  # noqa: E501
                                                         local_var_params['reclaim_space'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class RepositoriesReclaimSpaceApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class RepositoriesReclaimSpaceApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/repositories/reclaim_space/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/repositories/reclaim_space/', 'POST',
             path_params,
             query_params,
             header_params,

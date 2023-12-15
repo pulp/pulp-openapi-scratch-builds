@@ -39,10 +39,14 @@ class TestRpmRpmDistribution(unittest.TestCase):
             return RpmRpmDistribution(
                 base_path = '0', 
                 content_guard = '0', 
-                pulp_labels = None, 
+                hidden = True, 
+                pulp_labels = {
+                    'key' : '0'
+                    }, 
                 name = '0', 
                 repository = '0', 
-                publication = '0'
+                publication = '0', 
+                generate_repo_config = True
             )
         else :
             return RpmRpmDistribution(

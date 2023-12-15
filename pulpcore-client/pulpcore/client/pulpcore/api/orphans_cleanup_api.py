@@ -37,16 +37,17 @@ class OrphansCleanupApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def cleanup(self, orphans_cleanup,  **kwargs):  # noqa: E501
+    def cleanup(self, orphans_cleanup, pulp_domain="default", **kwargs):  # noqa: E501
         """cleanup  # noqa: E501
 
         Trigger an asynchronous orphan cleanup operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cleanup(orphans_cleanup, async_req=True)
+        >>> thread = api.cleanup(pulp_domain, orphans_cleanup, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param OrphansCleanup orphans_cleanup: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,18 +61,19 @@ class OrphansCleanupApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.cleanup_with_http_info(orphans_cleanup,  **kwargs)  # noqa: E501
+        return self.cleanup_with_http_info(orphans_cleanup, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def cleanup_with_http_info(self, orphans_cleanup,  **kwargs):  # noqa: E501
+    def cleanup_with_http_info(self, orphans_cleanup, pulp_domain="default", **kwargs):  # noqa: E501
         """cleanup  # noqa: E501
 
         Trigger an asynchronous orphan cleanup operation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cleanup_with_http_info(orphans_cleanup, async_req=True)
+        >>> thread = api.cleanup_with_http_info(pulp_domain, orphans_cleanup, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param OrphansCleanup orphans_cleanup: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +92,7 @@ class OrphansCleanupApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'orphans_cleanup'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class OrphansCleanupApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `cleanup`")  # noqa: E501
         # verify the required parameter 'orphans_cleanup' is set
         if self.api_client.client_side_validation and ('orphans_cleanup' not in local_var_params or  # noqa: E501
                                                         local_var_params['orphans_cleanup'] is None):  # noqa: E501
@@ -117,6 +124,8 @@ class OrphansCleanupApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -140,7 +149,7 @@ class OrphansCleanupApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/orphans/cleanup/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/orphans/cleanup/', 'POST',
             path_params,
             query_params,
             header_params,

@@ -164,16 +164,17 @@ class GroupsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create(self, group,  **kwargs):  # noqa: E501
+    def create(self, group, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a group  # noqa: E501
 
         ViewSet for Group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(group, async_req=True)
+        >>> thread = api.create(pulp_domain, group, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Group group: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -187,18 +188,19 @@ class GroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(group,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(group, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, group,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, group, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a group  # noqa: E501
 
         ViewSet for Group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(group, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, group, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param Group group: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -217,6 +219,7 @@ class GroupsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'group'
         ]
         all_params.extend(
@@ -236,6 +239,10 @@ class GroupsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'group' is set
         if self.api_client.client_side_validation and ('group' not in local_var_params or  # noqa: E501
                                                         local_var_params['group'] is None):  # noqa: E501
@@ -244,6 +251,8 @@ class GroupsApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -267,7 +276,7 @@ class GroupsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/groups/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/groups/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -392,16 +401,17 @@ class GroupsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List groups  # noqa: E501
 
         ViewSet for Group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int id: Filter results where id matches value
         :param list[int] id__in: Filter results where id is in a comma-separated list of values
         :param int limit: Number of results to return per page.
@@ -429,18 +439,19 @@ class GroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List groups  # noqa: E501
 
         ViewSet for Group.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int id: Filter results where id matches value
         :param list[int] id__in: Filter results where id is in a comma-separated list of values
         :param int limit: Number of results to return per page.
@@ -473,6 +484,7 @@ class GroupsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'id',
             'id__in',
             'limit',
@@ -506,10 +518,16 @@ class GroupsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'id' in local_var_params and local_var_params['id'] is not None:  # noqa: E501
@@ -564,7 +582,7 @@ class GroupsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/groups/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/groups/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -37,10 +37,10 @@ class TestRpmPackage(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.rpm_package.RpmPackage()  # noqa: E501
         if include_optional :
             return RpmPackage(
+                repository = '0', 
                 artifact = '0', 
                 relative_path = '0', 
                 file = bytes(b'blah'), 
-                repository = '0', 
                 upload = '0'
             )
         else :

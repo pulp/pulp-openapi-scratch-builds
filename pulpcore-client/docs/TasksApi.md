@@ -1,15 +1,15 @@
 # pulpcore.client.pulpcore.TasksApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](TasksApi.md#add_role) | **POST** {task_href}add_role/ | Add a role
 [**delete**](TasksApi.md#delete) | **DELETE** {task_href} | Delete a task
-[**list**](TasksApi.md#list) | **GET** /pulp/api/v3/tasks/ | List tasks
+[**list**](TasksApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/tasks/ | List tasks
 [**list_roles**](TasksApi.md#list_roles) | **GET** {task_href}list_roles/ | List roles
 [**my_permissions**](TasksApi.md#my_permissions) | **GET** {task_href}my_permissions/ | List user permissions
-[**purge**](TasksApi.md#purge) | **POST** /pulp/api/v3/tasks/purge/ | Purge Completed Tasks
+[**purge**](TasksApi.md#purge) | **POST** /pulp/{pulp_domain}/api/v3/tasks/purge/ | Purge Completed Tasks
 [**read**](TasksApi.md#read) | **GET** {task_href} | Inspect a task
 [**remove_role**](TasksApi.md#remove_role) | **POST** {task_href}remove_role/ | Remove a role
 [**tasks_cancel**](TasksApi.md#tasks_cancel) | **PATCH** {task_href} | Cancel a task
@@ -31,10 +31,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -50,7 +50,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -80,10 +80,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -99,7 +99,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -165,10 +165,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -184,7 +184,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -212,10 +212,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -231,7 +231,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -279,7 +279,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedTaskResponseList list(child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
+> PaginatedTaskResponseList list(pulp_domain, child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
 
 List tasks
 
@@ -294,10 +294,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -313,7 +313,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -325,7 +325,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.TasksApi(api_client)
-    child_tasks = 'child_tasks_example' # str | Filter results where child_tasks matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+child_tasks = 'child_tasks_example' # str | Filter results where child_tasks matches value (optional)
 created_resources = 'created_resources_example' # str |  (optional)
 exclusive_resources = 'exclusive_resources_example' # str |  (optional)
 exclusive_resources__in = ['exclusive_resources__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
@@ -371,7 +372,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List tasks
-        api_response = api_instance.list(child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->list: %s\n" % e)
@@ -384,10 +385,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -403,7 +404,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -415,7 +416,8 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.TasksApi(api_client)
-    child_tasks = 'child_tasks_example' # str | Filter results where child_tasks matches value (optional)
+    pulp_domain = 'pulp_domain_example' # str | 
+child_tasks = 'child_tasks_example' # str | Filter results where child_tasks matches value (optional)
 created_resources = 'created_resources_example' # str |  (optional)
 exclusive_resources = 'exclusive_resources_example' # str |  (optional)
 exclusive_resources__in = ['exclusive_resources__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
@@ -461,7 +463,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List tasks
-        api_response = api_instance.list(child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, child_tasks=child_tasks, created_resources=created_resources, exclusive_resources=exclusive_resources, exclusive_resources__in=exclusive_resources__in, finished_at=finished_at, finished_at__gt=finished_at__gt, finished_at__gte=finished_at__gte, finished_at__lt=finished_at__lt, finished_at__lte=finished_at__lte, finished_at__range=finished_at__range, limit=limit, logging_cid=logging_cid, logging_cid__contains=logging_cid__contains, name=name, name__contains=name__contains, name__in=name__in, name__ne=name__ne, offset=offset, ordering=ordering, parent_task=parent_task, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, reserved_resources=reserved_resources, reserved_resources__in=reserved_resources__in, reserved_resources_record=reserved_resources_record, shared_resources=shared_resources, shared_resources__in=shared_resources__in, started_at=started_at, started_at__gt=started_at__gt, started_at__gte=started_at__gte, started_at__lt=started_at__lt, started_at__lte=started_at__lte, started_at__range=started_at__range, state=state, state__in=state__in, state__ne=state__ne, task_group=task_group, worker=worker, worker__in=worker__in, worker__isnull=worker__isnull, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->list: %s\n" % e)
@@ -471,6 +473,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **child_tasks** | [**str**](.md)| Filter results where child_tasks matches value | [optional] 
  **created_resources** | [**str**](.md)|  | [optional] 
  **exclusive_resources** | **str**|  | [optional] 
@@ -551,10 +554,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -570,7 +573,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -601,10 +604,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -620,7 +623,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -688,10 +691,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -707,7 +710,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -738,10 +741,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -757,7 +760,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -810,7 +813,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **purge**
-> AsyncOperationResponse purge(purge)
+> AsyncOperationResponse purge(pulp_domain, purge)
 
 Purge Completed Tasks
 
@@ -825,10 +828,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -844,7 +847,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -856,11 +859,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.TasksApi(api_client)
-    purge = pulpcore.client.pulpcore.Purge() # Purge | 
+    pulp_domain = 'pulp_domain_example' # str | 
+purge = pulpcore.client.pulpcore.Purge() # Purge | 
 
     try:
         # Purge Completed Tasks
-        api_response = api_instance.purge(purge)
+        api_response = api_instance.purge(pulp_domain, purge)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->purge: %s\n" % e)
@@ -873,10 +877,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -892,7 +896,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -904,11 +908,12 @@ configuration = pulpcore.client.pulpcore.Configuration(
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.TasksApi(api_client)
-    purge = pulpcore.client.pulpcore.Purge() # Purge | 
+    pulp_domain = 'pulp_domain_example' # str | 
+purge = pulpcore.client.pulpcore.Purge() # Purge | 
 
     try:
         # Purge Completed Tasks
-        api_response = api_instance.purge(purge)
+        api_response = api_instance.purge(pulp_domain, purge)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->purge: %s\n" % e)
@@ -918,6 +923,7 @@ with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **pulp_domain** | **str**|  | 
  **purge** | [**Purge**](Purge.md)|  | 
 
 ### Return type
@@ -956,10 +962,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -975,7 +981,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1006,10 +1012,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1025,7 +1031,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1093,10 +1099,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1112,7 +1118,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1142,10 +1148,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1161,7 +1167,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1227,10 +1233,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1246,7 +1252,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
@@ -1276,10 +1282,10 @@ import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8080
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1295,7 +1301,7 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:8080",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }

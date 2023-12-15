@@ -37,6 +37,7 @@ class TestRpmModulemd(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.rpm_modulemd.RpmModulemd()  # noqa: E501
         if include_optional :
             return RpmModulemd(
+                repository = '0', 
                 name = '0', 
                 stream = '0', 
                 version = '0', 

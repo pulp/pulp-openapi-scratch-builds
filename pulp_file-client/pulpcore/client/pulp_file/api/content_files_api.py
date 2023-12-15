@@ -37,16 +37,17 @@ class ContentFilesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create(self, relative_path,  **kwargs):  # noqa: E501
+    def create(self, relative_path, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a file content  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create(relative_path, async_req=True)
+        >>> thread = api.create(pulp_domain, relative_path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str relative_path: Path where the artifact is located relative to distributions base_path (required)
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param str artifact: Artifact file representing the physical content
@@ -64,18 +65,19 @@ class ContentFilesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_with_http_info(relative_path,  **kwargs)  # noqa: E501
+        return self.create_with_http_info(relative_path, pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def create_with_http_info(self, relative_path,  **kwargs):  # noqa: E501
+    def create_with_http_info(self, relative_path, pulp_domain="default", **kwargs):  # noqa: E501
         """Create a file content  # noqa: E501
 
         Trigger an asynchronous task to create content,optionally create new repository version.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_with_http_info(relative_path, async_req=True)
+        >>> thread = api.create_with_http_info(pulp_domain, relative_path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param str relative_path: Path where the artifact is located relative to distributions base_path (required)
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param str artifact: Artifact file representing the physical content
@@ -98,6 +100,7 @@ class ContentFilesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'relative_path',
             'repository',
             'artifact',
@@ -121,6 +124,10 @@ class ContentFilesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
         # verify the required parameter 'relative_path' is set
         if self.api_client.client_side_validation and ('relative_path' not in local_var_params or  # noqa: E501
                                                         local_var_params['relative_path'] is None):  # noqa: E501
@@ -132,6 +139,8 @@ class ContentFilesApi(object):
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
 
@@ -163,7 +172,7 @@ class ContentFilesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/file/files/', 'POST',
+            '/pulp/{pulp_domain}/api/v3/content/file/files/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -178,16 +187,17 @@ class ContentFilesApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list(self,  **kwargs):  # noqa: E501
+    def list(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List file contents  # noqa: E501
 
          FileContent represents a single file and its metadata, which can be added and removed from repositories.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list(async_req=True)
+        >>> thread = api.list(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `relative_path` - Relative path * `-relative_path` - Relative path (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending)
@@ -213,18 +223,19 @@ class ContentFilesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_with_http_info( **kwargs)  # noqa: E501
+        return self.list_with_http_info(pulp_domain=pulp_domain, **kwargs)  # noqa: E501
 
-    def list_with_http_info(self,  **kwargs):  # noqa: E501
+    def list_with_http_info(self, pulp_domain="default", **kwargs):  # noqa: E501
         """List file contents  # noqa: E501
 
          FileContent represents a single file and its metadata, which can be added and removed from repositories.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_with_http_info(async_req=True)
+        >>> thread = api.list_with_http_info(pulp_domain, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str pulp_domain: (required)
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `relative_path` - Relative path * `-relative_path` - Relative path (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending)
@@ -255,6 +266,7 @@ class ContentFilesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'pulp_domain',
             'limit',
             'offset',
             'ordering',
@@ -286,10 +298,16 @@ class ContentFilesApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'pulp_domain' is set
+        if self.api_client.client_side_validation and ('pulp_domain' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pulp_domain'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pulp_domain` when calling `list`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'pulp_domain' in local_var_params:
+            path_params['pulp_domain'] = local_var_params['pulp_domain']  # noqa: E501
 
         query_params = []
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
@@ -338,7 +356,7 @@ class ContentFilesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/content/file/files/', 'GET',
+            '/pulp/{pulp_domain}/api/v3/content/file/files/', 'GET',
             path_params,
             query_params,
             header_params,
