@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pulp_import_check_post**](ImportersPulpImportCheckApi.md#pulp_import_check_post) | **POST** /pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
+[**pulp_import_check_post**](ImportersPulpImportCheckApi.md#pulp_import_check_post) | **POST** /api/pulp/{pulp_domain}/api/v3/importers/core/pulp/import-check/ | Validate the parameters to be used for a PulpImport call
 
 
 # **pulp_import_check_post**

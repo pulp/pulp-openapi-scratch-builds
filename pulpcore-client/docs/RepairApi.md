@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post**](RepairApi.md#post) | **POST** /pulp/{pulp_domain}/api/v3/repair/ | Repair Artifact Storage
+[**post**](RepairApi.md#post) | **POST** /api/pulp/{pulp_domain}/api/v3/repair/ | Repair Artifact Storage
 
 
 # **post**

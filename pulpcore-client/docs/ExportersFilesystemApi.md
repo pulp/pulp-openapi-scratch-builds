@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ExportersFilesystemApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | Create a filesystem exporter
+[**create**](ExportersFilesystemApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | Create a filesystem exporter
 [**delete**](ExportersFilesystemApi.md#delete) | **DELETE** {filesystem_exporter_href} | Delete a filesystem exporter
-[**list**](ExportersFilesystemApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | List filesystem exporters
+[**list**](ExportersFilesystemApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/exporters/core/filesystem/ | List filesystem exporters
 [**partial_update**](ExportersFilesystemApi.md#partial_update) | **PATCH** {filesystem_exporter_href} | Update a filesystem exporter
 [**read**](ExportersFilesystemApi.md#read) | **GET** {filesystem_exporter_href} | Inspect a filesystem exporter
 [**update**](ExportersFilesystemApi.md#update) | **PUT** {filesystem_exporter_href} | Update a filesystem exporter

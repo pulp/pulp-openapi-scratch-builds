@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](WorkersApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/workers/ | List workers
+[**list**](WorkersApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/workers/ | List workers
 [**read**](WorkersApi.md#read) | **GET** {worker_href} | Inspect a worker
 
 

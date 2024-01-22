@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](RemotesRpmApi.md#add_role) | **POST** {rpm_rpm_remote_href}add_role/ | Add a role
-[**create**](RemotesRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | Create a rpm remote
+[**create**](RemotesRpmApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | Create a rpm remote
 [**delete**](RemotesRpmApi.md#delete) | **DELETE** {rpm_rpm_remote_href} | Delete a rpm remote
-[**list**](RemotesRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | List rpm remotes
+[**list**](RemotesRpmApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/ | List rpm remotes
 [**list_roles**](RemotesRpmApi.md#list_roles) | **GET** {rpm_rpm_remote_href}list_roles/ | List roles
 [**my_permissions**](RemotesRpmApi.md#my_permissions) | **GET** {rpm_rpm_remote_href}my_permissions/ | List user permissions
 [**partial_update**](RemotesRpmApi.md#partial_update) | **PATCH** {rpm_rpm_remote_href} | Update a rpm remote

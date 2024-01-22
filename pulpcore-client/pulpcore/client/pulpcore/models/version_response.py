@@ -37,6 +37,7 @@ class VersionResponse(object):
         'component': 'str',
         'version': 'str',
         'package': 'str',
+        'module': 'str',
         'domain_compatible': 'bool'
     }
 
@@ -44,10 +45,11 @@ class VersionResponse(object):
         'component': 'component',
         'version': 'version',
         'package': 'package',
+        'module': 'module',
         'domain_compatible': 'domain_compatible'
     }
 
-    def __init__(self, component=None, version=None, package=None, domain_compatible=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, component=None, version=None, package=None, module=None, domain_compatible=None, local_vars_configuration=None):  # noqa: E501
         """VersionResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +58,14 @@ class VersionResponse(object):
         self._component = None
         self._version = None
         self._package = None
+        self._module = None
         self._domain_compatible = None
         self.discriminator = None
 
         self.component = component
         self.version = version
         self.package = package
+        self.module = module
         self.domain_compatible = domain_compatible
 
     @property
@@ -138,6 +142,31 @@ class VersionResponse(object):
             raise ValueError("Invalid value for `package`, must not be `None`")  # noqa: E501
 
         self._package = package
+
+    @property
+    def module(self):
+        """Gets the module of this VersionResponse.  # noqa: E501
+
+        Python module name of the component  # noqa: E501
+
+        :return: The module of this VersionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._module
+
+    @module.setter
+    def module(self, module):
+        """Sets the module of this VersionResponse.
+
+        Python module name of the component  # noqa: E501
+
+        :param module: The module of this VersionResponse.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and module is None:  # noqa: E501
+            raise ValueError("Invalid value for `module`, must not be `None`")  # noqa: E501
+
+        self._module = module
 
     @property
     def domain_compatible(self):

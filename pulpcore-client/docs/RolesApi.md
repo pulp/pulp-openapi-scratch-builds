@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](RolesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/roles/ | Create a role
+[**create**](RolesApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/roles/ | Create a role
 [**delete**](RolesApi.md#delete) | **DELETE** {role_href} | Delete a role
-[**list**](RolesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/roles/ | List roles
+[**list**](RolesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/roles/ | List roles
 [**partial_update**](RolesApi.md#partial_update) | **PATCH** {role_href} | Update a role
 [**read**](RolesApi.md#read) | **GET** {role_href} | Inspect a role
 [**update**](RolesApi.md#update) | **PUT** {role_href} | Update a role

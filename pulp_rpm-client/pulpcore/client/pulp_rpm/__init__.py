@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.24.0"
+__version__ = "3.25.0"
 
 # import apis into sdk package
 from pulpcore.client.pulp_rpm.api.acs_rpm_api import AcsRpmApi
@@ -52,11 +52,11 @@ from pulpcore.client.pulp_rpm.models.addon_response import AddonResponse
 from pulpcore.client.pulp_rpm.models.artifact_response import ArtifactResponse
 from pulpcore.client.pulp_rpm.models.async_operation_response import AsyncOperationResponse
 from pulpcore.client.pulp_rpm.models.checksum_response import ChecksumResponse
+from pulpcore.client.pulp_rpm.models.compression_type_enum import CompressionTypeEnum
 from pulpcore.client.pulp_rpm.models.comps_xml import CompsXml
 from pulpcore.client.pulp_rpm.models.content_summary_response import ContentSummaryResponse
 from pulpcore.client.pulp_rpm.models.copy import Copy
 from pulpcore.client.pulp_rpm.models.image_response import ImageResponse
-from pulpcore.client.pulp_rpm.models.metadata_checksum_type_enum import MetadataChecksumTypeEnum
 from pulpcore.client.pulp_rpm.models.my_permissions_response import MyPermissionsResponse
 from pulpcore.client.pulp_rpm.models.nested_role import NestedRole
 from pulpcore.client.pulp_rpm.models.nested_role_response import NestedRoleResponse

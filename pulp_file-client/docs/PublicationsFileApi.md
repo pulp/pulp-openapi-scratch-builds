@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](PublicationsFileApi.md#add_role) | **POST** {file_file_publication_href}add_role/ | Add a role
-[**create**](PublicationsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/publications/file/file/ | Create a file publication
+[**create**](PublicationsFileApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/publications/file/file/ | Create a file publication
 [**delete**](PublicationsFileApi.md#delete) | **DELETE** {file_file_publication_href} | Delete a file publication
-[**list**](PublicationsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/publications/file/file/ | List file publications
+[**list**](PublicationsFileApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/publications/file/file/ | List file publications
 [**list_roles**](PublicationsFileApi.md#list_roles) | **GET** {file_file_publication_href}list_roles/ | List roles
 [**my_permissions**](PublicationsFileApi.md#my_permissions) | **GET** {file_file_publication_href}my_permissions/ | List user permissions
 [**read**](PublicationsFileApi.md#read) | **GET** {file_file_publication_href} | Inspect a file publication

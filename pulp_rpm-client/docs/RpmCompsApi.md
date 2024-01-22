@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**rpm_comps_upload**](RpmCompsApi.md#rpm_comps_upload) | **POST** /pulp/{pulp_domain}/api/v3/rpm/comps/ | Upload comps.xml
+[**rpm_comps_upload**](RpmCompsApi.md#rpm_comps_upload) | **POST** /api/pulp/{pulp_domain}/api/v3/rpm/comps/ | Upload comps.xml
 
 
 # **rpm_comps_upload**

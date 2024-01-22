@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](ContentguardsHeaderApi.md#add_role) | **POST** {header_content_guard_href}add_role/ | Add a role
-[**create**](ContentguardsHeaderApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/core/header/ | Create a header content guard
+[**create**](ContentguardsHeaderApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/core/header/ | Create a header content guard
 [**delete**](ContentguardsHeaderApi.md#delete) | **DELETE** {header_content_guard_href} | Delete a header content guard
-[**list**](ContentguardsHeaderApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/core/header/ | List header content guards
+[**list**](ContentguardsHeaderApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/core/header/ | List header content guards
 [**list_roles**](ContentguardsHeaderApi.md#list_roles) | **GET** {header_content_guard_href}list_roles/ | List roles
 [**my_permissions**](ContentguardsHeaderApi.md#my_permissions) | **GET** {header_content_guard_href}my_permissions/ | List user permissions
 [**partial_update**](ContentguardsHeaderApi.md#partial_update) | **PATCH** {header_content_guard_href} | Update a header content guard

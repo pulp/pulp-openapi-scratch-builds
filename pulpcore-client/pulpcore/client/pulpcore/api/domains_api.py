@@ -149,7 +149,7 @@ class DomainsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/domains/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/domains/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -468,7 +468,7 @@ class DomainsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/domains/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/domains/', 'GET',
             path_params,
             query_params,
             header_params,

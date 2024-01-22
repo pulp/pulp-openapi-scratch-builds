@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](DistributionsRpmApi.md#add_role) | **POST** {rpm_rpm_distribution_href}add_role/ | Add a role
-[**create**](DistributionsRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
+[**create**](DistributionsRpmApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | Create a rpm distribution
 [**delete**](DistributionsRpmApi.md#delete) | **DELETE** {rpm_rpm_distribution_href} | Delete a rpm distribution
-[**list**](DistributionsRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | List rpm distributions
+[**list**](DistributionsRpmApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/distributions/rpm/rpm/ | List rpm distributions
 [**list_roles**](DistributionsRpmApi.md#list_roles) | **GET** {rpm_rpm_distribution_href}list_roles/ | List roles
 [**my_permissions**](DistributionsRpmApi.md#my_permissions) | **GET** {rpm_rpm_distribution_href}my_permissions/ | List user permissions
 [**partial_update**](DistributionsRpmApi.md#partial_update) | **PATCH** {rpm_rpm_distribution_href} | Update a rpm distribution

@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](DomainsApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/domains/ | Create a domain
+[**create**](DomainsApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/domains/ | Create a domain
 [**delete**](DomainsApi.md#delete) | **DELETE** {domain_href} | Delete a domain
-[**list**](DomainsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/domains/ | List domains
+[**list**](DomainsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/domains/ | List domains
 [**partial_update**](DomainsApi.md#partial_update) | **PATCH** {domain_href} | Update a domain
 [**read**](DomainsApi.md#read) | **GET** {domain_href} | Inspect a domain
 [**update**](DomainsApi.md#update) | **PUT** {domain_href} | Update a domain

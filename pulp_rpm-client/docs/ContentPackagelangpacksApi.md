@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentPackagelangpacksApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/packagelangpacks/ | List package langpackss
+[**list**](ContentPackagelangpacksApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/packagelangpacks/ | List package langpackss
 [**read**](ContentPackagelangpacksApi.md#read) | **GET** {rpm_package_langpacks_href} | Inspect a package langpacks
 
 

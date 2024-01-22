@@ -149,7 +149,7 @@ class ContentModulemdDefaultsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -350,7 +350,7 @@ class ContentModulemdDefaultsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentPackagesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | Create a package
-[**list**](ContentPackagesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/packages/ | List packages
+[**create**](ContentPackagesApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/content/rpm/packages/ | Create a package
+[**list**](ContentPackagesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/packages/ | List packages
 [**read**](ContentPackagesApi.md#read) | **GET** {rpm_package_href} | Inspect a package
 
 

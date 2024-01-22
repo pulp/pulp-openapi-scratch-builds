@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentFilesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/file/files/ | Create a file content
-[**list**](ContentFilesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/file/files/ | List file contents
+[**create**](ContentFilesApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/content/file/files/ | Create a file content
+[**list**](ContentFilesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/file/files/ | List file contents
 [**read**](ContentFilesApi.md#read) | **GET** {file_file_content_href} | Inspect a file content
 
 

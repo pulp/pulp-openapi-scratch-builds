@@ -159,7 +159,7 @@ class RpmCompsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/rpm/comps/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/rpm/comps/', 'POST',
             path_params,
             query_params,
             header_params,

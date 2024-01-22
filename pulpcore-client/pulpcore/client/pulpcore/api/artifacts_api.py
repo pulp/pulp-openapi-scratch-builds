@@ -202,7 +202,7 @@ class ArtifactsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/artifacts/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/artifacts/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -506,7 +506,7 @@ class ArtifactsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/artifacts/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/artifacts/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentPackagecategoriesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/packagecategories/ | List package categorys
+[**list**](ContentPackagecategoriesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/packagecategories/ | List package categorys
 [**read**](ContentPackagecategoriesApi.md#read) | **GET** {rpm_package_category_href} | Inspect a package category
 
 

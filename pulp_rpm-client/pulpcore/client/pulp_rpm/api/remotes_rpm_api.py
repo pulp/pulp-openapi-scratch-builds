@@ -276,7 +276,7 @@ class RemotesRpmApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -631,7 +631,7 @@ class RemotesRpmApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/remotes/rpm/rpm/', 'GET',
             path_params,
             query_params,
             header_params,

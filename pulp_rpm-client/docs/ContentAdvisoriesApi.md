@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentAdvisoriesApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | Create an update record
-[**list**](ContentAdvisoriesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | List update records
+[**create**](ContentAdvisoriesApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | Create an update record
+[**list**](ContentAdvisoriesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/advisories/ | List update records
 [**read**](ContentAdvisoriesApi.md#read) | **GET** {rpm_update_record_href} | Inspect an update record
 
 

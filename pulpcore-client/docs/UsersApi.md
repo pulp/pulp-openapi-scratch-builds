@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](UsersApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/users/ | Create an user
+[**create**](UsersApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/users/ | Create an user
 [**delete**](UsersApi.md#delete) | **DELETE** {auth_user_href} | Delete an user
-[**list**](UsersApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/users/ | List users
+[**list**](UsersApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/users/ | List users
 [**partial_update**](UsersApi.md#partial_update) | **PATCH** {auth_user_href} | Update an user
 [**read**](UsersApi.md#read) | **GET** {auth_user_href} | Inspect an user
 [**update**](UsersApi.md#update) | **PUT** {auth_user_href} | Update an user

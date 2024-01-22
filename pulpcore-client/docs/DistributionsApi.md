@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](DistributionsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/ | List distributions
+[**list**](DistributionsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/distributions/ | List distributions
 
 
 # **list**
@@ -74,8 +74,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Filter results where repository matches value (optional)
 repository__in = ['repository__in_example'] # list[str] | Filter results where repository is in a comma-separated list of values (optional)
@@ -149,8 +149,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Filter results where repository matches value (optional)
 repository__in = ['repository__in_example'] # list[str] | Filter results where repository is in a comma-separated list of values (optional)
@@ -190,8 +190,8 @@ Name | Type | Description  | Notes
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_label_select** | **str**| Filter labels by search string | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;core.artifact&#x60; - core.artifact * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;core.artifact&#x60; - core.artifact * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;core.artifact&#x60; - core.artifact * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;core.artifact&#x60; - core.artifact * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **repository** | [**str**](.md)| Filter results where repository matches value | [optional] 
  **repository__in** | [**list[str]**](str.md)| Filter results where repository is in a comma-separated list of values | [optional] 

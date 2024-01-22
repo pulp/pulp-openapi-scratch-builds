@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](RemotesUlnApi.md#add_role) | **POST** {rpm_uln_remote_href}add_role/ | Add a role
-[**create**](RemotesUlnApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | Create an uln remote
+[**create**](RemotesUlnApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | Create an uln remote
 [**delete**](RemotesUlnApi.md#delete) | **DELETE** {rpm_uln_remote_href} | Delete an uln remote
-[**list**](RemotesUlnApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | List uln remotes
+[**list**](RemotesUlnApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/remotes/rpm/uln/ | List uln remotes
 [**list_roles**](RemotesUlnApi.md#list_roles) | **GET** {rpm_uln_remote_href}list_roles/ | List roles
 [**my_permissions**](RemotesUlnApi.md#my_permissions) | **GET** {rpm_uln_remote_href}my_permissions/ | List user permissions
 [**partial_update**](RemotesUlnApi.md#partial_update) | **PATCH** {rpm_uln_remote_href} | Update an uln remote

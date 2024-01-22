@@ -17,11 +17,11 @@ import unittest
 import datetime
 
 import pulpcore.client.pulp_rpm
-from pulpcore.client.pulp_rpm.models.metadata_checksum_type_enum import MetadataChecksumTypeEnum  # noqa: E501
+from pulpcore.client.pulp_rpm.models.compression_type_enum import CompressionTypeEnum  # noqa: E501
 from pulpcore.client.pulp_rpm.rest import ApiException
 
-class TestMetadataChecksumTypeEnum(unittest.TestCase):
-    """MetadataChecksumTypeEnum unit test stubs"""
+class TestCompressionTypeEnum(unittest.TestCase):
+    """CompressionTypeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -30,20 +30,20 @@ class TestMetadataChecksumTypeEnum(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test MetadataChecksumTypeEnum
+        """Test CompressionTypeEnum
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = pulpcore.client.pulp_rpm.models.metadata_checksum_type_enum.MetadataChecksumTypeEnum()  # noqa: E501
+        # model = pulpcore.client.pulp_rpm.models.compression_type_enum.CompressionTypeEnum()  # noqa: E501
         if include_optional :
-            return MetadataChecksumTypeEnum(
+            return CompressionTypeEnum(
             )
         else :
-            return MetadataChecksumTypeEnum(
+            return CompressionTypeEnum(
         )
 
-    def testMetadataChecksumTypeEnum(self):
-        """Test MetadataChecksumTypeEnum"""
+    def testCompressionTypeEnum(self):
+        """Test CompressionTypeEnum"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

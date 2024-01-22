@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](PublicationsRpmApi.md#add_role) | **POST** {rpm_rpm_publication_href}add_role/ | Add a role
-[**create**](PublicationsRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | Create a rpm publication
+[**create**](PublicationsRpmApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | Create a rpm publication
 [**delete**](PublicationsRpmApi.md#delete) | **DELETE** {rpm_rpm_publication_href} | Delete a rpm publication
-[**list**](PublicationsRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | List rpm publications
+[**list**](PublicationsRpmApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/publications/rpm/rpm/ | List rpm publications
 [**list_roles**](PublicationsRpmApi.md#list_roles) | **GET** {rpm_rpm_publication_href}list_roles/ | List roles
 [**my_permissions**](PublicationsRpmApi.md#my_permissions) | **GET** {rpm_rpm_publication_href}my_permissions/ | List user permissions
 [**read**](PublicationsRpmApi.md#read) | **GET** {rpm_rpm_publication_href} | Inspect a rpm publication

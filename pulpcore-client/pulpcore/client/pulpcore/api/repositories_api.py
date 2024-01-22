@@ -64,8 +64,8 @@ class RepositoriesApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str remote: Foreign Key referenced by HREF
         :param int retain_repo_versions: Filter results where retain_repo_versions matches value
@@ -120,8 +120,8 @@ class RepositoriesApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str remote: Foreign Key referenced by HREF
         :param int retain_repo_versions: Filter results where retain_repo_versions matches value
@@ -299,7 +299,7 @@ class RepositoriesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/repositories/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/repositories/', 'GET',
             path_params,
             query_params,
             header_params,

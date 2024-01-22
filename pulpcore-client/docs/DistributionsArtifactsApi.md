@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](DistributionsArtifactsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/core/artifacts/ | List artifact distributions
+[**list**](DistributionsArtifactsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/distributions/core/artifacts/ | List artifact distributions
 [**read**](DistributionsArtifactsApi.md#read) | **GET** {artifact_distribution_href} | Inspect an artifact distribution
 
 

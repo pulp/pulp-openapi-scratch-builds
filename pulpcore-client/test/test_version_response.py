@@ -40,6 +40,7 @@ class TestVersionResponse(unittest.TestCase):
                 component = '0', 
                 version = '0', 
                 package = '0', 
+                module = '0', 
                 domain_compatible = True
             )
         else :
@@ -47,6 +48,7 @@ class TestVersionResponse(unittest.TestCase):
                 component = '0',
                 version = '0',
                 package = '0',
+                module = '0',
                 domain_compatible = True,
         )
 

@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.43.1"
+__version__ = "3.44.1"
 
 # import apis into sdk package
 from pulpcore.client.pulp_file.api.acs_file_api import AcsFileApi

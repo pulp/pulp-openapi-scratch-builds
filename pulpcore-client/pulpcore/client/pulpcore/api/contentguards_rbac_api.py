@@ -276,7 +276,7 @@ class ContentguardsRbacApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -591,7 +591,7 @@ class ContentguardsRbacApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -46,12 +46,14 @@ class RpmRpmRepositoryResponse(object):
         'autopublish': 'bool',
         'metadata_signing_service': 'str',
         'retain_package_versions': 'int',
-        'metadata_checksum_type': 'MetadataChecksumTypeEnum',
+        'checksum_type': 'PackageChecksumTypeEnum',
+        'metadata_checksum_type': 'PackageChecksumTypeEnum',
         'package_checksum_type': 'PackageChecksumTypeEnum',
         'gpgcheck': 'int',
         'repo_gpgcheck': 'int',
         'sqlite_metadata': 'bool',
-        'repo_config': 'object'
+        'repo_config': 'object',
+        'compression_type': 'CompressionTypeEnum'
     }
 
     attribute_map = {
@@ -67,15 +69,17 @@ class RpmRpmRepositoryResponse(object):
         'autopublish': 'autopublish',
         'metadata_signing_service': 'metadata_signing_service',
         'retain_package_versions': 'retain_package_versions',
+        'checksum_type': 'checksum_type',
         'metadata_checksum_type': 'metadata_checksum_type',
         'package_checksum_type': 'package_checksum_type',
         'gpgcheck': 'gpgcheck',
         'repo_gpgcheck': 'repo_gpgcheck',
         'sqlite_metadata': 'sqlite_metadata',
-        'repo_config': 'repo_config'
+        'repo_config': 'repo_config',
+        'compression_type': 'compression_type'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, versions_href=None, pulp_labels=None, latest_version_href=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, retain_package_versions=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, sqlite_metadata=False, repo_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, versions_href=None, pulp_labels=None, latest_version_href=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, retain_package_versions=None, checksum_type=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, sqlite_metadata=False, repo_config=None, compression_type=None, local_vars_configuration=None):  # noqa: E501
         """RpmRpmRepositoryResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,12 +97,14 @@ class RpmRpmRepositoryResponse(object):
         self._autopublish = None
         self._metadata_signing_service = None
         self._retain_package_versions = None
+        self._checksum_type = None
         self._metadata_checksum_type = None
         self._package_checksum_type = None
         self._gpgcheck = None
         self._repo_gpgcheck = None
         self._sqlite_metadata = None
         self._repo_config = None
+        self._compression_type = None
         self.discriminator = None
 
         if pulp_href is not None:
@@ -120,6 +126,7 @@ class RpmRpmRepositoryResponse(object):
         self.metadata_signing_service = metadata_signing_service
         if retain_package_versions is not None:
             self.retain_package_versions = retain_package_versions
+        self.checksum_type = checksum_type
         self.metadata_checksum_type = metadata_checksum_type
         self.package_checksum_type = package_checksum_type
         self.gpgcheck = gpgcheck
@@ -128,6 +135,7 @@ class RpmRpmRepositoryResponse(object):
             self.sqlite_metadata = sqlite_metadata
         if repo_config is not None:
             self.repo_config = repo_config
+        self.compression_type = compression_type
 
     @property
     def pulp_href(self):
@@ -406,13 +414,36 @@ class RpmRpmRepositoryResponse(object):
         self._retain_package_versions = retain_package_versions
 
     @property
+    def checksum_type(self):
+        """Gets the checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
+
+        The preferred checksum type during repo publish.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+
+        :return: The checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
+        :rtype: PackageChecksumTypeEnum
+        """
+        return self._checksum_type
+
+    @checksum_type.setter
+    def checksum_type(self, checksum_type):
+        """Sets the checksum_type of this RpmRpmRepositoryResponse.
+
+        The preferred checksum type during repo publish.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+
+        :param checksum_type: The checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
+        :type: PackageChecksumTypeEnum
+        """
+
+        self._checksum_type = checksum_type
+
+    @property
     def metadata_checksum_type(self):
         """Gets the metadata_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
 
-        The checksum type for metadata.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+        DEPRECATED: use CHECKSUM_TYPE instead.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
 
         :return: The metadata_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
-        :rtype: MetadataChecksumTypeEnum
+        :rtype: PackageChecksumTypeEnum
         """
         return self._metadata_checksum_type
 
@@ -420,10 +451,10 @@ class RpmRpmRepositoryResponse(object):
     def metadata_checksum_type(self, metadata_checksum_type):
         """Sets the metadata_checksum_type of this RpmRpmRepositoryResponse.
 
-        The checksum type for metadata.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+        DEPRECATED: use CHECKSUM_TYPE instead.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
 
         :param metadata_checksum_type: The metadata_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
-        :type: MetadataChecksumTypeEnum
+        :type: PackageChecksumTypeEnum
         """
 
         self._metadata_checksum_type = metadata_checksum_type
@@ -432,7 +463,7 @@ class RpmRpmRepositoryResponse(object):
     def package_checksum_type(self):
         """Gets the package_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
 
-        The checksum type for packages.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+        DEPRECATED: use CHECKSUM_TYPE instead.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
 
         :return: The package_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
         :rtype: PackageChecksumTypeEnum
@@ -443,7 +474,7 @@ class RpmRpmRepositoryResponse(object):
     def package_checksum_type(self, package_checksum_type):
         """Sets the package_checksum_type of this RpmRpmRepositoryResponse.
 
-        The checksum type for packages.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
+        DEPRECATED: use CHECKSUM_TYPE instead.  * `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512  # noqa: E501
 
         :param package_checksum_type: The package_checksum_type of this RpmRpmRepositoryResponse.  # noqa: E501
         :type: PackageChecksumTypeEnum
@@ -513,7 +544,7 @@ class RpmRpmRepositoryResponse(object):
     def sqlite_metadata(self):
         """Gets the sqlite_metadata of this RpmRpmRepositoryResponse.  # noqa: E501
 
-        DEPRECATED: An option specifying whether Pulp should generate SQLite metadata.  # noqa: E501
+        REMOVED: An option specifying whether Pulp should generate SQLite metadata. Not operation since pulp_rpm 3.25.0 release  # noqa: E501
 
         :return: The sqlite_metadata of this RpmRpmRepositoryResponse.  # noqa: E501
         :rtype: bool
@@ -524,7 +555,7 @@ class RpmRpmRepositoryResponse(object):
     def sqlite_metadata(self, sqlite_metadata):
         """Sets the sqlite_metadata of this RpmRpmRepositoryResponse.
 
-        DEPRECATED: An option specifying whether Pulp should generate SQLite metadata.  # noqa: E501
+        REMOVED: An option specifying whether Pulp should generate SQLite metadata. Not operation since pulp_rpm 3.25.0 release  # noqa: E501
 
         :param sqlite_metadata: The sqlite_metadata of this RpmRpmRepositoryResponse.  # noqa: E501
         :type: bool
@@ -554,6 +585,29 @@ class RpmRpmRepositoryResponse(object):
         """
 
         self._repo_config = repo_config
+
+    @property
+    def compression_type(self):
+        """Gets the compression_type of this RpmRpmRepositoryResponse.  # noqa: E501
+
+        The compression type to use for metadata files.  * `zstd` - zstd * `gz` - gz  # noqa: E501
+
+        :return: The compression_type of this RpmRpmRepositoryResponse.  # noqa: E501
+        :rtype: CompressionTypeEnum
+        """
+        return self._compression_type
+
+    @compression_type.setter
+    def compression_type(self, compression_type):
+        """Sets the compression_type of this RpmRpmRepositoryResponse.
+
+        The compression type to use for metadata files.  * `zstd` - zstd * `gz` - gz  # noqa: E501
+
+        :param compression_type: The compression_type of this RpmRpmRepositoryResponse.  # noqa: E501
+        :type: CompressionTypeEnum
+        """
+
+        self._compression_type = compression_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

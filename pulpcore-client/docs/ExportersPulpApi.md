@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ExportersPulpApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | Create a pulp exporter
+[**create**](ExportersPulpApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | Create a pulp exporter
 [**delete**](ExportersPulpApi.md#delete) | **DELETE** {pulp_exporter_href} | Delete a pulp exporter
-[**list**](ExportersPulpApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | List pulp exporters
+[**list**](ExportersPulpApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/exporters/core/pulp/ | List pulp exporters
 [**partial_update**](ExportersPulpApi.md#partial_update) | **PATCH** {pulp_exporter_href} | Update a pulp exporter
 [**read**](ExportersPulpApi.md#read) | **GET** {pulp_exporter_href} | Inspect a pulp exporter
 [**update**](ExportersPulpApi.md#update) | **PUT** {pulp_exporter_href} | Update a pulp exporter

@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](ContentguardsCompositeApi.md#add_role) | **POST** {composite_content_guard_href}add_role/ | Add a role
-[**create**](ContentguardsCompositeApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/core/composite/ | Create a composite content guard
+[**create**](ContentguardsCompositeApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/core/composite/ | Create a composite content guard
 [**delete**](ContentguardsCompositeApi.md#delete) | **DELETE** {composite_content_guard_href} | Delete a composite content guard
-[**list**](ContentguardsCompositeApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/core/composite/ | List composite content guards
+[**list**](ContentguardsCompositeApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/core/composite/ | List composite content guards
 [**list_roles**](ContentguardsCompositeApi.md#list_roles) | **GET** {composite_content_guard_href}list_roles/ | List roles
 [**my_permissions**](ContentguardsCompositeApi.md#my_permissions) | **GET** {composite_content_guard_href}my_permissions/ | List user permissions
 [**partial_update**](ContentguardsCompositeApi.md#partial_update) | **PATCH** {composite_content_guard_href} | Update a composite content guard

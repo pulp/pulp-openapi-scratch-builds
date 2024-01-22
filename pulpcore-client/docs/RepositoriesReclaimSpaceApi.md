@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reclaim**](RepositoriesReclaimSpaceApi.md#reclaim) | **POST** /pulp/{pulp_domain}/api/v3/repositories/reclaim_space/ | 
+[**reclaim**](RepositoriesReclaimSpaceApi.md#reclaim) | **POST** /api/pulp/{pulp_domain}/api/v3/repositories/reclaim_space/ | 
 
 
 # **reclaim**
