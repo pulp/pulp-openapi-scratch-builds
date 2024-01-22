@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](ContentguardsContentRedirectApi.md#add_role) | **POST** {content_redirect_content_guard_href}add_role/ | Add a role
-[**create**](ContentguardsContentRedirectApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | Create a content redirect content guard
+[**create**](ContentguardsContentRedirectApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | Create a content redirect content guard
 [**delete**](ContentguardsContentRedirectApi.md#delete) | **DELETE** {content_redirect_content_guard_href} | Delete a content redirect content guard
-[**list**](ContentguardsContentRedirectApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | List content redirect content guards
+[**list**](ContentguardsContentRedirectApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/ | List content redirect content guards
 [**list_roles**](ContentguardsContentRedirectApi.md#list_roles) | **GET** {content_redirect_content_guard_href}list_roles/ | List roles
 [**my_permissions**](ContentguardsContentRedirectApi.md#my_permissions) | **GET** {content_redirect_content_guard_href}my_permissions/ | List user permissions
 [**partial_update**](ContentguardsContentRedirectApi.md#partial_update) | **PATCH** {content_redirect_content_guard_href} | Update a content redirect content guard

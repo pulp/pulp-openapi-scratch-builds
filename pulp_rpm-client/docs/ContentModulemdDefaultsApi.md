@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ContentModulemdDefaultsApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/ | Create a modulemd defaults
-[**list**](ContentModulemdDefaultsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/ | List modulemd defaultss
+[**create**](ContentModulemdDefaultsApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/ | Create a modulemd defaults
+[**list**](ContentModulemdDefaultsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/modulemd_defaults/ | List modulemd defaultss
 [**read**](ContentModulemdDefaultsApi.md#read) | **GET** {rpm_modulemd_defaults_href} | Inspect a modulemd defaults
 
 

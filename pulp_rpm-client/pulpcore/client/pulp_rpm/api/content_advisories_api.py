@@ -155,7 +155,7 @@ class ContentAdvisoriesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/content/rpm/advisories/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/content/rpm/advisories/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -388,7 +388,7 @@ class ContentAdvisoriesApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/content/rpm/advisories/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/content/rpm/advisories/', 'GET',
             path_params,
             query_params,
             header_params,

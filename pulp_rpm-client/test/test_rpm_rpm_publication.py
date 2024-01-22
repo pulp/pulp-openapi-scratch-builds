@@ -39,12 +39,13 @@ class TestRpmRpmPublication(unittest.TestCase):
             return RpmRpmPublication(
                 repository_version = '0', 
                 repository = '0', 
+                checksum_type = null, 
                 metadata_checksum_type = null, 
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                sqlite_metadata = True, 
-                repo_config = None
+                repo_config = None, 
+                compression_type = null
             )
         else :
             return RpmRpmPublication(

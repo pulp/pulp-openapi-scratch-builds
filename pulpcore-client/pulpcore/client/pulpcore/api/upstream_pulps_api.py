@@ -276,7 +276,7 @@ class UpstreamPulpsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/upstream-pulps/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/upstream-pulps/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -522,7 +522,7 @@ class UpstreamPulpsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/upstream-pulps/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/upstream-pulps/', 'GET',
             path_params,
             query_params,
             header_params,

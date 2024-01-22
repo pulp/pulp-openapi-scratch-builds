@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](RemotesFileApi.md#add_role) | **POST** {file_file_remote_href}add_role/ | Add a role
-[**create**](RemotesFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/remotes/file/file/ | Create a file remote
+[**create**](RemotesFileApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/remotes/file/file/ | Create a file remote
 [**delete**](RemotesFileApi.md#delete) | **DELETE** {file_file_remote_href} | Delete a file remote
-[**list**](RemotesFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/remotes/file/file/ | List file remotes
+[**list**](RemotesFileApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/remotes/file/file/ | List file remotes
 [**list_roles**](RemotesFileApi.md#list_roles) | **GET** {file_file_remote_href}list_roles/ | List roles
 [**my_permissions**](RemotesFileApi.md#my_permissions) | **GET** {file_file_remote_href}my_permissions/ | List user permissions
 [**partial_update**](RemotesFileApi.md#partial_update) | **PATCH** {file_file_remote_href} | Update a file remote

@@ -42,16 +42,16 @@ class TestPaginatedArtifactDistributionResponseList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?offset=200&limit=100', 
                 results = [
                     pulpcore.client.pulpcore.models.artifact_distribution_response.ArtifactDistributionResponse(
+                        content_guard = '0', 
+                        hidden = True, 
+                        name = '0', 
                         pulp_href = '0', 
+                        base_url = '0', 
                         pulp_labels = {
                             'key' : '0'
                             }, 
-                        base_path = '0', 
-                        base_url = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        hidden = True, 
-                        name = '0', 
-                        content_guard = '0', )
+                        base_path = '0', )
                     ]
             )
         else :

@@ -41,12 +41,14 @@ class TestRpmRpmPublicationResponse(unittest.TestCase):
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 repository_version = '0', 
                 repository = '0', 
+                checksum_type = null, 
                 metadata_checksum_type = null, 
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
                 sqlite_metadata = True, 
-                repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config()
+                repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config(), 
+                compression_type = null
             )
         else :
             return RpmRpmPublicationResponse(

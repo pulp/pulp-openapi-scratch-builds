@@ -47,12 +47,13 @@ class TestPatchedrpmRpmRepository(unittest.TestCase):
                 autopublish = True, 
                 metadata_signing_service = '0', 
                 retain_package_versions = 0, 
+                checksum_type = null, 
                 metadata_checksum_type = null, 
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                sqlite_metadata = True, 
-                repo_config = None
+                repo_config = None, 
+                compression_type = null
             )
         else :
             return PatchedrpmRpmRepository(

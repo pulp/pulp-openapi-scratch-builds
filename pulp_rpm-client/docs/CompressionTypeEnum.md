@@ -1,6 +1,6 @@
-# MetadataChecksumTypeEnum
+# CompressionTypeEnum
 
-* `unknown` - unknown * `md5` - md5 * `sha1` - sha1 * `sha224` - sha224 * `sha256` - sha256 * `sha384` - sha384 * `sha512` - sha512
+* `zstd` - zstd * `gz` - gz
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

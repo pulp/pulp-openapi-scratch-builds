@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentguardsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/ | List content guards
+[**list**](ContentguardsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/ | List content guards
 
 
 # **list**

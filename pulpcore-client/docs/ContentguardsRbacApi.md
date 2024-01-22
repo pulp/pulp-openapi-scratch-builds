@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](ContentguardsRbacApi.md#add_role) | **POST** {r_b_a_c_content_guard_href}add_role/ | Add a role
-[**create**](ContentguardsRbacApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | Create a rbac content guard
+[**create**](ContentguardsRbacApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | Create a rbac content guard
 [**delete**](ContentguardsRbacApi.md#delete) | **DELETE** {r_b_a_c_content_guard_href} | Delete a rbac content guard
-[**list**](ContentguardsRbacApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | List rbac content guards
+[**list**](ContentguardsRbacApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/core/rbac/ | List rbac content guards
 [**list_roles**](ContentguardsRbacApi.md#list_roles) | **GET** {r_b_a_c_content_guard_href}list_roles/ | List roles
 [**my_permissions**](ContentguardsRbacApi.md#my_permissions) | **GET** {r_b_a_c_content_guard_href}my_permissions/ | List user permissions
 [**partial_update**](ContentguardsRbacApi.md#partial_update) | **PATCH** {r_b_a_c_content_guard_href} | Update a rbac content guard

@@ -276,7 +276,7 @@ class AcsFileApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/acs/file/file/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/acs/file/file/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -595,7 +595,7 @@ class AcsFileApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/acs/file/file/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/acs/file/file/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentRepoMetadataFilesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/repo_metadata_files/ | List repo metadata files
+[**list**](ContentRepoMetadataFilesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/repo_metadata_files/ | List repo metadata files
 [**read**](ContentRepoMetadataFilesApi.md#read) | **GET** {rpm_repo_metadata_file_href} | Inspect a repo metadata file
 
 

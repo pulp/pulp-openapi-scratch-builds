@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](DistributionsFileApi.md#add_role) | **POST** {file_file_distribution_href}add_role/ | Add a role
-[**create**](DistributionsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/distributions/file/file/ | Create a file distribution
+[**create**](DistributionsFileApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/distributions/file/file/ | Create a file distribution
 [**delete**](DistributionsFileApi.md#delete) | **DELETE** {file_file_distribution_href} | Delete a file distribution
-[**list**](DistributionsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/distributions/file/file/ | List file distributions
+[**list**](DistributionsFileApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/distributions/file/file/ | List file distributions
 [**list_roles**](DistributionsFileApi.md#list_roles) | **GET** {file_file_distribution_href}list_roles/ | List roles
 [**my_permissions**](DistributionsFileApi.md#my_permissions) | **GET** {file_file_distribution_href}my_permissions/ | List user permissions
 [**partial_update**](DistributionsFileApi.md#partial_update) | **PATCH** {file_file_distribution_href} | Update a file distribution

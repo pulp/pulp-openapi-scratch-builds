@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](AcsRpmApi.md#add_role) | **POST** {rpm_rpm_alternate_content_source_href}add_role/ | Add a role
-[**create**](AcsRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/acs/rpm/rpm/ | Create a rpm alternate content source
+[**create**](AcsRpmApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/acs/rpm/rpm/ | Create a rpm alternate content source
 [**delete**](AcsRpmApi.md#delete) | **DELETE** {rpm_rpm_alternate_content_source_href} | Delete a rpm alternate content source
-[**list**](AcsRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/acs/rpm/rpm/ | List rpm alternate content sources
+[**list**](AcsRpmApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/acs/rpm/rpm/ | List rpm alternate content sources
 [**list_roles**](AcsRpmApi.md#list_roles) | **GET** {rpm_rpm_alternate_content_source_href}list_roles/ | List roles
 [**my_permissions**](AcsRpmApi.md#my_permissions) | **GET** {rpm_rpm_alternate_content_source_href}my_permissions/ | List user permissions
 [**partial_update**](AcsRpmApi.md#partial_update) | **PATCH** {rpm_rpm_alternate_content_source_href} | Update a rpm alternate content source

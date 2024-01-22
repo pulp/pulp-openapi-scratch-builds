@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**status_read**](StatusApi.md#status_read) | **GET** /pulp/api/v3/status/ | Inspect status of Pulp
+[**status_read**](StatusApi.md#status_read) | **GET** /api/pulp/api/v3/status/ | Inspect status of Pulp
 
 
 # **status_read**

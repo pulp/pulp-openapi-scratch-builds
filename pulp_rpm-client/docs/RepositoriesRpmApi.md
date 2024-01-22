@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](RepositoriesRpmApi.md#add_role) | **POST** {rpm_rpm_repository_href}add_role/ | Add a role
-[**create**](RepositoriesRpmApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | Create a rpm repository
+[**create**](RepositoriesRpmApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | Create a rpm repository
 [**delete**](RepositoriesRpmApi.md#delete) | **DELETE** {rpm_rpm_repository_href} | Delete a rpm repository
-[**list**](RepositoriesRpmApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | List rpm repositorys
+[**list**](RepositoriesRpmApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/repositories/rpm/rpm/ | List rpm repositorys
 [**list_roles**](RepositoriesRpmApi.md#list_roles) | **GET** {rpm_rpm_repository_href}list_roles/ | List roles
 [**modify**](RepositoriesRpmApi.md#modify) | **POST** {rpm_rpm_repository_href}modify/ | Modify Repository Content
 [**my_permissions**](RepositoriesRpmApi.md#my_permissions) | **GET** {rpm_rpm_repository_href}my_permissions/ | List user permissions

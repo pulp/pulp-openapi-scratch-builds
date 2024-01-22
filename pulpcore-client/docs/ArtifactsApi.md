@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ArtifactsApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/artifacts/ | Create an artifact
+[**create**](ArtifactsApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/artifacts/ | Create an artifact
 [**delete**](ArtifactsApi.md#delete) | **DELETE** {artifact_href} | Delete an artifact
-[**list**](ArtifactsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/artifacts/ | List artifacts
+[**list**](ArtifactsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/artifacts/ | List artifacts
 [**read**](ArtifactsApi.md#read) | **GET** {artifact_href} | Inspect an artifact
 
 

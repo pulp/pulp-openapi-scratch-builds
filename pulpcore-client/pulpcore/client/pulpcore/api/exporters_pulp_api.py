@@ -149,7 +149,7 @@ class ExportersPulpApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/exporters/core/pulp/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/exporters/core/pulp/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -468,7 +468,7 @@ class ExportersPulpApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/exporters/core/pulp/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/exporters/core/pulp/', 'GET',
             path_params,
             query_params,
             header_params,

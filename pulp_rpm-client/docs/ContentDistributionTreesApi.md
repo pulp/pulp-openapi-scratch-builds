@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentDistributionTreesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/distribution_trees/ | List distribution trees
+[**list**](ContentDistributionTreesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/distribution_trees/ | List distribution trees
 [**read**](ContentDistributionTreesApi.md#read) | **GET** {rpm_distribution_tree_href} | Inspect a distribution tree
 
 

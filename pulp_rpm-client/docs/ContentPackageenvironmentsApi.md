@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](ContentPackageenvironmentsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/content/rpm/packageenvironments/ | List package environments
+[**list**](ContentPackageenvironmentsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/content/rpm/packageenvironments/ | List package environments
 [**read**](ContentPackageenvironmentsApi.md#read) | **GET** {rpm_package_environment_href} | Inspect a package environment
 
 

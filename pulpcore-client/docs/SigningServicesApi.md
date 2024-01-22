@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](SigningServicesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/signing-services/ | List signing services
+[**list**](SigningServicesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/signing-services/ | List signing services
 [**read**](SigningServicesApi.md#read) | **GET** {signing_service_href} | Inspect a signing service
 
 

@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](TaskSchedulesApi.md#add_role) | **POST** {task_schedule_href}add_role/ | Add a role
-[**list**](TaskSchedulesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/task-schedules/ | List task schedules
+[**list**](TaskSchedulesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/task-schedules/ | List task schedules
 [**list_roles**](TaskSchedulesApi.md#list_roles) | **GET** {task_schedule_href}list_roles/ | List roles
 [**my_permissions**](TaskSchedulesApi.md#my_permissions) | **GET** {task_schedule_href}my_permissions/ | List user permissions
 [**read**](TaskSchedulesApi.md#read) | **GET** {task_schedule_href} | Inspect a task schedule

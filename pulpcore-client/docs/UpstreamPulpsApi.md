@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](UpstreamPulpsApi.md#add_role) | **POST** {upstream_pulp_href}add_role/ | Add a role
-[**create**](UpstreamPulpsApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/upstream-pulps/ | Create an upstream pulp
+[**create**](UpstreamPulpsApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/upstream-pulps/ | Create an upstream pulp
 [**delete**](UpstreamPulpsApi.md#delete) | **DELETE** {upstream_pulp_href} | Delete an upstream pulp
-[**list**](UpstreamPulpsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/upstream-pulps/ | List upstream pulps
+[**list**](UpstreamPulpsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/upstream-pulps/ | List upstream pulps
 [**list_roles**](UpstreamPulpsApi.md#list_roles) | **GET** {upstream_pulp_href}list_roles/ | List roles
 [**my_permissions**](UpstreamPulpsApi.md#my_permissions) | **GET** {upstream_pulp_href}my_permissions/ | List user permissions
 [**partial_update**](UpstreamPulpsApi.md#partial_update) | **PATCH** {upstream_pulp_href} | Update an upstream pulp

@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](TasksApi.md#add_role) | **POST** {task_href}add_role/ | Add a role
 [**delete**](TasksApi.md#delete) | **DELETE** {task_href} | Delete a task
-[**list**](TasksApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/tasks/ | List tasks
+[**list**](TasksApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/tasks/ | List tasks
 [**list_roles**](TasksApi.md#list_roles) | **GET** {task_href}list_roles/ | List roles
 [**my_permissions**](TasksApi.md#my_permissions) | **GET** {task_href}my_permissions/ | List user permissions
-[**purge**](TasksApi.md#purge) | **POST** /pulp/{pulp_domain}/api/v3/tasks/purge/ | Purge Completed Tasks
+[**purge**](TasksApi.md#purge) | **POST** /api/pulp/{pulp_domain}/api/v3/tasks/purge/ | Purge Completed Tasks
 [**read**](TasksApi.md#read) | **GET** {task_href} | Inspect a task
 [**remove_role**](TasksApi.md#remove_role) | **POST** {task_href}remove_role/ | Remove a role
 [**tasks_cancel**](TasksApi.md#tasks_cancel) | **PATCH** {task_href} | Cancel a task

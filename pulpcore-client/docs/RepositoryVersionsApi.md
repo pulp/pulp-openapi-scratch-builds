@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](RepositoryVersionsApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repository_versions/ | List repository versions
+[**list**](RepositoryVersionsApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/repository_versions/ | List repository versions
 
 
 # **list**

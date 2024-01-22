@@ -276,7 +276,7 @@ class ContentguardsContentRedirectApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/', 'POST',
+            '/api/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -591,7 +591,7 @@ class ContentguardsContentRedirectApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/contentguards/core/content_redirect/', 'GET',
             path_params,
             query_params,
             header_params,

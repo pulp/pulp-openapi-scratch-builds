@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](AcsFileApi.md#add_role) | **POST** {file_file_alternate_content_source_href}add_role/ | Add a role
-[**create**](AcsFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/acs/file/file/ | Create a file alternate content source
+[**create**](AcsFileApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/acs/file/file/ | Create a file alternate content source
 [**delete**](AcsFileApi.md#delete) | **DELETE** {file_file_alternate_content_source_href} | Delete a file alternate content source
-[**list**](AcsFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/acs/file/file/ | List file alternate content sources
+[**list**](AcsFileApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/acs/file/file/ | List file alternate content sources
 [**list_roles**](AcsFileApi.md#list_roles) | **GET** {file_file_alternate_content_source_href}list_roles/ | List roles
 [**my_permissions**](AcsFileApi.md#my_permissions) | **GET** {file_file_alternate_content_source_href}my_permissions/ | List user permissions
 [**partial_update**](AcsFileApi.md#partial_update) | **PATCH** {file_file_alternate_content_source_href} | Update a file alternate content source

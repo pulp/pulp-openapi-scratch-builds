@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list**](AccessPoliciesApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/access_policies/ | List access policys
+[**list**](AccessPoliciesApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/access_policies/ | List access policys
 [**partial_update**](AccessPoliciesApi.md#partial_update) | **PATCH** {access_policy_href} | Update an access policy
 [**read**](AccessPoliciesApi.md#read) | **GET** {access_policy_href} | Inspect an access policy
 [**reset**](AccessPoliciesApi.md#reset) | **POST** {access_policy_href}reset/ | 

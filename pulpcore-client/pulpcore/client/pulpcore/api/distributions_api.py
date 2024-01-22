@@ -67,8 +67,8 @@ class DistributionsApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Filter results where repository matches value
         :param list[str] repository__in: Filter results where repository is in a comma-separated list of values
@@ -119,8 +119,8 @@ class DistributionsApi(object):
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str pulp_label_select: Filter labels by search string
-        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.artifact` - core.artifact * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Filter results where repository matches value
         :param list[str] repository__in: Filter results where repository is in a comma-separated list of values
@@ -280,7 +280,7 @@ class DistributionsApi(object):
         auth_settings = ['basicAuth', 'cookieAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/{pulp_domain}/api/v3/distributions/', 'GET',
+            '/api/pulp/{pulp_domain}/api/v3/distributions/', 'GET',
             path_params,
             query_params,
             header_params,

@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](RepositoriesFileApi.md#add_role) | **POST** {file_file_repository_href}add_role/ | Add a role
-[**create**](RepositoriesFileApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/repositories/file/file/ | Create a file repository
+[**create**](RepositoriesFileApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/repositories/file/file/ | Create a file repository
 [**delete**](RepositoriesFileApi.md#delete) | **DELETE** {file_file_repository_href} | Delete a file repository
-[**list**](RepositoriesFileApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/repositories/file/file/ | List file repositorys
+[**list**](RepositoriesFileApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/repositories/file/file/ | List file repositorys
 [**list_roles**](RepositoriesFileApi.md#list_roles) | **GET** {file_file_repository_href}list_roles/ | List roles
 [**modify**](RepositoriesFileApi.md#modify) | **POST** {file_file_repository_href}modify/ | Modify Repository Content
 [**my_permissions**](RepositoriesFileApi.md#my_permissions) | **GET** {file_file_repository_href}my_permissions/ | List user permissions

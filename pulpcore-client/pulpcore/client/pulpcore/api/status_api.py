@@ -127,7 +127,7 @@ class StatusApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/pulp/api/v3/status/', 'GET',
+            '/api/pulp/api/v3/status/', 'GET',
             path_params,
             query_params,
             header_params,
