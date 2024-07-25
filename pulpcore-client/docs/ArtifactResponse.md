@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pulp_href** | **str** |  | [optional] [readonly] 
 **pulp_created** | **datetime** | Timestamp of creation. | [optional] [readonly] 
+**pulp_last_updated** | **datetime** | Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same. | [optional] [readonly] 
 **file** | **str** | The stored file. | 
 **size** | **int** | The size of the file in bytes. | [optional] 
 **md5** | **str** | The MD5 checksum of the file if available. | [optional] 

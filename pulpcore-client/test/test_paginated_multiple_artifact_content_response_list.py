@@ -44,11 +44,20 @@ class TestPaginatedMultipleArtifactContentResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.multiple_artifact_content_response.MultipleArtifactContentResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         artifacts = pulpcore.client.pulpcore.models.artifacts.artifacts(), )
                     ]
             )
         else :
             return PaginatedMultipleArtifactContentResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.multiple_artifact_content_response.MultipleArtifactContentResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        artifacts = pulpcore.client.pulpcore.models.artifacts.artifacts(), )
+                    ],
         )
 
     def testPaginatedMultipleArtifactContentResponseList(self):

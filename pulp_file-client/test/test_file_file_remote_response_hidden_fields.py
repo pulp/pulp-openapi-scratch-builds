@@ -42,6 +42,8 @@ class TestFileFileRemoteResponseHiddenFields(unittest.TestCase):
             )
         else :
             return FileFileRemoteResponseHiddenFields(
+                name = '0',
+                is_set = True,
         )
 
     def testFileFileRemoteResponseHiddenFields(self):

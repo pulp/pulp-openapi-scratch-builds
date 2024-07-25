@@ -44,6 +44,7 @@ class TestPaginatedfileFileRemoteResponseList(unittest.TestCase):
                     pulpcore.client.pulp_file.models.file/file_remote_response.file.FileRemoteResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         url = '0', 
                         ca_cert = '0', 
@@ -53,7 +54,6 @@ class TestPaginatedfileFileRemoteResponseList(unittest.TestCase):
                         pulp_labels = {
                             'key' : '0'
                             }, 
-                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         download_concurrency = 1, 
                         max_retries = 56, 
                         policy = null, 
@@ -74,6 +74,38 @@ class TestPaginatedfileFileRemoteResponseList(unittest.TestCase):
             )
         else :
             return PaginatedfileFileRemoteResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_file.models.file/file_remote_response.file.FileRemoteResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        url = '0', 
+                        ca_cert = '0', 
+                        client_cert = '0', 
+                        tls_validation = True, 
+                        proxy_url = '0', 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
+                        download_concurrency = 1, 
+                        max_retries = 56, 
+                        policy = null, 
+                        total_timeout = 0.0, 
+                        connect_timeout = 0.0, 
+                        sock_connect_timeout = 0.0, 
+                        sock_read_timeout = 0.0, 
+                        headers = [
+                            None
+                            ], 
+                        rate_limit = 56, 
+                        hidden_fields = [
+                            pulpcore.client.pulp_file.models.file_file_remote_response_hidden_fields.file_FileRemoteResponse_hidden_fields(
+                                name = '0', 
+                                is_set = True, )
+                            ], )
+                    ],
         )
 
     def testPaginatedfileFileRemoteResponseList(self):

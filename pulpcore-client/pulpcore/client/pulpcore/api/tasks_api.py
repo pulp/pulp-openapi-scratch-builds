@@ -303,14 +303,13 @@ class TasksApi(object):
         :param list[str] name__in: Filter results where name is in a comma-separated list of values
         :param str name__ne: Filter results where name not equal to value
         :param int offset: The initial index from which to return the results.
-        :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `state` - State * `-state` - State (descending) * `name` - Name * `-name` - Name (descending) * `logging_cid` - Logging cid * `-logging_cid` - Logging cid (descending) * `started_at` - Started at * `-started_at` - Started at (descending) * `finished_at` - Finished at * `-finished_at` - Finished at (descending) * `error` - Error * `-error` - Error (descending) * `enc_args` - Enc args * `-enc_args` - Enc args (descending) * `enc_kwargs` - Enc kwargs * `-enc_kwargs` - Enc kwargs (descending) * `reserved_resources_record` - Reserved resources record * `-reserved_resources_record` - Reserved resources record (descending) * `versions` - Versions * `-versions` - Versions (descending) * `pk` - Pk * `-pk` - Pk (descending)
+        :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `state` - State * `-state` - State (descending) * `name` - Name * `-name` - Name (descending) * `logging_cid` - Logging cid * `-logging_cid` - Logging cid (descending) * `unblocked_at` - Unblocked at * `-unblocked_at` - Unblocked at (descending) * `started_at` - Started at * `-started_at` - Started at (descending) * `finished_at` - Finished at * `-finished_at` - Finished at (descending) * `error` - Error * `-error` - Error (descending) * `enc_args` - Enc args * `-enc_args` - Enc args (descending) * `enc_kwargs` - Enc kwargs * `-enc_kwargs` - Enc kwargs (descending) * `reserved_resources_record` - Reserved resources record * `-reserved_resources_record` - Reserved resources record (descending) * `versions` - Versions * `-versions` - Versions (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param str parent_task: Filter results where parent_task matches value
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str q:
         :param str reserved_resources:
         :param list[str] reserved_resources__in: Multiple values may be separated by commas.
-        :param list[str] reserved_resources_record:
         :param str shared_resources:
         :param list[str] shared_resources__in: Multiple values may be separated by commas.
         :param datetime started_at: Filter results where started_at matches value
@@ -371,14 +370,13 @@ class TasksApi(object):
         :param list[str] name__in: Filter results where name is in a comma-separated list of values
         :param str name__ne: Filter results where name not equal to value
         :param int offset: The initial index from which to return the results.
-        :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `state` - State * `-state` - State (descending) * `name` - Name * `-name` - Name (descending) * `logging_cid` - Logging cid * `-logging_cid` - Logging cid (descending) * `started_at` - Started at * `-started_at` - Started at (descending) * `finished_at` - Finished at * `-finished_at` - Finished at (descending) * `error` - Error * `-error` - Error (descending) * `enc_args` - Enc args * `-enc_args` - Enc args (descending) * `enc_kwargs` - Enc kwargs * `-enc_kwargs` - Enc kwargs (descending) * `reserved_resources_record` - Reserved resources record * `-reserved_resources_record` - Reserved resources record (descending) * `versions` - Versions * `-versions` - Versions (descending) * `pk` - Pk * `-pk` - Pk (descending)
+        :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `state` - State * `-state` - State (descending) * `name` - Name * `-name` - Name (descending) * `logging_cid` - Logging cid * `-logging_cid` - Logging cid (descending) * `unblocked_at` - Unblocked at * `-unblocked_at` - Unblocked at (descending) * `started_at` - Started at * `-started_at` - Started at (descending) * `finished_at` - Finished at * `-finished_at` - Finished at (descending) * `error` - Error * `-error` - Error (descending) * `enc_args` - Enc args * `-enc_args` - Enc args (descending) * `enc_kwargs` - Enc kwargs * `-enc_kwargs` - Enc kwargs (descending) * `reserved_resources_record` - Reserved resources record * `-reserved_resources_record` - Reserved resources record (descending) * `versions` - Versions * `-versions` - Versions (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param str parent_task: Filter results where parent_task matches value
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str q:
         :param str reserved_resources:
         :param list[str] reserved_resources__in: Multiple values may be separated by commas.
-        :param list[str] reserved_resources_record:
         :param str shared_resources:
         :param list[str] shared_resources__in: Multiple values may be separated by commas.
         :param datetime started_at: Filter results where started_at matches value
@@ -439,7 +437,6 @@ class TasksApi(object):
             'q',
             'reserved_resources',
             'reserved_resources__in',
-            'reserved_resources_record',
             'shared_resources',
             'shared_resources__in',
             'started_at',
@@ -544,9 +541,6 @@ class TasksApi(object):
         if 'reserved_resources__in' in local_var_params and local_var_params['reserved_resources__in'] is not None:  # noqa: E501
             query_params.append(('reserved_resources__in', local_var_params['reserved_resources__in']))  # noqa: E501
             collection_formats['reserved_resources__in'] = 'csv'  # noqa: E501
-        if 'reserved_resources_record' in local_var_params and local_var_params['reserved_resources_record'] is not None:  # noqa: E501
-            query_params.append(('reserved_resources_record', local_var_params['reserved_resources_record']))  # noqa: E501
-            collection_formats['reserved_resources_record'] = 'multi'  # noqa: E501
         if 'shared_resources' in local_var_params and local_var_params['shared_resources'] is not None:  # noqa: E501
             query_params.append(('shared_resources', local_var_params['shared_resources']))  # noqa: E501
         if 'shared_resources__in' in local_var_params and local_var_params['shared_resources__in'] is not None:  # noqa: E501

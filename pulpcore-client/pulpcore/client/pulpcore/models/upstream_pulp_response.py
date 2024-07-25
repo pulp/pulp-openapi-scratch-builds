@@ -36,6 +36,7 @@ class UpstreamPulpResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'name': 'str',
         'base_url': 'str',
         'api_root': 'str',
@@ -43,7 +44,6 @@ class UpstreamPulpResponse(object):
         'ca_cert': 'str',
         'client_cert': 'str',
         'tls_validation': 'bool',
-        'pulp_last_updated': 'datetime',
         'hidden_fields': 'list[RemoteResponseHiddenFields]',
         'pulp_label_select': 'str'
     }
@@ -51,6 +51,7 @@ class UpstreamPulpResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'name': 'name',
         'base_url': 'base_url',
         'api_root': 'api_root',
@@ -58,12 +59,11 @@ class UpstreamPulpResponse(object):
         'ca_cert': 'ca_cert',
         'client_cert': 'client_cert',
         'tls_validation': 'tls_validation',
-        'pulp_last_updated': 'pulp_last_updated',
         'hidden_fields': 'hidden_fields',
         'pulp_label_select': 'pulp_label_select'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, name=None, base_url=None, api_root=None, domain=None, ca_cert=None, client_cert=None, tls_validation=None, pulp_last_updated=None, hidden_fields=None, pulp_label_select=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, name=None, base_url=None, api_root=None, domain=None, ca_cert=None, client_cert=None, tls_validation=None, hidden_fields=None, pulp_label_select=None, local_vars_configuration=None):  # noqa: E501
         """UpstreamPulpResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +71,7 @@ class UpstreamPulpResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._name = None
         self._base_url = None
         self._api_root = None
@@ -78,7 +79,6 @@ class UpstreamPulpResponse(object):
         self._ca_cert = None
         self._client_cert = None
         self._tls_validation = None
-        self._pulp_last_updated = None
         self._hidden_fields = None
         self._pulp_label_select = None
         self.discriminator = None
@@ -87,6 +87,8 @@ class UpstreamPulpResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         self.name = name
         self.base_url = base_url
         self.api_root = api_root
@@ -95,8 +97,6 @@ class UpstreamPulpResponse(object):
         self.client_cert = client_cert
         if tls_validation is not None:
             self.tls_validation = tls_validation
-        if pulp_last_updated is not None:
-            self.pulp_last_updated = pulp_last_updated
         if hidden_fields is not None:
             self.hidden_fields = hidden_fields
         self.pulp_label_select = pulp_label_select
@@ -144,6 +144,29 @@ class UpstreamPulpResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
+
+        Timestamp of the most recent update of the remote.  # noqa: E501
+
+        :return: The pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this UpstreamPulpResponse.
+
+        Timestamp of the most recent update of the remote.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def name(self):
@@ -311,29 +334,6 @@ class UpstreamPulpResponse(object):
         """
 
         self._tls_validation = tls_validation
-
-    @property
-    def pulp_last_updated(self):
-        """Gets the pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
-
-        Timestamp of the most recent update of the remote.  # noqa: E501
-
-        :return: The pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._pulp_last_updated
-
-    @pulp_last_updated.setter
-    def pulp_last_updated(self, pulp_last_updated):
-        """Sets the pulp_last_updated of this UpstreamPulpResponse.
-
-        Timestamp of the most recent update of the remote.  # noqa: E501
-
-        :param pulp_last_updated: The pulp_last_updated of this UpstreamPulpResponse.  # noqa: E501
-        :type: datetime
-        """
-
-        self._pulp_last_updated = pulp_last_updated
 
     @property
     def hidden_fields(self):

@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.44.1"
+__version__ = "3.56.1"
 
 # import apis into sdk package
 from pulpcore.client.pulpcore.api.access_policies_api import AccessPoliciesApi
@@ -39,6 +39,7 @@ from pulpcore.client.pulpcore.api.groups_users_api import GroupsUsersApi
 from pulpcore.client.pulpcore.api.importers_pulp_api import ImportersPulpApi
 from pulpcore.client.pulpcore.api.importers_pulp_import_check_api import ImportersPulpImportCheckApi
 from pulpcore.client.pulpcore.api.importers_pulp_imports_api import ImportersPulpImportsApi
+from pulpcore.client.pulpcore.api.livez_api import LivezApi
 from pulpcore.client.pulpcore.api.orphans_api import OrphansApi
 from pulpcore.client.pulpcore.api.orphans_cleanup_api import OrphansCleanupApi
 from pulpcore.client.pulpcore.api.publications_api import PublicationsApi

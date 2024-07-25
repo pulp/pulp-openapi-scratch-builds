@@ -39,13 +39,14 @@ class TestPulpExportResponse(unittest.TestCase):
             return PulpExportResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 task = '0', 
                 exported_resources = [
                     '0'
                     ], 
-                params = pulpcore.client.pulpcore.models.params.params(), 
-                output_file_info = pulpcore.client.pulpcore.models.output_file_info.output_file_info(), 
-                toc_info = pulpcore.client.pulpcore.models.toc_info.toc_info()
+                params = null, 
+                output_file_info = null, 
+                toc_info = null
             )
         else :
             return PulpExportResponse(

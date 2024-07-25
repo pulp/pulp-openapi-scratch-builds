@@ -36,6 +36,7 @@ class DomainResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'name': 'str',
         'description': 'str',
         'storage_class': 'StorageClassEnum',
@@ -47,6 +48,7 @@ class DomainResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'name': 'name',
         'description': 'description',
         'storage_class': 'storage_class',
@@ -55,7 +57,7 @@ class DomainResponse(object):
         'hide_guarded_distributions': 'hide_guarded_distributions'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, name=None, description=None, storage_class=None, storage_settings=None, redirect_to_object_storage=True, hide_guarded_distributions=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, name=None, description=None, storage_class=None, storage_settings=None, redirect_to_object_storage=True, hide_guarded_distributions=False, local_vars_configuration=None):  # noqa: E501
         """DomainResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class DomainResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._name = None
         self._description = None
         self._storage_class = None
@@ -75,6 +78,8 @@ class DomainResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         self.name = name
         self.description = description
         self.storage_class = storage_class
@@ -129,6 +134,29 @@ class DomainResponse(object):
         self._pulp_created = pulp_created
 
     @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this DomainResponse.  # noqa: E501
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :return: The pulp_last_updated of this DomainResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this DomainResponse.
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this DomainResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
+
+    @property
     def name(self):
         """Gets the name of this DomainResponse.  # noqa: E501
 
@@ -150,6 +178,9 @@ class DomainResponse(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 50):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `50`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and not re.search(r'^[-a-zA-Z0-9_]+$', name)):  # noqa: E501
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501

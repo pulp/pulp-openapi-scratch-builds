@@ -39,7 +39,8 @@ class TestRpmUpdateRecord(unittest.TestCase):
             return RpmUpdateRecord(
                 repository = '0', 
                 file = bytes(b'blah'), 
-                upload = '0'
+                upload = '0', 
+                file_url = '0'
             )
         else :
             return RpmUpdateRecord(

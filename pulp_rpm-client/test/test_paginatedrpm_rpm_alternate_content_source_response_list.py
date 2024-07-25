@@ -44,6 +44,7 @@ class TestPaginatedrpmRpmAlternateContentSourceResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/rpm_alternate_content_source_response.rpm.RpmAlternateContentSourceResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         last_refreshed = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         paths = [
@@ -54,6 +55,19 @@ class TestPaginatedrpmRpmAlternateContentSourceResponseList(unittest.TestCase):
             )
         else :
             return PaginatedrpmRpmAlternateContentSourceResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/rpm_alternate_content_source_response.rpm.RpmAlternateContentSourceResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        last_refreshed = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        paths = [
+                            '0'
+                            ], 
+                        remote = '0', )
+                    ],
         )
 
     def testPaginatedrpmRpmAlternateContentSourceResponseList(self):

@@ -65,6 +65,29 @@ class TestPaginatedUserResponseList(unittest.TestCase):
             )
         else :
             return PaginatedUserResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.user_response.UserResponse(
+                        pulp_href = '0', 
+                        id = 56, 
+                        username = '0', 
+                        first_name = '0', 
+                        last_name = '0', 
+                        email = '0', 
+                        is_staff = True, 
+                        is_active = True, 
+                        date_joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        groups = [
+                            pulpcore.client.pulpcore.models.user_group_response.UserGroupResponse(
+                                name = '0', 
+                                pulp_href = '0', )
+                            ], 
+                        hidden_fields = [
+                            pulpcore.client.pulpcore.models.remote_response_hidden_fields.RemoteResponse_hidden_fields(
+                                name = '0', 
+                                is_set = True, )
+                            ], )
+                    ],
         )
 
     def testPaginatedUserResponseList(self):

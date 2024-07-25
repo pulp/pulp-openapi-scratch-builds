@@ -44,6 +44,7 @@ class TestPaginatedfileFileAlternateContentSourceResponseList(unittest.TestCase)
                     pulpcore.client.pulp_file.models.file/file_alternate_content_source_response.file.FileAlternateContentSourceResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         last_refreshed = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         paths = [
@@ -54,6 +55,19 @@ class TestPaginatedfileFileAlternateContentSourceResponseList(unittest.TestCase)
             )
         else :
             return PaginatedfileFileAlternateContentSourceResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_file.models.file/file_alternate_content_source_response.file.FileAlternateContentSourceResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        last_refreshed = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        paths = [
+                            '0'
+                            ], 
+                        remote = '0', )
+                    ],
         )
 
     def testPaginatedfileFileAlternateContentSourceResponseList(self):

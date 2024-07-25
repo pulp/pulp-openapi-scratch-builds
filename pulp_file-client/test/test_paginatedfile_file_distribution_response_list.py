@@ -44,6 +44,7 @@ class TestPaginatedfileFileDistributionResponseList(unittest.TestCase):
                     pulpcore.client.pulp_file.models.file/file_distribution_response.file.FileDistributionResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         base_path = '0', 
                         base_url = '0', 
                         content_guard = '0', 
@@ -58,6 +59,23 @@ class TestPaginatedfileFileDistributionResponseList(unittest.TestCase):
             )
         else :
             return PaginatedfileFileDistributionResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_file.models.file/file_distribution_response.file.FileDistributionResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        base_path = '0', 
+                        base_url = '0', 
+                        content_guard = '0', 
+                        hidden = True, 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
+                        name = '0', 
+                        repository = '0', 
+                        publication = '0', )
+                    ],
         )
 
     def testPaginatedfileFileDistributionResponseList(self):

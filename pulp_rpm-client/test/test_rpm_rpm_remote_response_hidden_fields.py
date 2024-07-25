@@ -42,6 +42,8 @@ class TestRpmRpmRemoteResponseHiddenFields(unittest.TestCase):
             )
         else :
             return RpmRpmRemoteResponseHiddenFields(
+                name = '0',
+                is_set = True,
         )
 
     def testRpmRpmRemoteResponseHiddenFields(self):

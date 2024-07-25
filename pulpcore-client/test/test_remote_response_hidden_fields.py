@@ -42,6 +42,8 @@ class TestRemoteResponseHiddenFields(unittest.TestCase):
             )
         else :
             return RemoteResponseHiddenFields(
+                name = '0',
+                is_set = True,
         )
 
     def testRemoteResponseHiddenFields(self):

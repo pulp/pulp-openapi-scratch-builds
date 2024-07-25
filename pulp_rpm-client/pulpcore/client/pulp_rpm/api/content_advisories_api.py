@@ -51,6 +51,7 @@ class ContentAdvisoriesApi(object):
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param file file: An uploaded file that may be turned into the content unit.
         :param str upload: An uncommitted upload that may be turned into the content unit.
+        :param str file_url: A url that Pulp can download and turn into the content unit.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -79,6 +80,7 @@ class ContentAdvisoriesApi(object):
         :param str repository: A URI of a repository the new content unit should be associated with.
         :param file file: An uploaded file that may be turned into the content unit.
         :param str upload: An uncommitted upload that may be turned into the content unit.
+        :param str file_url: A url that Pulp can download and turn into the content unit.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -99,7 +101,8 @@ class ContentAdvisoriesApi(object):
             'pulp_domain',
             'repository',
             'file',
-            'upload'
+            'upload',
+            'file_url'
         ]
         all_params.extend(
             [
@@ -123,6 +126,9 @@ class ContentAdvisoriesApi(object):
                                                         local_var_params['pulp_domain'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pulp_domain` when calling `create`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('file_url' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['file_url']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `file_url` when calling `create`, length must be greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -141,6 +147,8 @@ class ContentAdvisoriesApi(object):
             local_var_files['file'] = local_var_params['file']  # noqa: E501
         if 'upload' in local_var_params:
             form_params.append(('upload', local_var_params['upload']))  # noqa: E501
+        if 'file_url' in local_var_params:
+            form_params.append(('file_url', local_var_params['file_url']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -186,6 +194,7 @@ class ContentAdvisoriesApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `id` - Id * `-id` - Id (descending) * `updated_date` - Updated date * `-updated_date` - Updated date (descending) * `description` - Description * `-description` - Description (descending) * `issued_date` - Issued date * `-issued_date` - Issued date (descending) * `fromstr` - Fromstr * `-fromstr` - Fromstr (descending) * `status` - Status * `-status` - Status (descending) * `title` - Title * `-title` - Title (descending) * `summary` - Summary * `-summary` - Summary (descending) * `version` - Version * `-version` - Version (descending) * `type` - Type * `-type` - Type (descending) * `severity` - Severity * `-severity` - Severity (descending) * `solution` - Solution * `-solution` - Solution (descending) * `release` - Release * `-release` - Release (descending) * `rights` - Rights * `-rights` - Rights (descending) * `reboot_suggested` - Reboot suggested * `-reboot_suggested` - Reboot suggested (descending) * `pushcount` - Pushcount * `-pushcount` - Pushcount (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending)
+        :param float orphaned_for: Minutes Content has been orphaned for. -1 uses ORPHAN_PROTECTION_TIME.
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str q:
@@ -233,6 +242,7 @@ class ContentAdvisoriesApi(object):
         :param int limit: Number of results to return per page.
         :param int offset: The initial index from which to return the results.
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `id` - Id * `-id` - Id (descending) * `updated_date` - Updated date * `-updated_date` - Updated date (descending) * `description` - Description * `-description` - Description (descending) * `issued_date` - Issued date * `-issued_date` - Issued date (descending) * `fromstr` - Fromstr * `-fromstr` - Fromstr (descending) * `status` - Status * `-status` - Status (descending) * `title` - Title * `-title` - Title (descending) * `summary` - Summary * `-summary` - Summary (descending) * `version` - Version * `-version` - Version (descending) * `type` - Type * `-type` - Type (descending) * `severity` - Severity * `-severity` - Severity (descending) * `solution` - Solution * `-solution` - Solution (descending) * `release` - Release * `-release` - Release (descending) * `rights` - Rights * `-rights` - Rights (descending) * `reboot_suggested` - Reboot suggested * `-reboot_suggested` - Reboot suggested (descending) * `pushcount` - Pushcount * `-pushcount` - Pushcount (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending)
+        :param float orphaned_for: Minutes Content has been orphaned for. -1 uses ORPHAN_PROTECTION_TIME.
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
         :param str q:
@@ -273,6 +283,7 @@ class ContentAdvisoriesApi(object):
             'limit',
             'offset',
             'ordering',
+            'orphaned_for',
             'pulp_href__in',
             'pulp_id__in',
             'q',
@@ -332,6 +343,8 @@ class ContentAdvisoriesApi(object):
         if 'ordering' in local_var_params and local_var_params['ordering'] is not None:  # noqa: E501
             query_params.append(('ordering', local_var_params['ordering']))  # noqa: E501
             collection_formats['ordering'] = 'csv'  # noqa: E501
+        if 'orphaned_for' in local_var_params and local_var_params['orphaned_for'] is not None:  # noqa: E501
+            query_params.append(('orphaned_for', local_var_params['orphaned_for']))  # noqa: E501
         if 'pulp_href__in' in local_var_params and local_var_params['pulp_href__in'] is not None:  # noqa: E501
             query_params.append(('pulp_href__in', local_var_params['pulp_href__in']))  # noqa: E501
             collection_formats['pulp_href__in'] = 'csv'  # noqa: E501

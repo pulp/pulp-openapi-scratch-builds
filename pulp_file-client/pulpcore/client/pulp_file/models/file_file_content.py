@@ -38,7 +38,8 @@ class FileFileContent(object):
         'artifact': 'str',
         'relative_path': 'str',
         'file': 'file',
-        'upload': 'str'
+        'upload': 'str',
+        'file_url': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class FileFileContent(object):
         'artifact': 'artifact',
         'relative_path': 'relative_path',
         'file': 'file',
-        'upload': 'upload'
+        'upload': 'upload',
+        'file_url': 'file_url'
     }
 
-    def __init__(self, repository=None, artifact=None, relative_path=None, file=None, upload=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, repository=None, artifact=None, relative_path=None, file=None, upload=None, file_url=None, local_vars_configuration=None):  # noqa: E501
         """FileFileContent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class FileFileContent(object):
         self._relative_path = None
         self._file = None
         self._upload = None
+        self._file_url = None
         self.discriminator = None
 
         if repository is not None:
@@ -71,6 +74,8 @@ class FileFileContent(object):
             self.file = file
         if upload is not None:
             self.upload = upload
+        if file_url is not None:
+            self.file_url = file_url
 
     @property
     def repository(self):
@@ -191,6 +196,32 @@ class FileFileContent(object):
         """
 
         self._upload = upload
+
+    @property
+    def file_url(self):
+        """Gets the file_url of this FileFileContent.  # noqa: E501
+
+        A url that Pulp can download and turn into the content unit.  # noqa: E501
+
+        :return: The file_url of this FileFileContent.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_url
+
+    @file_url.setter
+    def file_url(self, file_url):
+        """Sets the file_url of this FileFileContent.
+
+        A url that Pulp can download and turn into the content unit.  # noqa: E501
+
+        :param file_url: The file_url of this FileFileContent.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                file_url is not None and len(file_url) < 1):
+            raise ValueError("Invalid value for `file_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._file_url = file_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

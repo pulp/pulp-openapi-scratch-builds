@@ -44,7 +44,7 @@ class TestRpmRpmPublication(unittest.TestCase):
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                repo_config = None, 
+                repo_config = null, 
                 compression_type = null
             )
         else :

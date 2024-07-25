@@ -39,6 +39,7 @@ class TestTaskScheduleResponse(unittest.TestCase):
             return TaskScheduleResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 name = '0', 
                 task_name = '0', 
                 dispatch_interval = '0', 

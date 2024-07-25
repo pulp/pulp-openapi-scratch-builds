@@ -71,8 +71,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 remote = 'remote_example' # str | Foreign Key referenced by HREF (optional)
 retain_repo_versions = 56 # int | Filter results where retain_repo_versions matches value (optional)
@@ -150,8 +150,8 @@ ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * 
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_label_select = 'pulp_label_select_example' # str | Filter labels by search string (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 remote = 'remote_example' # str | Foreign Key referenced by HREF (optional)
 retain_repo_versions = 56 # int | Filter results where retain_repo_versions matches value (optional)
@@ -195,8 +195,8 @@ Name | Type | Description  | Notes
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_label_select** | **str**| Filter labels by search string | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **remote** | [**str**](.md)| Foreign Key referenced by HREF | [optional] 
  **retain_repo_versions** | **int**| Filter results where retain_repo_versions matches value | [optional] 

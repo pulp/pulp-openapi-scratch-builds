@@ -40,14 +40,14 @@ class TestRpmModulemdDefaults(unittest.TestCase):
                 repository = '0', 
                 module = '0', 
                 stream = '0', 
-                profiles = None, 
+                profiles = null, 
                 snippet = '0'
             )
         else :
             return RpmModulemdDefaults(
                 module = '0',
                 stream = '0',
-                profiles = None,
+                profiles = null,
                 snippet = '0',
         )
 

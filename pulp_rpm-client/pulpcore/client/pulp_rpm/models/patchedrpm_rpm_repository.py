@@ -41,6 +41,8 @@ class PatchedrpmRpmRepository(object):
         'remote': 'str',
         'autopublish': 'bool',
         'metadata_signing_service': 'str',
+        'package_signing_service': 'str',
+        'package_signing_fingerprint': 'str',
         'retain_package_versions': 'int',
         'checksum_type': 'PackageChecksumTypeEnum',
         'metadata_checksum_type': 'PackageChecksumTypeEnum',
@@ -59,6 +61,8 @@ class PatchedrpmRpmRepository(object):
         'remote': 'remote',
         'autopublish': 'autopublish',
         'metadata_signing_service': 'metadata_signing_service',
+        'package_signing_service': 'package_signing_service',
+        'package_signing_fingerprint': 'package_signing_fingerprint',
         'retain_package_versions': 'retain_package_versions',
         'checksum_type': 'checksum_type',
         'metadata_checksum_type': 'metadata_checksum_type',
@@ -69,7 +73,7 @@ class PatchedrpmRpmRepository(object):
         'compression_type': 'compression_type'
     }
 
-    def __init__(self, pulp_labels=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, retain_package_versions=None, checksum_type=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, repo_config=None, compression_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_labels=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, package_signing_service=None, package_signing_fingerprint='', retain_package_versions=None, checksum_type=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, repo_config=None, compression_type=None, local_vars_configuration=None):  # noqa: E501
         """PatchedrpmRpmRepository - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +86,8 @@ class PatchedrpmRpmRepository(object):
         self._remote = None
         self._autopublish = None
         self._metadata_signing_service = None
+        self._package_signing_service = None
+        self._package_signing_fingerprint = None
         self._retain_package_versions = None
         self._checksum_type = None
         self._metadata_checksum_type = None
@@ -102,6 +108,9 @@ class PatchedrpmRpmRepository(object):
         if autopublish is not None:
             self.autopublish = autopublish
         self.metadata_signing_service = metadata_signing_service
+        self.package_signing_service = package_signing_service
+        if package_signing_fingerprint is not None:
+            self.package_signing_fingerprint = package_signing_fingerprint
         if retain_package_versions is not None:
             self.retain_package_versions = retain_package_versions
         self.checksum_type = checksum_type
@@ -280,6 +289,55 @@ class PatchedrpmRpmRepository(object):
         """
 
         self._metadata_signing_service = metadata_signing_service
+
+    @property
+    def package_signing_service(self):
+        """Gets the package_signing_service of this PatchedrpmRpmRepository.  # noqa: E501
+
+        A reference to an associated package signing service.  # noqa: E501
+
+        :return: The package_signing_service of this PatchedrpmRpmRepository.  # noqa: E501
+        :rtype: str
+        """
+        return self._package_signing_service
+
+    @package_signing_service.setter
+    def package_signing_service(self, package_signing_service):
+        """Sets the package_signing_service of this PatchedrpmRpmRepository.
+
+        A reference to an associated package signing service.  # noqa: E501
+
+        :param package_signing_service: The package_signing_service of this PatchedrpmRpmRepository.  # noqa: E501
+        :type: str
+        """
+
+        self._package_signing_service = package_signing_service
+
+    @property
+    def package_signing_fingerprint(self):
+        """Gets the package_signing_fingerprint of this PatchedrpmRpmRepository.  # noqa: E501
+
+        The pubkey V4 fingerprint (160 bits) to be passed to the package signing service.The signing service will use that on signing operations related to this repository.  # noqa: E501
+
+        :return: The package_signing_fingerprint of this PatchedrpmRpmRepository.  # noqa: E501
+        :rtype: str
+        """
+        return self._package_signing_fingerprint
+
+    @package_signing_fingerprint.setter
+    def package_signing_fingerprint(self, package_signing_fingerprint):
+        """Sets the package_signing_fingerprint of this PatchedrpmRpmRepository.
+
+        The pubkey V4 fingerprint (160 bits) to be passed to the package signing service.The signing service will use that on signing operations related to this repository.  # noqa: E501
+
+        :param package_signing_fingerprint: The package_signing_fingerprint of this PatchedrpmRpmRepository.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                package_signing_fingerprint is not None and len(package_signing_fingerprint) > 40):
+            raise ValueError("Invalid value for `package_signing_fingerprint`, length must be less than or equal to `40`")  # noqa: E501
+
+        self._package_signing_fingerprint = package_signing_fingerprint
 
     @property
     def retain_package_versions(self):

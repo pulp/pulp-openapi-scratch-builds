@@ -44,6 +44,7 @@ class TestPaginatedRBACContentGuardResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.rbac_content_guard_response.RBACContentGuardResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         description = '0', 
                         users = [
@@ -61,6 +62,26 @@ class TestPaginatedRBACContentGuardResponseList(unittest.TestCase):
             )
         else :
             return PaginatedRBACContentGuardResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.rbac_content_guard_response.RBACContentGuardResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        description = '0', 
+                        users = [
+                            pulpcore.client.pulpcore.models.group_user_response.GroupUserResponse(
+                                username = '0', 
+                                pulp_href = '0', )
+                            ], 
+                        groups = [
+                            pulpcore.client.pulpcore.models.group_response.GroupResponse(
+                                name = '0', 
+                                pulp_href = '0', 
+                                id = 56, )
+                            ], )
+                    ],
         )
 
     def testPaginatedRBACContentGuardResponseList(self):

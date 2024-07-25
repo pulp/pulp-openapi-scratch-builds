@@ -44,6 +44,7 @@ class TestPaginatedrpmUpdateRecordResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/update_record_response.rpm.UpdateRecordResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         id = '0', 
                         updated_date = '0', 
                         description = '0', 
@@ -63,7 +64,7 @@ class TestPaginatedrpmUpdateRecordResponseList(unittest.TestCase):
                             pulpcore.client.pulp_rpm.models.rpm/update_collection_response.rpm.UpdateCollectionResponse(
                                 name = '0', 
                                 shortname = '0', 
-                                module = pulpcore.client.pulp_rpm.models.module.module(), 
+                                module = null, 
                                 packages = [
                                     None
                                     ], )
@@ -76,6 +77,41 @@ class TestPaginatedrpmUpdateRecordResponseList(unittest.TestCase):
             )
         else :
             return PaginatedrpmUpdateRecordResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/update_record_response.rpm.UpdateRecordResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        id = '0', 
+                        updated_date = '0', 
+                        description = '0', 
+                        issued_date = '0', 
+                        fromstr = '0', 
+                        status = '0', 
+                        title = '0', 
+                        summary = '0', 
+                        version = '0', 
+                        type = '0', 
+                        severity = '0', 
+                        solution = '0', 
+                        release = '0', 
+                        rights = '0', 
+                        pushcount = '0', 
+                        pkglist = [
+                            pulpcore.client.pulp_rpm.models.rpm/update_collection_response.rpm.UpdateCollectionResponse(
+                                name = '0', 
+                                shortname = '0', 
+                                module = null, 
+                                packages = [
+                                    None
+                                    ], )
+                            ], 
+                        references = [
+                            None
+                            ], 
+                        reboot_suggested = True, )
+                    ],
         )
 
     def testPaginatedrpmUpdateRecordResponseList(self):

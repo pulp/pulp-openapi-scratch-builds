@@ -39,12 +39,13 @@ class TestRpmPackageLangpacksResponse(unittest.TestCase):
             return RpmPackageLangpacksResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                matches = pulpcore.client.pulp_rpm.models.matches.matches(), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                matches = null, 
                 digest = '0'
             )
         else :
             return RpmPackageLangpacksResponse(
-                matches = pulpcore.client.pulp_rpm.models.matches.matches(),
+                matches = null,
                 digest = '0',
         )
 

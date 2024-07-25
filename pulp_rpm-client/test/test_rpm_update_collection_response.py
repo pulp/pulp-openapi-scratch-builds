@@ -39,7 +39,7 @@ class TestRpmUpdateCollectionResponse(unittest.TestCase):
             return RpmUpdateCollectionResponse(
                 name = '0', 
                 shortname = '0', 
-                module = pulpcore.client.pulp_rpm.models.module.module(), 
+                module = null, 
                 packages = [
                     None
                     ]
@@ -48,7 +48,7 @@ class TestRpmUpdateCollectionResponse(unittest.TestCase):
             return RpmUpdateCollectionResponse(
                 name = '0',
                 shortname = '0',
-                module = pulpcore.client.pulp_rpm.models.module.module(),
+                module = null,
         )
 
     def testRpmUpdateCollectionResponse(self):

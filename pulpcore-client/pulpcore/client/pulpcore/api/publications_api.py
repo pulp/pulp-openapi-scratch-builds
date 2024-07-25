@@ -61,8 +61,8 @@ class PublicationsApi(object):
         :param list[datetime] pulp_created__range: Filter results where pulp_created is between two comma separated values
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Repository referenced by HREF
         :param str repository_version: Repository Version referenced by HREF
@@ -106,8 +106,8 @@ class PublicationsApi(object):
         :param list[datetime] pulp_created__range: Filter results where pulp_created is between two comma separated values
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file
         :param str q:
         :param str repository: Repository referenced by HREF
         :param str repository_version: Repository Version referenced by HREF

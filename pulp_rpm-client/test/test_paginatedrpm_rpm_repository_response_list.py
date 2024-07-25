@@ -44,6 +44,7 @@ class TestPaginatedrpmRpmRepositoryResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/rpm_repository_response.rpm.RpmRepositoryResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         versions_href = '0', 
                         pulp_labels = {
                             'key' : '0'
@@ -55,6 +56,8 @@ class TestPaginatedrpmRpmRepositoryResponseList(unittest.TestCase):
                         remote = '0', 
                         autopublish = True, 
                         metadata_signing_service = '0', 
+                        package_signing_service = '0', 
+                        package_signing_fingerprint = '0', 
                         retain_package_versions = 0, 
                         checksum_type = null, 
                         metadata_checksum_type = null, 
@@ -62,12 +65,41 @@ class TestPaginatedrpmRpmRepositoryResponseList(unittest.TestCase):
                         gpgcheck = 0, 
                         repo_gpgcheck = 0, 
                         sqlite_metadata = True, 
-                        repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config(), 
+                        repo_config = null, 
                         compression_type = null, )
                     ]
             )
         else :
             return PaginatedrpmRpmRepositoryResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/rpm_repository_response.rpm.RpmRepositoryResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions_href = '0', 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
+                        latest_version_href = '0', 
+                        name = '0', 
+                        description = '0', 
+                        retain_repo_versions = 1, 
+                        remote = '0', 
+                        autopublish = True, 
+                        metadata_signing_service = '0', 
+                        package_signing_service = '0', 
+                        package_signing_fingerprint = '0', 
+                        retain_package_versions = 0, 
+                        checksum_type = null, 
+                        metadata_checksum_type = null, 
+                        package_checksum_type = null, 
+                        gpgcheck = 0, 
+                        repo_gpgcheck = 0, 
+                        sqlite_metadata = True, 
+                        repo_config = null, 
+                        compression_type = null, )
+                    ],
         )
 
     def testPaginatedrpmRpmRepositoryResponseList(self):

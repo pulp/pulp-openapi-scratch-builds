@@ -68,8 +68,8 @@ pulp_created__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results wher
 pulp_created__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_created is between two comma separated values (optional)
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Repository referenced by HREF (optional)
 repository_version = 'repository_version_example' # str | Repository Version referenced by HREF (optional)
@@ -136,8 +136,8 @@ pulp_created__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results wher
 pulp_created__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_created is between two comma separated values (optional)
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `rpm.rpm` - rpm.rpm * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 repository = 'repository_example' # str | Repository referenced by HREF (optional)
 repository_version = 'repository_version_example' # str | Repository Version referenced by HREF (optional)
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
  **pulp_created__range** | [**list[datetime]**](datetime.md)| Filter results where pulp_created is between two comma separated values | [optional] 
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **repository** | **str**| Repository referenced by HREF | [optional] 
  **repository_version** | [**str**](.md)| Repository Version referenced by HREF | [optional] 

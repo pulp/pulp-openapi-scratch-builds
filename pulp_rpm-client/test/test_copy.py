@@ -37,12 +37,12 @@ class TestCopy(unittest.TestCase):
         # model = pulpcore.client.pulp_rpm.models.copy.Copy()  # noqa: E501
         if include_optional :
             return Copy(
-                config = None, 
+                config = null, 
                 dependency_solving = True
             )
         else :
             return Copy(
-                config = None,
+                config = null,
         )
 
     def testCopy(self):

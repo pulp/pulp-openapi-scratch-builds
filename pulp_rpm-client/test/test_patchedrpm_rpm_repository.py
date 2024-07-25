@@ -46,13 +46,15 @@ class TestPatchedrpmRpmRepository(unittest.TestCase):
                 remote = '0', 
                 autopublish = True, 
                 metadata_signing_service = '0', 
+                package_signing_service = '0', 
+                package_signing_fingerprint = '0', 
                 retain_package_versions = 0, 
                 checksum_type = null, 
                 metadata_checksum_type = null, 
                 package_checksum_type = null, 
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
-                repo_config = None, 
+                repo_config = null, 
                 compression_type = null
             )
         else :

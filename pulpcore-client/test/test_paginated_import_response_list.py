@@ -44,12 +44,22 @@ class TestPaginatedImportResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.import_response.ImportResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         task = '0', 
-                        params = pulpcore.client.pulpcore.models.params.params(), )
+                        params = null, )
                     ]
             )
         else :
             return PaginatedImportResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.import_response.ImportResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        task = '0', 
+                        params = null, )
+                    ],
         )
 
     def testPaginatedImportResponseList(self):

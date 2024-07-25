@@ -44,14 +44,16 @@ class TestPaginatedTaskResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.task_response.TaskResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         state = '0', 
                         name = '0', 
                         logging_cid = '0', 
                         created_by = '0', 
+                        unblocked_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         error = {
-                            'key' : None
+                            'key' : null
                             }, 
                         worker = '0', 
                         parent_task = '0', 
@@ -78,6 +80,44 @@ class TestPaginatedTaskResponseList(unittest.TestCase):
             )
         else :
             return PaginatedTaskResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.task_response.TaskResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        state = '0', 
+                        name = '0', 
+                        logging_cid = '0', 
+                        created_by = '0', 
+                        unblocked_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        error = {
+                            'key' : null
+                            }, 
+                        worker = '0', 
+                        parent_task = '0', 
+                        child_tasks = [
+                            '0'
+                            ], 
+                        task_group = '0', 
+                        progress_reports = [
+                            pulpcore.client.pulpcore.models.progress_report_response.ProgressReportResponse(
+                                message = '0', 
+                                code = '0', 
+                                state = '0', 
+                                total = 56, 
+                                done = 56, 
+                                suffix = '0', )
+                            ], 
+                        created_resources = [
+                            '0'
+                            ], 
+                        reserved_resources_record = [
+                            '0'
+                            ], )
+                    ],
         )
 
     def testPaginatedTaskResponseList(self):

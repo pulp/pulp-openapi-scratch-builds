@@ -94,6 +94,58 @@ class TestPaginatedrpmDistributionTreeResponseList(unittest.TestCase):
             )
         else :
             return PaginatedrpmDistributionTreeResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/distribution_tree_response.rpm.DistributionTreeResponse(
+                        pulp_href = '0', 
+                        header_version = '0', 
+                        release_name = '0', 
+                        release_short = '0', 
+                        release_version = '0', 
+                        release_is_layered = True, 
+                        base_product_name = '0', 
+                        base_product_short = '0', 
+                        base_product_version = '0', 
+                        arch = '0', 
+                        build_timestamp = 1.337, 
+                        instimage = '0', 
+                        mainimage = '0', 
+                        discnum = 56, 
+                        totaldiscs = 56, 
+                        addons = [
+                            pulpcore.client.pulp_rpm.models.addon_response.AddonResponse(
+                                addon_id = '0', 
+                                uid = '0', 
+                                name = '0', 
+                                type = '0', 
+                                packages = '0', )
+                            ], 
+                        checksums = [
+                            pulpcore.client.pulp_rpm.models.checksum_response.ChecksumResponse(
+                                path = '0', 
+                                checksum = '0', )
+                            ], 
+                        images = [
+                            pulpcore.client.pulp_rpm.models.image_response.ImageResponse(
+                                name = '0', 
+                                path = '0', 
+                                platforms = '0', 
+                                artifact = null, )
+                            ], 
+                        variants = [
+                            pulpcore.client.pulp_rpm.models.variant_response.VariantResponse(
+                                variant_id = '0', 
+                                uid = '0', 
+                                name = '0', 
+                                type = '0', 
+                                packages = '0', 
+                                source_packages = '0', 
+                                source_repository = '0', 
+                                debug_packages = '0', 
+                                debug_repository = '0', 
+                                identity = '0', )
+                            ], )
+                    ],
         )
 
     def testPaginatedrpmDistributionTreeResponseList(self):

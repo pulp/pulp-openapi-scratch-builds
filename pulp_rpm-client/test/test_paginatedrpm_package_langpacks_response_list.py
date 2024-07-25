@@ -44,12 +44,22 @@ class TestPaginatedrpmPackageLangpacksResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/package_langpacks_response.rpm.PackageLangpacksResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        matches = pulpcore.client.pulp_rpm.models.matches.matches(), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        matches = null, 
                         digest = '0', )
                     ]
             )
         else :
             return PaginatedrpmPackageLangpacksResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/package_langpacks_response.rpm.PackageLangpacksResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        matches = null, 
+                        digest = '0', )
+                    ],
         )
 
     def testPaginatedrpmPackageLangpacksResponseList(self):

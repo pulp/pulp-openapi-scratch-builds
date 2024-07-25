@@ -36,6 +36,7 @@ class ImportResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'task': 'str',
         'params': 'object'
     }
@@ -43,11 +44,12 @@ class ImportResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'task': 'task',
         'params': 'params'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, task=None, params=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, task=None, params=None, local_vars_configuration=None):  # noqa: E501
         """ImportResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class ImportResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._task = None
         self._params = None
         self.discriminator = None
@@ -63,6 +66,8 @@ class ImportResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         self.task = task
         self.params = params
 
@@ -109,6 +114,29 @@ class ImportResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this ImportResponse.  # noqa: E501
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :return: The pulp_last_updated of this ImportResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this ImportResponse.
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this ImportResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def task(self):

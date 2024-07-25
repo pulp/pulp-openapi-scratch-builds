@@ -76,8 +76,8 @@ pulp_last_updated__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results
 pulp_last_updated__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than value (optional)
 pulp_last_updated__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than or equal to value (optional)
 pulp_last_updated__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_last_updated is between two comma separated values (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
 exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
@@ -150,8 +150,8 @@ pulp_last_updated__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results
 pulp_last_updated__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than value (optional)
 pulp_last_updated__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_last_updated is less than or equal to value (optional)
 pulp_last_updated__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_last_updated is between two comma separated values (optional)
-pulp_type = 'pulp_type_example' # str | Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
-pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type = 'pulp_type_example' # str | Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
+pulp_type__in = ['pulp_type__in_example'] # list[str] | Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file (optional)
 q = 'q_example' # str |  (optional)
 fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
 exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
@@ -190,8 +190,8 @@ Name | Type | Description  | Notes
  **pulp_last_updated__lt** | **datetime**| Filter results where pulp_last_updated is less than value | [optional] 
  **pulp_last_updated__lte** | **datetime**| Filter results where pulp_last_updated is less than or equal to value | [optional] 
  **pulp_last_updated__range** | [**list[datetime]**](datetime.md)| Filter results where pulp_last_updated is between two comma separated values | [optional] 
- **pulp_type** | **str**| Pulp type  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
- **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;gem.gem&#x60; - gem.gem * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type** | **str**| Pulp type  * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
+ **pulp_type__in** | [**list[str]**](str.md)| Multiple values may be separated by commas.  * &#x60;ostree.ostree&#x60; - ostree.ostree * &#x60;rpm.rpm&#x60; - rpm.rpm * &#x60;rpm.uln&#x60; - rpm.uln * &#x60;file.file&#x60; - file.file | [optional] 
  **q** | **str**|  | [optional] 
  **fields** | [**list[str]**](str.md)| A list of fields to include in the response. | [optional] 
  **exclude_fields** | [**list[str]**](str.md)| A list of fields to exclude from the response. | [optional] 

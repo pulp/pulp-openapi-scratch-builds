@@ -39,6 +39,7 @@ class TestRpmRpmRepositoryResponse(unittest.TestCase):
             return RpmRpmRepositoryResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 versions_href = '0', 
                 pulp_labels = {
                     'key' : '0'
@@ -50,6 +51,8 @@ class TestRpmRpmRepositoryResponse(unittest.TestCase):
                 remote = '0', 
                 autopublish = True, 
                 metadata_signing_service = '0', 
+                package_signing_service = '0', 
+                package_signing_fingerprint = '0', 
                 retain_package_versions = 0, 
                 checksum_type = null, 
                 metadata_checksum_type = null, 
@@ -57,7 +60,7 @@ class TestRpmRpmRepositoryResponse(unittest.TestCase):
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
                 sqlite_metadata = True, 
-                repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config(), 
+                repo_config = null, 
                 compression_type = null
             )
         else :

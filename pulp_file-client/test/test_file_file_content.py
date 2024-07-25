@@ -41,7 +41,8 @@ class TestFileFileContent(unittest.TestCase):
                 artifact = '0', 
                 relative_path = '0', 
                 file = bytes(b'blah'), 
-                upload = '0'
+                upload = '0', 
+                file_url = '0'
             )
         else :
             return FileFileContent(

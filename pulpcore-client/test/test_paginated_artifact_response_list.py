@@ -44,6 +44,7 @@ class TestPaginatedArtifactResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.artifact_response.ArtifactResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         file = '0', 
                         size = 56, 
                         md5 = '0', 
@@ -56,6 +57,21 @@ class TestPaginatedArtifactResponseList(unittest.TestCase):
             )
         else :
             return PaginatedArtifactResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.artifact_response.ArtifactResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        file = '0', 
+                        size = 56, 
+                        md5 = '0', 
+                        sha1 = '0', 
+                        sha224 = '0', 
+                        sha256 = '0', 
+                        sha384 = '0', 
+                        sha512 = '0', )
+                    ],
         )
 
     def testPaginatedArtifactResponseList(self):

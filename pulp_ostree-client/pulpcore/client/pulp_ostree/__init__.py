@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "2.3.0"
+__version__ = "2.4.3"
 
 # import apis into sdk package
 from pulpcore.client.pulp_ostree.api.content_commits_api import ContentCommitsApi

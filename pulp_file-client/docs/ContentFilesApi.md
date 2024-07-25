@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create**
-> AsyncOperationResponse create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload)
+> AsyncOperationResponse create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload, file_url=file_url)
 
 Create a file content
 
@@ -62,10 +62,11 @@ repository = 'repository_example' # str | A URI of a repository the new content 
 artifact = 'artifact_example' # str | Artifact file representing the physical content (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
 upload = 'upload_example' # str | An uncommitted upload that may be turned into the content unit. (optional)
+file_url = 'file_url_example' # str | A url that Pulp can download and turn into the content unit. (optional)
 
     try:
         # Create a file content
-        api_response = api_instance.create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload, file_url=file_url)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentFilesApi->create: %s\n" % e)
@@ -115,10 +116,11 @@ repository = 'repository_example' # str | A URI of a repository the new content 
 artifact = 'artifact_example' # str | Artifact file representing the physical content (optional)
 file = '/path/to/file' # file | An uploaded file that may be turned into the content unit. (optional)
 upload = 'upload_example' # str | An uncommitted upload that may be turned into the content unit. (optional)
+file_url = 'file_url_example' # str | A url that Pulp can download and turn into the content unit. (optional)
 
     try:
         # Create a file content
-        api_response = api_instance.create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload)
+        api_response = api_instance.create(pulp_domain, relative_path, repository=repository, artifact=artifact, file=file, upload=upload, file_url=file_url)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentFilesApi->create: %s\n" % e)
@@ -134,6 +136,7 @@ Name | Type | Description  | Notes
  **artifact** | **str**| Artifact file representing the physical content | [optional] 
  **file** | **file**| An uploaded file that may be turned into the content unit. | [optional] 
  **upload** | **str**| An uncommitted upload that may be turned into the content unit. | [optional] 
+ **file_url** | **str**| A url that Pulp can download and turn into the content unit. | [optional] 
 
 ### Return type
 
@@ -156,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedfileFileContentResponseList list(pulp_domain, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
+> PaginatedfileFileContentResponseList list(pulp_domain, limit=limit, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
 
 List file contents
 
@@ -206,6 +209,7 @@ with pulpcore.client.pulp_file.ApiClient(configuration) as api_client:
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `relative_path` - Relative path * `-relative_path` - Relative path (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
+orphaned_for = 3.4 # float | Minutes Content has been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. (optional)
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 q = 'q_example' # str |  (optional)
@@ -219,7 +223,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List file contents
-        api_response = api_instance.list(pulp_domain, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentFilesApi->list: %s\n" % e)
@@ -267,6 +271,7 @@ with pulpcore.client.pulp_file.ApiClient(configuration) as api_client:
 limit = 56 # int | Number of results to return per page. (optional)
 offset = 56 # int | The initial index from which to return the results. (optional)
 ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `upstream_id` - Upstream id * `-upstream_id` - Upstream id (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `relative_path` - Relative path * `-relative_path` - Relative path (descending) * `digest` - Digest * `-digest` - Digest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
+orphaned_for = 3.4 # float | Minutes Content has been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. (optional)
 pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
 q = 'q_example' # str |  (optional)
@@ -280,7 +285,7 @@ exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to ex
 
     try:
         # List file contents
-        api_response = api_instance.list(pulp_domain, limit=limit, offset=offset, ordering=ordering, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, relative_path=relative_path, repository_version=repository_version, repository_version_added=repository_version_added, repository_version_removed=repository_version_removed, sha256=sha256, fields=fields, exclude_fields=exclude_fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ContentFilesApi->list: %s\n" % e)
@@ -294,6 +299,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
  **ordering** | [**list[str]**](str.md)| Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;pulp_type&#x60; - Pulp type * &#x60;-pulp_type&#x60; - Pulp type (descending) * &#x60;upstream_id&#x60; - Upstream id * &#x60;-upstream_id&#x60; - Upstream id (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;relative_path&#x60; - Relative path * &#x60;-relative_path&#x60; - Relative path (descending) * &#x60;digest&#x60; - Digest * &#x60;-digest&#x60; - Digest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | [optional] 
+ **orphaned_for** | **float**| Minutes Content has been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. | [optional] 
  **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
  **q** | **str**|  | [optional] 

@@ -44,13 +44,13 @@ class TestRpmModulemd(unittest.TestCase):
                 static_context = True, 
                 context = '0', 
                 arch = '0', 
-                artifacts = None, 
-                dependencies = None, 
+                artifacts = null, 
+                dependencies = null, 
                 packages = [
                     '0'
                     ], 
                 snippet = '0', 
-                profiles = None, 
+                profiles = null, 
                 description = '0'
             )
         else :
@@ -60,10 +60,10 @@ class TestRpmModulemd(unittest.TestCase):
                 version = '0',
                 context = '0',
                 arch = '0',
-                artifacts = None,
-                dependencies = None,
+                artifacts = null,
+                dependencies = null,
                 snippet = '0',
-                profiles = None,
+                profiles = null,
                 description = '0',
         )
 

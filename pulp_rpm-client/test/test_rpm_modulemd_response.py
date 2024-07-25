@@ -39,18 +39,19 @@ class TestRpmModulemdResponse(unittest.TestCase):
             return RpmModulemdResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 name = '0', 
                 stream = '0', 
                 version = '0', 
                 static_context = True, 
                 context = '0', 
                 arch = '0', 
-                artifacts = pulpcore.client.pulp_rpm.models.artifacts.artifacts(), 
-                dependencies = pulpcore.client.pulp_rpm.models.dependencies.dependencies(), 
+                artifacts = null, 
+                dependencies = null, 
                 packages = [
                     '0'
                     ], 
-                profiles = pulpcore.client.pulp_rpm.models.profiles.profiles(), 
+                profiles = null, 
                 description = '0'
             )
         else :
@@ -60,9 +61,9 @@ class TestRpmModulemdResponse(unittest.TestCase):
                 version = '0',
                 context = '0',
                 arch = '0',
-                artifacts = pulpcore.client.pulp_rpm.models.artifacts.artifacts(),
-                dependencies = pulpcore.client.pulp_rpm.models.dependencies.dependencies(),
-                profiles = pulpcore.client.pulp_rpm.models.profiles.profiles(),
+                artifacts = null,
+                dependencies = null,
+                profiles = null,
                 description = '0',
         )
 

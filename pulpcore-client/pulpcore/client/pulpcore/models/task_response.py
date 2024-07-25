@@ -36,10 +36,12 @@ class TaskResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'state': 'str',
         'name': 'str',
         'logging_cid': 'str',
         'created_by': 'str',
+        'unblocked_at': 'datetime',
         'started_at': 'datetime',
         'finished_at': 'datetime',
         'error': 'dict(str, object)',
@@ -55,10 +57,12 @@ class TaskResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'state': 'state',
         'name': 'name',
         'logging_cid': 'logging_cid',
         'created_by': 'created_by',
+        'unblocked_at': 'unblocked_at',
         'started_at': 'started_at',
         'finished_at': 'finished_at',
         'error': 'error',
@@ -71,7 +75,7 @@ class TaskResponse(object):
         'reserved_resources_record': 'reserved_resources_record'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, state=None, name=None, logging_cid=None, created_by=None, started_at=None, finished_at=None, error=None, worker=None, parent_task=None, child_tasks=None, task_group=None, progress_reports=None, created_resources=None, reserved_resources_record=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, state=None, name=None, logging_cid=None, created_by=None, unblocked_at=None, started_at=None, finished_at=None, error=None, worker=None, parent_task=None, child_tasks=None, task_group=None, progress_reports=None, created_resources=None, reserved_resources_record=None, local_vars_configuration=None):  # noqa: E501
         """TaskResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,10 +83,12 @@ class TaskResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._state = None
         self._name = None
         self._logging_cid = None
         self._created_by = None
+        self._unblocked_at = None
         self._started_at = None
         self._finished_at = None
         self._error = None
@@ -99,12 +105,16 @@ class TaskResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         if state is not None:
             self.state = state
         self.name = name
         self.logging_cid = logging_cid
         if created_by is not None:
             self.created_by = created_by
+        if unblocked_at is not None:
+            self.unblocked_at = unblocked_at
         if started_at is not None:
             self.started_at = started_at
         if finished_at is not None:
@@ -169,6 +179,29 @@ class TaskResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this TaskResponse.  # noqa: E501
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :return: The pulp_last_updated of this TaskResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this TaskResponse.
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this TaskResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def state(self):
@@ -267,10 +300,33 @@ class TaskResponse(object):
         self._created_by = created_by
 
     @property
+    def unblocked_at(self):
+        """Gets the unblocked_at of this TaskResponse.  # noqa: E501
+
+        Timestamp of when this task was identified ready for pickup.  # noqa: E501
+
+        :return: The unblocked_at of this TaskResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._unblocked_at
+
+    @unblocked_at.setter
+    def unblocked_at(self, unblocked_at):
+        """Sets the unblocked_at of this TaskResponse.
+
+        Timestamp of when this task was identified ready for pickup.  # noqa: E501
+
+        :param unblocked_at: The unblocked_at of this TaskResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._unblocked_at = unblocked_at
+
+    @property
     def started_at(self):
         """Gets the started_at of this TaskResponse.  # noqa: E501
 
-        Timestamp of the when this task started execution.  # noqa: E501
+        Timestamp of when this task started execution.  # noqa: E501
 
         :return: The started_at of this TaskResponse.  # noqa: E501
         :rtype: datetime
@@ -281,7 +337,7 @@ class TaskResponse(object):
     def started_at(self, started_at):
         """Sets the started_at of this TaskResponse.
 
-        Timestamp of the when this task started execution.  # noqa: E501
+        Timestamp of when this task started execution.  # noqa: E501
 
         :param started_at: The started_at of this TaskResponse.  # noqa: E501
         :type: datetime
@@ -293,7 +349,7 @@ class TaskResponse(object):
     def finished_at(self):
         """Gets the finished_at of this TaskResponse.  # noqa: E501
 
-        Timestamp of the when this task stopped execution.  # noqa: E501
+        Timestamp of when this task stopped execution.  # noqa: E501
 
         :return: The finished_at of this TaskResponse.  # noqa: E501
         :rtype: datetime
@@ -304,7 +360,7 @@ class TaskResponse(object):
     def finished_at(self, finished_at):
         """Sets the finished_at of this TaskResponse.
 
-        Timestamp of the when this task stopped execution.  # noqa: E501
+        Timestamp of when this task stopped execution.  # noqa: E501
 
         :param finished_at: The finished_at of this TaskResponse.  # noqa: E501
         :type: datetime

@@ -376,7 +376,7 @@ conf = pulpcore.client.pulp_file.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v3\n"\
-               "SDK Package Version: 3.44.1".\
+               "SDK Package Version: 3.56.1".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

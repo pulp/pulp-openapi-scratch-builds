@@ -36,6 +36,7 @@ class AccessPolicyResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'permissions_assignment': 'list[object]',
         'creation_hooks': 'list[object]',
         'statements': 'list[object]',
@@ -47,6 +48,7 @@ class AccessPolicyResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'permissions_assignment': 'permissions_assignment',
         'creation_hooks': 'creation_hooks',
         'statements': 'statements',
@@ -55,7 +57,7 @@ class AccessPolicyResponse(object):
         'queryset_scoping': 'queryset_scoping'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, permissions_assignment=None, creation_hooks=None, statements=None, viewset_name=None, customized=None, queryset_scoping=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, permissions_assignment=None, creation_hooks=None, statements=None, viewset_name=None, customized=None, queryset_scoping=None, local_vars_configuration=None):  # noqa: E501
         """AccessPolicyResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class AccessPolicyResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._permissions_assignment = None
         self._creation_hooks = None
         self._statements = None
@@ -75,6 +78,8 @@ class AccessPolicyResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         if permissions_assignment is not None:
             self.permissions_assignment = permissions_assignment
         if creation_hooks is not None:
@@ -130,6 +135,29 @@ class AccessPolicyResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this AccessPolicyResponse.  # noqa: E501
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :return: The pulp_last_updated of this AccessPolicyResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this AccessPolicyResponse.
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this AccessPolicyResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def permissions_assignment(self):

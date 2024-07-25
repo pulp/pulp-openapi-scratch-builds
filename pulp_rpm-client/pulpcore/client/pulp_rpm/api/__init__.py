@@ -23,3 +23,4 @@ from pulpcore.client.pulp_rpm.api.repositories_rpm_api import RepositoriesRpmApi
 from pulpcore.client.pulp_rpm.api.repositories_rpm_versions_api import RepositoriesRpmVersionsApi
 from pulpcore.client.pulp_rpm.api.rpm_comps_api import RpmCompsApi
 from pulpcore.client.pulp_rpm.api.rpm_copy_api import RpmCopyApi
+from pulpcore.client.pulp_rpm.api.rpm_prune_api import RpmPruneApi

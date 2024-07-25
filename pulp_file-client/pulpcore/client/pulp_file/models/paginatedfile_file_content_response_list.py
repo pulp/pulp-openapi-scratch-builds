@@ -59,12 +59,10 @@ class PaginatedfileFileContentResponseList(object):
         self._results = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
+        self.count = count
         self.next = next
         self.previous = previous
-        if results is not None:
-            self.results = results
+        self.results = results
 
     @property
     def count(self):
@@ -84,6 +82,8 @@ class PaginatedfileFileContentResponseList(object):
         :param count: The count of this PaginatedfileFileContentResponseList.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -147,6 +147,8 @@ class PaginatedfileFileContentResponseList(object):
         :param results: The results of this PaginatedfileFileContentResponseList.  # noqa: E501
         :type: list[FileFileContentResponse]
         """
+        if self.local_vars_configuration.client_side_validation and results is None:  # noqa: E501
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results
 

@@ -39,6 +39,7 @@ class TestRpmRpmPublicationResponse(unittest.TestCase):
             return RpmRpmPublicationResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 repository_version = '0', 
                 repository = '0', 
                 checksum_type = null, 
@@ -47,7 +48,7 @@ class TestRpmRpmPublicationResponse(unittest.TestCase):
                 gpgcheck = 0, 
                 repo_gpgcheck = 0, 
                 sqlite_metadata = True, 
-                repo_config = pulpcore.client.pulp_rpm.models.repo_config.repo_config(), 
+                repo_config = null, 
                 compression_type = null
             )
         else :

@@ -44,6 +44,7 @@ class TestPaginatedPulpExporterResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.pulp_exporter_response.PulpExporterResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         path = '0', 
                         repositories = [
@@ -54,6 +55,19 @@ class TestPaginatedPulpExporterResponseList(unittest.TestCase):
             )
         else :
             return PaginatedPulpExporterResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.pulp_exporter_response.PulpExporterResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        path = '0', 
+                        repositories = [
+                            '0'
+                            ], 
+                        last_export = '0', )
+                    ],
         )
 
     def testPaginatedPulpExporterResponseList(self):

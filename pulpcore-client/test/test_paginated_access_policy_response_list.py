@@ -44,6 +44,7 @@ class TestPaginatedAccessPolicyResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.access_policy_response.AccessPolicyResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         permissions_assignment = [
                             None
                             ], 
@@ -60,6 +61,25 @@ class TestPaginatedAccessPolicyResponseList(unittest.TestCase):
             )
         else :
             return PaginatedAccessPolicyResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.access_policy_response.AccessPolicyResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        permissions_assignment = [
+                            None
+                            ], 
+                        creation_hooks = [
+                            None
+                            ], 
+                        statements = [
+                            None
+                            ], 
+                        viewset_name = '0', 
+                        customized = True, 
+                        queryset_scoping = pulpcore.client.pulpcore.models.queryset_scoping.queryset_scoping(), )
+                    ],
         )
 
     def testPaginatedAccessPolicyResponseList(self):

@@ -53,10 +53,8 @@ class RpmRpmRemoteResponseHiddenFields(object):
         self._is_set = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
-        if is_set is not None:
-            self.is_set = is_set
+        self.name = name
+        self.is_set = is_set
 
     @property
     def name(self):
@@ -76,6 +74,8 @@ class RpmRpmRemoteResponseHiddenFields(object):
         :param name: The name of this RpmRpmRemoteResponseHiddenFields.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -97,6 +97,8 @@ class RpmRpmRemoteResponseHiddenFields(object):
         :param is_set: The is_set of this RpmRpmRemoteResponseHiddenFields.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_set is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_set`, must not be `None`")  # noqa: E501
 
         self._is_set = is_set
 

@@ -44,6 +44,7 @@ class TestPaginatedDomainResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.domain_response.DomainResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = 'a', 
                         description = '0', 
                         storage_class = null, 
@@ -54,6 +55,19 @@ class TestPaginatedDomainResponseList(unittest.TestCase):
             )
         else :
             return PaginatedDomainResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.domain_response.DomainResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = 'a', 
+                        description = '0', 
+                        storage_class = null, 
+                        storage_settings = pulpcore.client.pulpcore.models.storage_settings.storage_settings(), 
+                        redirect_to_object_storage = True, 
+                        hide_guarded_distributions = True, )
+                    ],
         )
 
     def testPaginatedDomainResponseList(self):

@@ -53,6 +53,7 @@ from pulpcore.client.pulp_rpm.models.patchedrpm_rpm_remote import PatchedrpmRpmR
 from pulpcore.client.pulp_rpm.models.patchedrpm_rpm_repository import PatchedrpmRpmRepository
 from pulpcore.client.pulp_rpm.models.patchedrpm_uln_remote import PatchedrpmUlnRemote
 from pulpcore.client.pulp_rpm.models.policy_enum import PolicyEnum
+from pulpcore.client.pulp_rpm.models.prune_packages import PrunePackages
 from pulpcore.client.pulp_rpm.models.repair import Repair
 from pulpcore.client.pulp_rpm.models.repository_add_remove_content import RepositoryAddRemoveContent
 from pulpcore.client.pulp_rpm.models.repository_version_response import RepositoryVersionResponse

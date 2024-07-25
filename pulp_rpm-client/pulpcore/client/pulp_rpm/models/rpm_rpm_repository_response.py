@@ -36,6 +36,7 @@ class RpmRpmRepositoryResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'versions_href': 'str',
         'pulp_labels': 'dict(str, str)',
         'latest_version_href': 'str',
@@ -45,6 +46,8 @@ class RpmRpmRepositoryResponse(object):
         'remote': 'str',
         'autopublish': 'bool',
         'metadata_signing_service': 'str',
+        'package_signing_service': 'str',
+        'package_signing_fingerprint': 'str',
         'retain_package_versions': 'int',
         'checksum_type': 'PackageChecksumTypeEnum',
         'metadata_checksum_type': 'PackageChecksumTypeEnum',
@@ -59,6 +62,7 @@ class RpmRpmRepositoryResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'versions_href': 'versions_href',
         'pulp_labels': 'pulp_labels',
         'latest_version_href': 'latest_version_href',
@@ -68,6 +72,8 @@ class RpmRpmRepositoryResponse(object):
         'remote': 'remote',
         'autopublish': 'autopublish',
         'metadata_signing_service': 'metadata_signing_service',
+        'package_signing_service': 'package_signing_service',
+        'package_signing_fingerprint': 'package_signing_fingerprint',
         'retain_package_versions': 'retain_package_versions',
         'checksum_type': 'checksum_type',
         'metadata_checksum_type': 'metadata_checksum_type',
@@ -79,7 +85,7 @@ class RpmRpmRepositoryResponse(object):
         'compression_type': 'compression_type'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, versions_href=None, pulp_labels=None, latest_version_href=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, retain_package_versions=None, checksum_type=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, sqlite_metadata=False, repo_config=None, compression_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, versions_href=None, pulp_labels=None, latest_version_href=None, name=None, description=None, retain_repo_versions=None, remote=None, autopublish=False, metadata_signing_service=None, package_signing_service=None, package_signing_fingerprint='', retain_package_versions=None, checksum_type=None, metadata_checksum_type=None, package_checksum_type=None, gpgcheck=None, repo_gpgcheck=None, sqlite_metadata=False, repo_config=None, compression_type=None, local_vars_configuration=None):  # noqa: E501
         """RpmRpmRepositoryResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +93,7 @@ class RpmRpmRepositoryResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._versions_href = None
         self._pulp_labels = None
         self._latest_version_href = None
@@ -96,6 +103,8 @@ class RpmRpmRepositoryResponse(object):
         self._remote = None
         self._autopublish = None
         self._metadata_signing_service = None
+        self._package_signing_service = None
+        self._package_signing_fingerprint = None
         self._retain_package_versions = None
         self._checksum_type = None
         self._metadata_checksum_type = None
@@ -111,6 +120,8 @@ class RpmRpmRepositoryResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         if versions_href is not None:
             self.versions_href = versions_href
         if pulp_labels is not None:
@@ -124,6 +135,9 @@ class RpmRpmRepositoryResponse(object):
         if autopublish is not None:
             self.autopublish = autopublish
         self.metadata_signing_service = metadata_signing_service
+        self.package_signing_service = package_signing_service
+        if package_signing_fingerprint is not None:
+            self.package_signing_fingerprint = package_signing_fingerprint
         if retain_package_versions is not None:
             self.retain_package_versions = retain_package_versions
         self.checksum_type = checksum_type
@@ -180,6 +194,29 @@ class RpmRpmRepositoryResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this RpmRpmRepositoryResponse.  # noqa: E501
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :return: The pulp_last_updated of this RpmRpmRepositoryResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this RpmRpmRepositoryResponse.
+
+        Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this RpmRpmRepositoryResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def versions_href(self):
@@ -386,6 +423,55 @@ class RpmRpmRepositoryResponse(object):
         """
 
         self._metadata_signing_service = metadata_signing_service
+
+    @property
+    def package_signing_service(self):
+        """Gets the package_signing_service of this RpmRpmRepositoryResponse.  # noqa: E501
+
+        A reference to an associated package signing service.  # noqa: E501
+
+        :return: The package_signing_service of this RpmRpmRepositoryResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._package_signing_service
+
+    @package_signing_service.setter
+    def package_signing_service(self, package_signing_service):
+        """Sets the package_signing_service of this RpmRpmRepositoryResponse.
+
+        A reference to an associated package signing service.  # noqa: E501
+
+        :param package_signing_service: The package_signing_service of this RpmRpmRepositoryResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._package_signing_service = package_signing_service
+
+    @property
+    def package_signing_fingerprint(self):
+        """Gets the package_signing_fingerprint of this RpmRpmRepositoryResponse.  # noqa: E501
+
+        The pubkey V4 fingerprint (160 bits) to be passed to the package signing service.The signing service will use that on signing operations related to this repository.  # noqa: E501
+
+        :return: The package_signing_fingerprint of this RpmRpmRepositoryResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._package_signing_fingerprint
+
+    @package_signing_fingerprint.setter
+    def package_signing_fingerprint(self, package_signing_fingerprint):
+        """Sets the package_signing_fingerprint of this RpmRpmRepositoryResponse.
+
+        The pubkey V4 fingerprint (160 bits) to be passed to the package signing service.The signing service will use that on signing operations related to this repository.  # noqa: E501
+
+        :param package_signing_fingerprint: The package_signing_fingerprint of this RpmRpmRepositoryResponse.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                package_signing_fingerprint is not None and len(package_signing_fingerprint) > 40):
+            raise ValueError("Invalid value for `package_signing_fingerprint`, length must be less than or equal to `40`")  # noqa: E501
+
+        self._package_signing_fingerprint = package_signing_fingerprint
 
     @property
     def retain_package_versions(self):

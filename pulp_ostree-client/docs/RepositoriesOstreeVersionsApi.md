@@ -1,6 +1,6 @@
 # pulpcore.client.pulp_ostree.RepositoriesOstreeVersionsApi
 
-All URIs are relative to *http://pulp-api-svc.pulp-prod.svc.cluster.local:24817*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,10 +26,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -45,19 +45,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -80,10 +74,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -99,73 +93,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulp_ostree.RepositoriesOstreeVersionsApi(api_client)
-    ostree_ostree_repository_version_href = 'ostree_ostree_repository_version_href_example' # str | 
-
-    try:
-        # Delete a repository version
-        api_response = api_instance.delete(ostree_ostree_repository_version_href)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RepositoriesOstreeVersionsApi->delete: %s\n" % e)
-```
-
-* OAuth Authentication (json_header_remote_authentication):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulp_ostree
-from pulpcore.client.pulp_ostree.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -193,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [json_header_remote_authentication](../README.md#json_header_remote_authentication)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -223,10 +157,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -242,19 +176,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -298,10 +226,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -317,94 +245,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulp_ostree.RepositoriesOstreeVersionsApi(api_client)
-    ostree_ostree_repository_href = 'ostree_ostree_repository_href_example' # str | 
-content = 'content_example' # str | Content Unit referenced by HREF (optional)
-content__in = 'content__in_example' # str | Content Unit referenced by HREF (optional)
-limit = 56 # int | Number of results to return per page. (optional)
-number = 56 # int | Filter results where number matches value (optional)
-number__gt = 56 # int | Filter results where number is greater than value (optional)
-number__gte = 56 # int | Filter results where number is greater than or equal to value (optional)
-number__lt = 56 # int | Filter results where number is less than value (optional)
-number__lte = 56 # int | Filter results where number is less than or equal to value (optional)
-number__range = [56] # list[int] | Filter results where number is between two comma separated values (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `number` - Number * `-number` - Number (descending) * `complete` - Complete * `-complete` - Complete (descending) * `info` - Info * `-info` - Info (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
-pulp_created = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_created matches value (optional)
-pulp_created__gt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_created is greater than value (optional)
-pulp_created__gte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_created is greater than or equal to value (optional)
-pulp_created__lt = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_created is less than value (optional)
-pulp_created__lte = '2013-10-20T19:20:30+01:00' # datetime | Filter results where pulp_created is less than or equal to value (optional)
-pulp_created__range = ['2013-10-20T19:20:30+01:00'] # list[datetime] | Filter results where pulp_created is between two comma separated values (optional)
-pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-q = 'q_example' # str |  (optional)
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
-
-    try:
-        # List repository versions
-        api_response = api_instance.list(ostree_ostree_repository_href, content=content, content__in=content__in, limit=limit, number=number, number__gt=number__gt, number__gte=number__gte, number__lt=number__lt, number__lte=number__lte, number__range=number__range, offset=offset, ordering=ordering, pulp_created=pulp_created, pulp_created__gt=pulp_created__gt, pulp_created__gte=pulp_created__gte, pulp_created__lt=pulp_created__lt, pulp_created__lte=pulp_created__lte, pulp_created__range=pulp_created__range, pulp_href__in=pulp_href__in, q=q, fields=fields, exclude_fields=exclude_fields)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RepositoriesOstreeVersionsApi->list: %s\n" % e)
-```
-
-* OAuth Authentication (json_header_remote_authentication):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulp_ostree
-from pulpcore.client.pulp_ostree.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -474,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [json_header_remote_authentication](../README.md#json_header_remote_authentication)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -504,10 +351,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -523,19 +370,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -560,10 +401,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -579,75 +420,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulp_ostree.RepositoriesOstreeVersionsApi(api_client)
-    ostree_ostree_repository_version_href = 'ostree_ostree_repository_version_href_example' # str | 
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
-
-    try:
-        # Inspect a repository version
-        api_response = api_instance.read(ostree_ostree_repository_version_href, fields=fields, exclude_fields=exclude_fields)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RepositoriesOstreeVersionsApi->read: %s\n" % e)
-```
-
-* OAuth Authentication (json_header_remote_authentication):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulp_ostree
-from pulpcore.client.pulp_ostree.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -679,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [json_header_remote_authentication](../README.md#json_header_remote_authentication)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -709,10 +488,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -728,19 +507,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -763,10 +536,10 @@ import time
 import pulpcore.client.pulp_ostree
 from pulpcore.client.pulp_ostree.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -782,73 +555,13 @@ configuration = pulpcore.client.pulp_ostree.Configuration(
 
 # Configure API key authorization: cookieAuth
 configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
+    host = "http://localhost:5001",
     api_key = {
         'sessionid': 'YOUR_API_KEY'
     }
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulp_ostree.RepositoriesOstreeVersionsApi(api_client)
-    ostree_ostree_repository_version_href = 'ostree_ostree_repository_version_href_example' # str | 
-repair = pulpcore.client.pulp_ostree.Repair() # Repair | 
-
-    try:
-        api_response = api_instance.repair(ostree_ostree_repository_version_href, repair)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RepositoriesOstreeVersionsApi->repair: %s\n" % e)
-```
-
-* OAuth Authentication (json_header_remote_authentication):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulp_ostree
-from pulpcore.client.pulp_ostree.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://pulp-api-svc.pulp-prod.svc.cluster.local:24817
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Configure OAuth2 access token for authorization: json_header_remote_authentication
-configuration = pulpcore.client.pulp_ostree.Configuration(
-    host = "http://pulp-api-svc.pulp-prod.svc.cluster.local:24817"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulp_ostree.ApiClient(configuration) as api_client:
@@ -877,7 +590,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [json_header_remote_authentication](../README.md#json_header_remote_authentication)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 

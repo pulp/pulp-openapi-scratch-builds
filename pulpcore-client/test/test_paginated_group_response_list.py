@@ -49,6 +49,13 @@ class TestPaginatedGroupResponseList(unittest.TestCase):
             )
         else :
             return PaginatedGroupResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.group_response.GroupResponse(
+                        name = '0', 
+                        pulp_href = '0', 
+                        id = 56, )
+                    ],
         )
 
     def testPaginatedGroupResponseList(self):

@@ -39,13 +39,13 @@ class TestRpmUpdateCollection(unittest.TestCase):
             return RpmUpdateCollection(
                 name = '0', 
                 shortname = '0', 
-                module = None
+                module = null
             )
         else :
             return RpmUpdateCollection(
                 name = '0',
                 shortname = '0',
-                module = None,
+                module = null,
         )
 
     def testRpmUpdateCollection(self):

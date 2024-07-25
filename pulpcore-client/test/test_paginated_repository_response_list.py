@@ -44,6 +44,7 @@ class TestPaginatedRepositoryResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.repository_response.RepositoryResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         versions_href = '0', 
                         pulp_labels = {
                             'key' : '0'
@@ -57,6 +58,22 @@ class TestPaginatedRepositoryResponseList(unittest.TestCase):
             )
         else :
             return PaginatedRepositoryResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.repository_response.RepositoryResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        versions_href = '0', 
+                        pulp_labels = {
+                            'key' : '0'
+                            }, 
+                        latest_version_href = '0', 
+                        name = '0', 
+                        description = '0', 
+                        retain_repo_versions = 1, 
+                        remote = '0', )
+                    ],
         )
 
     def testPaginatedRepositoryResponseList(self):

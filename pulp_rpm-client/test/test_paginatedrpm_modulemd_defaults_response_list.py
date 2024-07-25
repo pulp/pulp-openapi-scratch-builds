@@ -44,13 +44,24 @@ class TestPaginatedrpmModulemdDefaultsResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/modulemd_defaults_response.rpm.ModulemdDefaultsResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         module = '0', 
                         stream = '0', 
-                        profiles = pulpcore.client.pulp_rpm.models.profiles.profiles(), )
+                        profiles = null, )
                     ]
             )
         else :
             return PaginatedrpmModulemdDefaultsResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/modulemd_defaults_response.rpm.ModulemdDefaultsResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        module = '0', 
+                        stream = '0', 
+                        profiles = null, )
+                    ],
         )
 
     def testPaginatedrpmModulemdDefaultsResponseList(self):

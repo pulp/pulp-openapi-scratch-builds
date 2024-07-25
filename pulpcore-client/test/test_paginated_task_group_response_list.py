@@ -64,8 +64,10 @@ class TestPaginatedTaskGroupResponseList(unittest.TestCase):
                             pulpcore.client.pulpcore.models.minimal_task_response.MinimalTaskResponse(
                                 pulp_href = '0', 
                                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 name = '0', 
                                 state = '0', 
+                                unblocked_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 worker = '0', )
@@ -74,6 +76,40 @@ class TestPaginatedTaskGroupResponseList(unittest.TestCase):
             )
         else :
             return PaginatedTaskGroupResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.task_group_response.TaskGroupResponse(
+                        pulp_href = '0', 
+                        description = '0', 
+                        all_tasks_dispatched = True, 
+                        waiting = 56, 
+                        skipped = 56, 
+                        running = 56, 
+                        completed = 56, 
+                        canceled = 56, 
+                        failed = 56, 
+                        canceling = 56, 
+                        group_progress_reports = [
+                            pulpcore.client.pulpcore.models.group_progress_report_response.GroupProgressReportResponse(
+                                message = '0', 
+                                code = '0', 
+                                total = 56, 
+                                done = 56, 
+                                suffix = '0', )
+                            ], 
+                        tasks = [
+                            pulpcore.client.pulpcore.models.minimal_task_response.MinimalTaskResponse(
+                                pulp_href = '0', 
+                                pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                name = '0', 
+                                state = '0', 
+                                unblocked_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                started_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                worker = '0', )
+                            ], )
+                    ],
         )
 
     def testPaginatedTaskGroupResponseList(self):

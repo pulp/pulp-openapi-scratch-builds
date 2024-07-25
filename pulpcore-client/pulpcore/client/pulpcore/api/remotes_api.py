@@ -69,8 +69,8 @@ class RemotesApi(object):
         :param datetime pulp_last_updated__lt: Filter results where pulp_last_updated is less than value
         :param datetime pulp_last_updated__lte: Filter results where pulp_last_updated is less than or equal to value
         :param list[datetime] pulp_last_updated__range: Filter results where pulp_last_updated is between two comma separated values
-        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.
@@ -120,8 +120,8 @@ class RemotesApi(object):
         :param datetime pulp_last_updated__lt: Filter results where pulp_last_updated is less than value
         :param datetime pulp_last_updated__lte: Filter results where pulp_last_updated is less than or equal to value
         :param list[datetime] pulp_last_updated__range: Filter results where pulp_last_updated is between two comma separated values
-        :param str pulp_type: Pulp type  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `gem.gem` - gem.gem * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
+        :param str pulp_type: Pulp type  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `ostree.ostree` - ostree.ostree * `rpm.rpm` - rpm.rpm * `rpm.uln` - rpm.uln * `file.file` - file.file
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.

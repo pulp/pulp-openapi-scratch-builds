@@ -44,6 +44,7 @@ class TestPaginatedSigningServiceResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.signing_service_response.SigningServiceResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         public_key = '0', 
                         pubkey_fingerprint = '0', 
@@ -52,6 +53,17 @@ class TestPaginatedSigningServiceResponseList(unittest.TestCase):
             )
         else :
             return PaginatedSigningServiceResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.signing_service_response.SigningServiceResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        public_key = '0', 
+                        pubkey_fingerprint = '0', 
+                        script = '0', )
+                    ],
         )
 
     def testPaginatedSigningServiceResponseList(self):

@@ -39,13 +39,14 @@ class TestRpmPackageCategoryResponse(unittest.TestCase):
             return RpmPackageCategoryResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 id = '0', 
                 name = '0', 
                 description = '0', 
                 display_order = 56, 
-                group_ids = pulpcore.client.pulp_rpm.models.group_ids.group_ids(), 
-                desc_by_lang = pulpcore.client.pulp_rpm.models.desc_by_lang.desc_by_lang(), 
-                name_by_lang = pulpcore.client.pulp_rpm.models.name_by_lang.name_by_lang(), 
+                group_ids = null, 
+                desc_by_lang = null, 
+                name_by_lang = null, 
                 digest = '0'
             )
         else :
@@ -54,9 +55,9 @@ class TestRpmPackageCategoryResponse(unittest.TestCase):
                 name = '0',
                 description = '0',
                 display_order = 56,
-                group_ids = pulpcore.client.pulp_rpm.models.group_ids.group_ids(),
-                desc_by_lang = pulpcore.client.pulp_rpm.models.desc_by_lang.desc_by_lang(),
-                name_by_lang = pulpcore.client.pulp_rpm.models.name_by_lang.name_by_lang(),
+                group_ids = null,
+                desc_by_lang = null,
+                name_by_lang = null,
                 digest = '0',
         )
 

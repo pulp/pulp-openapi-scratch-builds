@@ -39,6 +39,7 @@ class TestUserRoleResponse(unittest.TestCase):
             return UserRoleResponse(
                 pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 role = '0', 
                 content_object = '0', 
                 description = '0', 

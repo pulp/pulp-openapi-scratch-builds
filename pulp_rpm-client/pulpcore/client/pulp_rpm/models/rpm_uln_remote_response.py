@@ -36,6 +36,7 @@ class RpmUlnRemoteResponse(object):
     openapi_types = {
         'pulp_href': 'str',
         'pulp_created': 'datetime',
+        'pulp_last_updated': 'datetime',
         'name': 'str',
         'url': 'str',
         'ca_cert': 'str',
@@ -43,7 +44,6 @@ class RpmUlnRemoteResponse(object):
         'tls_validation': 'bool',
         'proxy_url': 'str',
         'pulp_labels': 'dict(str, str)',
-        'pulp_last_updated': 'datetime',
         'download_concurrency': 'int',
         'max_retries': 'int',
         'policy': 'PolicyEnum',
@@ -60,6 +60,7 @@ class RpmUlnRemoteResponse(object):
     attribute_map = {
         'pulp_href': 'pulp_href',
         'pulp_created': 'pulp_created',
+        'pulp_last_updated': 'pulp_last_updated',
         'name': 'name',
         'url': 'url',
         'ca_cert': 'ca_cert',
@@ -67,7 +68,6 @@ class RpmUlnRemoteResponse(object):
         'tls_validation': 'tls_validation',
         'proxy_url': 'proxy_url',
         'pulp_labels': 'pulp_labels',
-        'pulp_last_updated': 'pulp_last_updated',
         'download_concurrency': 'download_concurrency',
         'max_retries': 'max_retries',
         'policy': 'policy',
@@ -81,7 +81,7 @@ class RpmUlnRemoteResponse(object):
         'uln_server_base_url': 'uln_server_base_url'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, name=None, url=None, ca_cert=None, client_cert=None, tls_validation=None, proxy_url=None, pulp_labels=None, pulp_last_updated=None, download_concurrency=None, max_retries=None, policy=None, total_timeout=None, connect_timeout=None, sock_connect_timeout=None, sock_read_timeout=None, headers=None, rate_limit=None, hidden_fields=None, uln_server_base_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, name=None, url=None, ca_cert=None, client_cert=None, tls_validation=None, proxy_url=None, pulp_labels=None, download_concurrency=None, max_retries=None, policy=None, total_timeout=None, connect_timeout=None, sock_connect_timeout=None, sock_read_timeout=None, headers=None, rate_limit=None, hidden_fields=None, uln_server_base_url=None, local_vars_configuration=None):  # noqa: E501
         """RpmUlnRemoteResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +89,7 @@ class RpmUlnRemoteResponse(object):
 
         self._pulp_href = None
         self._pulp_created = None
+        self._pulp_last_updated = None
         self._name = None
         self._url = None
         self._ca_cert = None
@@ -96,7 +97,6 @@ class RpmUlnRemoteResponse(object):
         self._tls_validation = None
         self._proxy_url = None
         self._pulp_labels = None
-        self._pulp_last_updated = None
         self._download_concurrency = None
         self._max_retries = None
         self._policy = None
@@ -114,6 +114,8 @@ class RpmUlnRemoteResponse(object):
             self.pulp_href = pulp_href
         if pulp_created is not None:
             self.pulp_created = pulp_created
+        if pulp_last_updated is not None:
+            self.pulp_last_updated = pulp_last_updated
         self.name = name
         self.url = url
         self.ca_cert = ca_cert
@@ -123,8 +125,6 @@ class RpmUlnRemoteResponse(object):
         self.proxy_url = proxy_url
         if pulp_labels is not None:
             self.pulp_labels = pulp_labels
-        if pulp_last_updated is not None:
-            self.pulp_last_updated = pulp_last_updated
         self.download_concurrency = download_concurrency
         self.max_retries = max_retries
         if policy is not None:
@@ -183,6 +183,29 @@ class RpmUlnRemoteResponse(object):
         """
 
         self._pulp_created = pulp_created
+
+    @property
+    def pulp_last_updated(self):
+        """Gets the pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
+
+        Timestamp of the most recent update of the remote.  # noqa: E501
+
+        :return: The pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._pulp_last_updated
+
+    @pulp_last_updated.setter
+    def pulp_last_updated(self, pulp_last_updated):
+        """Sets the pulp_last_updated of this RpmUlnRemoteResponse.
+
+        Timestamp of the most recent update of the remote.  # noqa: E501
+
+        :param pulp_last_updated: The pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._pulp_last_updated = pulp_last_updated
 
     @property
     def name(self):
@@ -346,29 +369,6 @@ class RpmUlnRemoteResponse(object):
         """
 
         self._pulp_labels = pulp_labels
-
-    @property
-    def pulp_last_updated(self):
-        """Gets the pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
-
-        Timestamp of the most recent update of the remote.  # noqa: E501
-
-        :return: The pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._pulp_last_updated
-
-    @pulp_last_updated.setter
-    def pulp_last_updated(self, pulp_last_updated):
-        """Sets the pulp_last_updated of this RpmUlnRemoteResponse.
-
-        Timestamp of the most recent update of the remote.  # noqa: E501
-
-        :param pulp_last_updated: The pulp_last_updated of this RpmUlnRemoteResponse.  # noqa: E501
-        :type: datetime
-        """
-
-        self._pulp_last_updated = pulp_last_updated
 
     @property
     def download_concurrency(self):

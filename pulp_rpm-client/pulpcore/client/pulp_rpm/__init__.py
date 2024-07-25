@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.25.0"
+__version__ = "3.27.1"
 
 # import apis into sdk package
 from pulpcore.client.pulp_rpm.api.acs_rpm_api import AcsRpmApi
@@ -38,6 +38,7 @@ from pulpcore.client.pulp_rpm.api.repositories_rpm_api import RepositoriesRpmApi
 from pulpcore.client.pulp_rpm.api.repositories_rpm_versions_api import RepositoriesRpmVersionsApi
 from pulpcore.client.pulp_rpm.api.rpm_comps_api import RpmCompsApi
 from pulpcore.client.pulp_rpm.api.rpm_copy_api import RpmCopyApi
+from pulpcore.client.pulp_rpm.api.rpm_prune_api import RpmPruneApi
 
 # import ApiClient
 from pulpcore.client.pulp_rpm.api_client import ApiClient
@@ -86,6 +87,7 @@ from pulpcore.client.pulp_rpm.models.patchedrpm_rpm_remote import PatchedrpmRpmR
 from pulpcore.client.pulp_rpm.models.patchedrpm_rpm_repository import PatchedrpmRpmRepository
 from pulpcore.client.pulp_rpm.models.patchedrpm_uln_remote import PatchedrpmUlnRemote
 from pulpcore.client.pulp_rpm.models.policy_enum import PolicyEnum
+from pulpcore.client.pulp_rpm.models.prune_packages import PrunePackages
 from pulpcore.client.pulp_rpm.models.repair import Repair
 from pulpcore.client.pulp_rpm.models.repository_add_remove_content import RepositoryAddRemoveContent
 from pulpcore.client.pulp_rpm.models.repository_version_response import RepositoryVersionResponse

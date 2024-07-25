@@ -44,21 +44,40 @@ class TestPaginatedrpmPackageGroupResponseList(unittest.TestCase):
                     pulpcore.client.pulp_rpm.models.rpm/package_group_response.rpm.PackageGroupResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         id = '0', 
                         default = True, 
                         user_visible = True, 
                         display_order = 56, 
                         name = '0', 
                         description = '0', 
-                        packages = pulpcore.client.pulp_rpm.models.packages.packages(), 
+                        packages = null, 
                         biarch_only = True, 
-                        desc_by_lang = pulpcore.client.pulp_rpm.models.desc_by_lang.desc_by_lang(), 
-                        name_by_lang = pulpcore.client.pulp_rpm.models.name_by_lang.name_by_lang(), 
+                        desc_by_lang = null, 
+                        name_by_lang = null, 
                         digest = '0', )
                     ]
             )
         else :
             return PaginatedrpmPackageGroupResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulp_rpm.models.rpm/package_group_response.rpm.PackageGroupResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        id = '0', 
+                        default = True, 
+                        user_visible = True, 
+                        display_order = 56, 
+                        name = '0', 
+                        description = '0', 
+                        packages = null, 
+                        biarch_only = True, 
+                        desc_by_lang = null, 
+                        name_by_lang = null, 
+                        digest = '0', )
+                    ],
         )
 
     def testPaginatedrpmPackageGroupResponseList(self):

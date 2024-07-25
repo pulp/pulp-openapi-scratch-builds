@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pulp_href** | **str** |  | [optional] [readonly] 
 **pulp_created** | **datetime** | Timestamp of creation. | [optional] [readonly] 
+**pulp_last_updated** | **datetime** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
 **name** | **str** | A unique name for this remote. | 
 **url** | **str** | The URL of an external content source. | 
 **ca_cert** | **str** | A PEM encoded CA certificate used to validate the server certificate presented by the remote server. | [optional] 
@@ -13,7 +14,6 @@ Name | Type | Description | Notes
 **tls_validation** | **bool** | If True, TLS peer validation must be performed. | [optional] 
 **proxy_url** | **str** | The proxy URL. Format: scheme://host:port | [optional] 
 **pulp_labels** | **dict(str, str)** |  | [optional] 
-**pulp_last_updated** | **datetime** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
 **download_concurrency** | **int** | Total number of simultaneous connections. If not set then the default value will be used. | [optional] 
 **max_retries** | **int** | Maximum number of retry attempts after a download failure. If not set then the default value (3) will be used. | [optional] 
 **policy** | [**PolicyEnum**](PolicyEnum.md) | The policy to use when downloading content.  * &#x60;immediate&#x60; - immediate * &#x60;When syncing, download all metadata and content now.&#x60; - When syncing, download all metadata and content now. | [optional] 

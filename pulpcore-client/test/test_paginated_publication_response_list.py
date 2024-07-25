@@ -44,12 +44,22 @@ class TestPaginatedPublicationResponseList(unittest.TestCase):
                     pulpcore.client.pulpcore.models.publication_response.PublicationResponse(
                         pulp_href = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         repository_version = '0', 
                         repository = '0', )
                     ]
             )
         else :
             return PaginatedPublicationResponseList(
+                count = 123,
+                results = [
+                    pulpcore.client.pulpcore.models.publication_response.PublicationResponse(
+                        pulp_href = '0', 
+                        pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        repository_version = '0', 
+                        repository = '0', )
+                    ],
         )
 
     def testPaginatedPublicationResponseList(self):

@@ -62,8 +62,8 @@ class ContentguardsApi(object):
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `name` - Name * `-name` - Name (descending) * `description` - Description * `-description` - Description (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
+        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.
@@ -106,8 +106,8 @@ class ContentguardsApi(object):
         :param list[str] ordering: Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `pulp_type` - Pulp type * `-pulp_type` - Pulp type (descending) * `name` - Name * `-name` - Name (descending) * `description` - Description * `-description` - Description (descending) * `pk` - Pk * `-pk` - Pk (descending)
         :param list[str] pulp_href__in: Multiple values may be separated by commas.
         :param list[str] pulp_id__in: Multiple values may be separated by commas.
-        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
-        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite
+        :param str pulp_type: Pulp type  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
+        :param list[str] pulp_type__in: Multiple values may be separated by commas.  * `core.rbac` - core.rbac * `core.content_redirect` - core.content_redirect * `core.header` - core.header * `core.composite` - core.composite * `certguard.rhsm` - certguard.rhsm * `certguard.x509` - certguard.x509
         :param str q:
         :param list[str] fields: A list of fields to include in the response.
         :param list[str] exclude_fields: A list of fields to exclude from the response.
