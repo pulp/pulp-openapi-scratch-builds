@@ -16,12 +16,12 @@ Returns 200 OK when API is alive.
 
 ### Example
 
+
 ```python
-from __future__ import print_function
-import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
@@ -30,18 +30,21 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 
 # Enter a context with an instance of the API client
-with pulpcore.client.pulpcore.ApiClient() as api_client:
+with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.LivezApi(api_client)
-    
+
     try:
         # Inspect liveness of Pulp's REST API.
         api_instance.livez_read()
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling LivezApi->livez_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -58,6 +61,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | No response body |  -  |

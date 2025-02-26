@@ -20,68 +20,14 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 ### Example
 
 * Basic Authentication (basicAuth):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulpcore
-from pulpcore.client.pulpcore.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:5001
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
-    pulp_domain = 'pulp_domain_example' # str | 
-file = '/path/to/file' # file | The stored file.
-size = 56 # int | The size of the file in bytes. (optional)
-md5 = 'md5_example' # str | The MD5 checksum of the file if available. (optional)
-sha1 = 'sha1_example' # str | The SHA-1 checksum of the file if available. (optional)
-sha224 = 'sha224_example' # str | The SHA-224 checksum of the file if available. (optional)
-sha256 = 'sha256_example' # str | The SHA-256 checksum of the file if available. (optional)
-sha384 = 'sha384_example' # str | The SHA-384 checksum of the file if available. (optional)
-sha512 = 'sha512_example' # str | The SHA-512 checksum of the file if available. (optional)
-
-    try:
-        # Create an artifact
-        api_response = api_instance.create(pulp_domain, file, size=size, md5=md5, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->create: %s\n" % e)
-```
-
 * Api Key Authentication (cookieAuth):
+
 ```python
-from __future__ import print_function
-import time
 import pulpcore.client.pulpcore
+from pulpcore.client.pulpcore.models.artifact_response import ArtifactResponse
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
@@ -95,48 +41,48 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
 )
 
 # Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
     pulp_domain = 'pulp_domain_example' # str | 
-file = '/path/to/file' # file | The stored file.
-size = 56 # int | The size of the file in bytes. (optional)
-md5 = 'md5_example' # str | The MD5 checksum of the file if available. (optional)
-sha1 = 'sha1_example' # str | The SHA-1 checksum of the file if available. (optional)
-sha224 = 'sha224_example' # str | The SHA-224 checksum of the file if available. (optional)
-sha256 = 'sha256_example' # str | The SHA-256 checksum of the file if available. (optional)
-sha384 = 'sha384_example' # str | The SHA-384 checksum of the file if available. (optional)
-sha512 = 'sha512_example' # str | The SHA-512 checksum of the file if available. (optional)
+    file = None # bytearray | The stored file.
+    size = 56 # int | The size of the file in bytes. (optional)
+    md5 = 'md5_example' # str | The MD5 checksum of the file if available. (optional)
+    sha1 = 'sha1_example' # str | The SHA-1 checksum of the file if available. (optional)
+    sha224 = 'sha224_example' # str | The SHA-224 checksum of the file if available. (optional)
+    sha256 = 'sha256_example' # str | The SHA-256 checksum of the file if available. (optional)
+    sha384 = 'sha384_example' # str | The SHA-384 checksum of the file if available. (optional)
+    sha512 = 'sha512_example' # str | The SHA-512 checksum of the file if available. (optional)
 
     try:
         # Create an artifact
         api_response = api_instance.create(pulp_domain, file, size=size, md5=md5, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512)
+        print("The response of ArtifactsApi->create:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ArtifactsApi->create: %s\n" % e)
 ```
+
+
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pulp_domain** | **str**|  | 
- **file** | **file**| The stored file. | 
+ **file** | **bytearray**| The stored file. | 
  **size** | **int**| The size of the file in bytes. | [optional] 
  **md5** | **str**| The MD5 checksum of the file if available. | [optional] 
  **sha1** | **str**| The SHA-1 checksum of the file if available. | [optional] 
@@ -159,6 +105,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** |  |  -  |
@@ -175,59 +122,13 @@ Remove Artifact only if it is not associated with any Content.
 ### Example
 
 * Basic Authentication (basicAuth):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulpcore
-from pulpcore.client.pulpcore.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:5001
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
-    artifact_href = 'artifact_href_example' # str | 
-
-    try:
-        # Delete an artifact
-        api_instance.delete(artifact_href)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->delete: %s\n" % e)
-```
-
 * Api Key Authentication (cookieAuth):
+
 ```python
-from __future__ import print_function
-import time
 import pulpcore.client.pulpcore
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
@@ -241,19 +142,15 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
 )
 
 # Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
@@ -264,11 +161,14 @@ with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     try:
         # Delete an artifact
         api_instance.delete(artifact_href)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ArtifactsApi->delete: %s\n" % e)
 ```
+
+
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -288,6 +188,7 @@ void (empty response body)
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No response body |  -  |
@@ -295,7 +196,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> PaginatedArtifactResponseList list(pulp_domain, limit=limit, md5=md5, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512, fields=fields, exclude_fields=exclude_fields)
+> PaginatedArtifactResponseList list(pulp_domain, limit=limit, md5=md5, offset=offset, ordering=ordering, orphaned_for=orphaned_for, prn__in=prn__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512, fields=fields, exclude_fields=exclude_fields)
 
 List artifacts
 
@@ -304,76 +205,14 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 ### Example
 
 * Basic Authentication (basicAuth):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulpcore
-from pulpcore.client.pulpcore.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:5001
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
-    pulp_domain = 'pulp_domain_example' # str | 
-limit = 56 # int | Number of results to return per page. (optional)
-md5 = 'md5_example' # str | Filter results where md5 matches value (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `file` - File * `-file` - File (descending) * `size` - Size * `-size` - Size (descending) * `md5` - Md5 * `-md5` - Md5 (descending) * `sha1` - Sha1 * `-sha1` - Sha1 (descending) * `sha224` - Sha224 * `-sha224` - Sha224 (descending) * `sha256` - Sha256 * `-sha256` - Sha256 (descending) * `sha384` - Sha384 * `-sha384` - Sha384 (descending) * `sha512` - Sha512 * `-sha512` - Sha512 (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
-orphaned_for = 3.4 # float | Minutes Artifacts have been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. (optional)
-pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-q = 'q_example' # str |  (optional)
-repository_version = 'repository_version_example' # str | Repository Version referenced by HREF (optional)
-sha1 = 'sha1_example' # str | Filter results where sha1 matches value (optional)
-sha224 = 'sha224_example' # str | Filter results where sha224 matches value (optional)
-sha256 = 'sha256_example' # str | Filter results where sha256 matches value (optional)
-sha384 = 'sha384_example' # str | Filter results where sha384 matches value (optional)
-sha512 = 'sha512_example' # str | Filter results where sha512 matches value (optional)
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
-
-    try:
-        # List artifacts
-        api_response = api_instance.list(pulp_domain, limit=limit, md5=md5, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512, fields=fields, exclude_fields=exclude_fields)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->list: %s\n" % e)
-```
-
 * Api Key Authentication (cookieAuth):
+
 ```python
-from __future__ import print_function
-import time
 import pulpcore.client.pulpcore
+from pulpcore.client.pulpcore.models.paginated_artifact_response_list import PaginatedArtifactResponseList
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
@@ -387,51 +226,52 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
 )
 
 # Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
     pulp_domain = 'pulp_domain_example' # str | 
-limit = 56 # int | Number of results to return per page. (optional)
-md5 = 'md5_example' # str | Filter results where md5 matches value (optional)
-offset = 56 # int | The initial index from which to return the results. (optional)
-ordering = ['ordering_example'] # list[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `file` - File * `-file` - File (descending) * `size` - Size * `-size` - Size (descending) * `md5` - Md5 * `-md5` - Md5 (descending) * `sha1` - Sha1 * `-sha1` - Sha1 (descending) * `sha224` - Sha224 * `-sha224` - Sha224 (descending) * `sha256` - Sha256 * `-sha256` - Sha256 (descending) * `sha384` - Sha384 * `-sha384` - Sha384 (descending) * `sha512` - Sha512 * `-sha512` - Sha512 (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
-orphaned_for = 3.4 # float | Minutes Artifacts have been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. (optional)
-pulp_href__in = ['pulp_href__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-pulp_id__in = ['pulp_id__in_example'] # list[str] | Multiple values may be separated by commas. (optional)
-q = 'q_example' # str |  (optional)
-repository_version = 'repository_version_example' # str | Repository Version referenced by HREF (optional)
-sha1 = 'sha1_example' # str | Filter results where sha1 matches value (optional)
-sha224 = 'sha224_example' # str | Filter results where sha224 matches value (optional)
-sha256 = 'sha256_example' # str | Filter results where sha256 matches value (optional)
-sha384 = 'sha384_example' # str | Filter results where sha384 matches value (optional)
-sha512 = 'sha512_example' # str | Filter results where sha512 matches value (optional)
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
+    limit = 56 # int | Number of results to return per page. (optional)
+    md5 = 'md5_example' # str | Filter results where md5 matches value (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
+    ordering = ['ordering_example'] # List[str] | Ordering  * `pulp_id` - Pulp id * `-pulp_id` - Pulp id (descending) * `pulp_created` - Pulp created * `-pulp_created` - Pulp created (descending) * `pulp_last_updated` - Pulp last updated * `-pulp_last_updated` - Pulp last updated (descending) * `file` - File * `-file` - File (descending) * `size` - Size * `-size` - Size (descending) * `md5` - Md5 * `-md5` - Md5 (descending) * `sha1` - Sha1 * `-sha1` - Sha1 (descending) * `sha224` - Sha224 * `-sha224` - Sha224 (descending) * `sha256` - Sha256 * `-sha256` - Sha256 (descending) * `sha384` - Sha384 * `-sha384` - Sha384 (descending) * `sha512` - Sha512 * `-sha512` - Sha512 (descending) * `timestamp_of_interest` - Timestamp of interest * `-timestamp_of_interest` - Timestamp of interest (descending) * `pk` - Pk * `-pk` - Pk (descending) (optional)
+    orphaned_for = 3.4 # float | Minutes Artifacts have been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. (optional)
+    prn__in = ['prn__in_example'] # List[str] | Multiple values may be separated by commas. (optional)
+    pulp_href__in = ['pulp_href__in_example'] # List[str] | Multiple values may be separated by commas. (optional)
+    pulp_id__in = ['pulp_id__in_example'] # List[str] | Multiple values may be separated by commas. (optional)
+    q = 'q_example' # str | Filter results by using NOT, AND and OR operations on other filters (optional)
+    repository_version = 'repository_version_example' # str | Repository Version referenced by HREF/PRN (optional)
+    sha1 = 'sha1_example' # str | Filter results where sha1 matches value (optional)
+    sha224 = 'sha224_example' # str | Filter results where sha224 matches value (optional)
+    sha256 = 'sha256_example' # str | Filter results where sha256 matches value (optional)
+    sha384 = 'sha384_example' # str | Filter results where sha384 matches value (optional)
+    sha512 = 'sha512_example' # str | Filter results where sha512 matches value (optional)
+    fields = ['fields_example'] # List[str] | A list of fields to include in the response. (optional)
+    exclude_fields = ['exclude_fields_example'] # List[str] | A list of fields to exclude from the response. (optional)
 
     try:
         # List artifacts
-        api_response = api_instance.list(pulp_domain, limit=limit, md5=md5, offset=offset, ordering=ordering, orphaned_for=orphaned_for, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512, fields=fields, exclude_fields=exclude_fields)
+        api_response = api_instance.list(pulp_domain, limit=limit, md5=md5, offset=offset, ordering=ordering, orphaned_for=orphaned_for, prn__in=prn__in, pulp_href__in=pulp_href__in, pulp_id__in=pulp_id__in, q=q, repository_version=repository_version, sha1=sha1, sha224=sha224, sha256=sha256, sha384=sha384, sha512=sha512, fields=fields, exclude_fields=exclude_fields)
+        print("The response of ArtifactsApi->list:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ArtifactsApi->list: %s\n" % e)
 ```
+
+
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -439,19 +279,20 @@ Name | Type | Description  | Notes
  **limit** | **int**| Number of results to return per page. | [optional] 
  **md5** | **str**| Filter results where md5 matches value | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **ordering** | [**list[str]**](str.md)| Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;file&#x60; - File * &#x60;-file&#x60; - File (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;md5&#x60; - Md5 * &#x60;-md5&#x60; - Md5 (descending) * &#x60;sha1&#x60; - Sha1 * &#x60;-sha1&#x60; - Sha1 (descending) * &#x60;sha224&#x60; - Sha224 * &#x60;-sha224&#x60; - Sha224 (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;sha384&#x60; - Sha384 * &#x60;-sha384&#x60; - Sha384 (descending) * &#x60;sha512&#x60; - Sha512 * &#x60;-sha512&#x60; - Sha512 (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | [optional] 
+ **ordering** | [**List[str]**](str.md)| Ordering  * &#x60;pulp_id&#x60; - Pulp id * &#x60;-pulp_id&#x60; - Pulp id (descending) * &#x60;pulp_created&#x60; - Pulp created * &#x60;-pulp_created&#x60; - Pulp created (descending) * &#x60;pulp_last_updated&#x60; - Pulp last updated * &#x60;-pulp_last_updated&#x60; - Pulp last updated (descending) * &#x60;file&#x60; - File * &#x60;-file&#x60; - File (descending) * &#x60;size&#x60; - Size * &#x60;-size&#x60; - Size (descending) * &#x60;md5&#x60; - Md5 * &#x60;-md5&#x60; - Md5 (descending) * &#x60;sha1&#x60; - Sha1 * &#x60;-sha1&#x60; - Sha1 (descending) * &#x60;sha224&#x60; - Sha224 * &#x60;-sha224&#x60; - Sha224 (descending) * &#x60;sha256&#x60; - Sha256 * &#x60;-sha256&#x60; - Sha256 (descending) * &#x60;sha384&#x60; - Sha384 * &#x60;-sha384&#x60; - Sha384 (descending) * &#x60;sha512&#x60; - Sha512 * &#x60;-sha512&#x60; - Sha512 (descending) * &#x60;timestamp_of_interest&#x60; - Timestamp of interest * &#x60;-timestamp_of_interest&#x60; - Timestamp of interest (descending) * &#x60;pk&#x60; - Pk * &#x60;-pk&#x60; - Pk (descending) | [optional] 
  **orphaned_for** | **float**| Minutes Artifacts have been orphaned for. -1 uses ORPHAN_PROTECTION_TIME. | [optional] 
- **pulp_href__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
- **pulp_id__in** | [**list[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
- **q** | **str**|  | [optional] 
- **repository_version** | **str**| Repository Version referenced by HREF | [optional] 
+ **prn__in** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
+ **pulp_href__in** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
+ **pulp_id__in** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
+ **q** | **str**| Filter results by using NOT, AND and OR operations on other filters | [optional] 
+ **repository_version** | **str**| Repository Version referenced by HREF/PRN | [optional] 
  **sha1** | **str**| Filter results where sha1 matches value | [optional] 
  **sha224** | **str**| Filter results where sha224 matches value | [optional] 
  **sha256** | **str**| Filter results where sha256 matches value | [optional] 
  **sha384** | **str**| Filter results where sha384 matches value | [optional] 
  **sha512** | **str**| Filter results where sha512 matches value | [optional] 
- **fields** | [**list[str]**](str.md)| A list of fields to include in the response. | [optional] 
- **exclude_fields** | [**list[str]**](str.md)| A list of fields to exclude from the response. | [optional] 
+ **fields** | [**List[str]**](str.md)| A list of fields to include in the response. | [optional] 
+ **exclude_fields** | [**List[str]**](str.md)| A list of fields to exclude from the response. | [optional] 
 
 ### Return type
 
@@ -467,6 +308,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
@@ -483,62 +325,14 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 ### Example
 
 * Basic Authentication (basicAuth):
-```python
-from __future__ import print_function
-import time
-import pulpcore.client.pulpcore
-from pulpcore.client.pulpcore.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:5001
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
-
-# Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
-    artifact_href = 'artifact_href_example' # str | 
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
-
-    try:
-        # Inspect an artifact
-        api_response = api_instance.read(artifact_href, fields=fields, exclude_fields=exclude_fields)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->read: %s\n" % e)
-```
-
 * Api Key Authentication (cookieAuth):
+
 ```python
-from __future__ import print_function
-import time
 import pulpcore.client.pulpcore
+from pulpcore.client.pulpcore.models.artifact_response import ArtifactResponse
 from pulpcore.client.pulpcore.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulpcore.Configuration(
@@ -552,43 +346,43 @@ configuration = pulpcore.client.pulpcore.Configuration(
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulpcore.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
 )
 
 # Configure API key authorization: cookieAuth
-configuration = pulpcore.client.pulpcore.Configuration(
-    host = "http://localhost:5001",
-    api_key = {
-        'sessionid': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['sessionid'] = 'Bearer'
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pulpcore.client.pulpcore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulpcore.ArtifactsApi(api_client)
     artifact_href = 'artifact_href_example' # str | 
-fields = ['fields_example'] # list[str] | A list of fields to include in the response. (optional)
-exclude_fields = ['exclude_fields_example'] # list[str] | A list of fields to exclude from the response. (optional)
+    fields = ['fields_example'] # List[str] | A list of fields to include in the response. (optional)
+    exclude_fields = ['exclude_fields_example'] # List[str] | A list of fields to exclude from the response. (optional)
 
     try:
         # Inspect an artifact
         api_response = api_instance.read(artifact_href, fields=fields, exclude_fields=exclude_fields)
+        print("The response of ArtifactsApi->read:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ArtifactsApi->read: %s\n" % e)
 ```
+
+
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **artifact_href** | **str**|  | 
- **fields** | [**list[str]**](str.md)| A list of fields to include in the response. | [optional] 
- **exclude_fields** | [**list[str]**](str.md)| A list of fields to exclude from the response. | [optional] 
+ **fields** | [**List[str]**](str.md)| A list of fields to include in the response. | [optional] 
+ **exclude_fields** | [**List[str]**](str.md)| A list of fields to exclude from the response. | [optional] 
 
 ### Return type
 
@@ -604,6 +398,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |

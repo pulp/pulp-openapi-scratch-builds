@@ -43,6 +43,7 @@ class TestPaginatedrpmModulemdDefaultsResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/modulemd_defaults_response.rpm.ModulemdDefaultsResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         module = '0', 
@@ -56,6 +57,7 @@ class TestPaginatedrpmModulemdDefaultsResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/modulemd_defaults_response.rpm.ModulemdDefaultsResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         module = '0', 

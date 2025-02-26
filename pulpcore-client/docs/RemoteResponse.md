@@ -5,6 +5,7 @@ Every remote defined by a plugin should have a Remote serializer that inherits f
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pulp_href** | **str** |  | [optional] [readonly] 
+**prn** | **str** | The Pulp Resource Name (PRN). | [optional] [readonly] 
 **pulp_created** | **datetime** | Timestamp of creation. | [optional] [readonly] 
 **pulp_last_updated** | **datetime** | Timestamp of the most recent update of the remote. | [optional] [readonly] 
 **name** | **str** | A unique name for this remote. | 

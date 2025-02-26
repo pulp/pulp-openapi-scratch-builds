@@ -38,6 +38,7 @@ class TestRpmDistributionTreeResponse(unittest.TestCase):
         if include_optional :
             return RpmDistributionTreeResponse(
                 pulp_href = '0', 
+                prn = '0', 
                 header_version = '0', 
                 release_name = '0', 
                 release_short = '0', 

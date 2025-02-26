@@ -1,14 +1,33 @@
 # PatchedAccessPolicy
 
 Serializer for AccessPolicy.
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**permissions_assignment** | **list[object]** | List of callables that define the new permissions to be created for new objects.This is deprecated. Use &#x60;creation_hooks&#x60; instead. | [optional] 
-**creation_hooks** | **list[object]** | List of callables that may associate user roles for new objects. | [optional] 
-**statements** | **list[object]** | List of policy statements defining the policy. | [optional] 
-**queryset_scoping** | [**object**](.md) | A callable for performing queryset scoping. See plugin documentation for valid callables. Set to blank to turn off queryset scoping. | [optional] 
+**permissions_assignment** | **List[object]** | List of callables that define the new permissions to be created for new objects.This is deprecated. Use &#x60;creation_hooks&#x60; instead. | [optional] 
+**creation_hooks** | **List[object]** | List of callables that may associate user roles for new objects. | [optional] 
+**statements** | **List[object]** | List of policy statements defining the policy. | [optional] 
+**queryset_scoping** | **object** | A callable for performing queryset scoping. See plugin documentation for valid callables. Set to blank to turn off queryset scoping. | [optional] 
 
+## Example
+
+```python
+from pulpcore.client.pulpcore.models.patched_access_policy import PatchedAccessPolicy
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of PatchedAccessPolicy from a JSON string
+patched_access_policy_instance = PatchedAccessPolicy.from_json(json)
+# print the JSON string representation of the object
+print(PatchedAccessPolicy.to_json())
+
+# convert the object into a dict
+patched_access_policy_dict = patched_access_policy_instance.to_dict()
+# create an instance of PatchedAccessPolicy from a dict
+patched_access_policy_from_dict = PatchedAccessPolicy.from_dict(patched_access_policy_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

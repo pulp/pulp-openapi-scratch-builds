@@ -52,7 +52,8 @@ class TestUpstreamPulpResponse(unittest.TestCase):
                         name = '0', 
                         is_set = True, )
                     ], 
-                pulp_label_select = '0'
+                pulp_label_select = '0', 
+                last_replication = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return UpstreamPulpResponse(
