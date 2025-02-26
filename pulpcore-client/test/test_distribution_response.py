@@ -43,6 +43,7 @@ class TestDistributionResponse(unittest.TestCase):
                 base_path = '0', 
                 base_url = '0', 
                 content_guard = '0', 
+                no_content_change_since = '0', 
                 hidden = True, 
                 pulp_labels = {
                     'key' : '0'

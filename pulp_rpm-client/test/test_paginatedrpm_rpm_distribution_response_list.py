@@ -43,11 +43,13 @@ class TestPaginatedrpmRpmDistributionResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/rpm_distribution_response.rpm.RpmDistributionResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         base_path = '0', 
                         base_url = '0', 
                         content_guard = '0', 
+                        no_content_change_since = '0', 
                         hidden = True, 
                         pulp_labels = {
                             'key' : '0'
@@ -64,11 +66,13 @@ class TestPaginatedrpmRpmDistributionResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/rpm_distribution_response.rpm.RpmDistributionResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         base_path = '0', 
                         base_url = '0', 
                         content_guard = '0', 
+                        no_content_change_since = '0', 
                         hidden = True, 
                         pulp_labels = {
                             'key' : '0'

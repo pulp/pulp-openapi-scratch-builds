@@ -35,6 +35,7 @@ class RemoteResponse(object):
     """
     openapi_types = {
         'pulp_href': 'str',
+        'prn': 'str',
         'pulp_created': 'datetime',
         'pulp_last_updated': 'datetime',
         'name': 'str',
@@ -58,6 +59,7 @@ class RemoteResponse(object):
 
     attribute_map = {
         'pulp_href': 'pulp_href',
+        'prn': 'prn',
         'pulp_created': 'pulp_created',
         'pulp_last_updated': 'pulp_last_updated',
         'name': 'name',
@@ -79,13 +81,14 @@ class RemoteResponse(object):
         'hidden_fields': 'hidden_fields'
     }
 
-    def __init__(self, pulp_href=None, pulp_created=None, pulp_last_updated=None, name=None, url=None, ca_cert=None, client_cert=None, tls_validation=None, proxy_url=None, pulp_labels=None, download_concurrency=None, max_retries=None, policy=None, total_timeout=None, connect_timeout=None, sock_connect_timeout=None, sock_read_timeout=None, headers=None, rate_limit=None, hidden_fields=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, pulp_href=None, prn=None, pulp_created=None, pulp_last_updated=None, name=None, url=None, ca_cert=None, client_cert=None, tls_validation=None, proxy_url=None, pulp_labels=None, download_concurrency=None, max_retries=None, policy=None, total_timeout=None, connect_timeout=None, sock_connect_timeout=None, sock_read_timeout=None, headers=None, rate_limit=None, hidden_fields=None, local_vars_configuration=None):  # noqa: E501
         """RemoteResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._pulp_href = None
+        self._prn = None
         self._pulp_created = None
         self._pulp_last_updated = None
         self._name = None
@@ -109,6 +112,8 @@ class RemoteResponse(object):
 
         if pulp_href is not None:
             self.pulp_href = pulp_href
+        if prn is not None:
+            self.prn = prn
         if pulp_created is not None:
             self.pulp_created = pulp_created
         if pulp_last_updated is not None:
@@ -156,6 +161,29 @@ class RemoteResponse(object):
         """
 
         self._pulp_href = pulp_href
+
+    @property
+    def prn(self):
+        """Gets the prn of this RemoteResponse.  # noqa: E501
+
+        The Pulp Resource Name (PRN).  # noqa: E501
+
+        :return: The prn of this RemoteResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._prn
+
+    @prn.setter
+    def prn(self, prn):
+        """Sets the prn of this RemoteResponse.
+
+        The Pulp Resource Name (PRN).  # noqa: E501
+
+        :param prn: The prn of this RemoteResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._prn = prn
 
     @property
     def pulp_created(self):

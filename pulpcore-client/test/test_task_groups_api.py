@@ -43,6 +43,13 @@ class TestTaskGroupsApi(unittest.TestCase):
         """
         pass
 
+    def test_task_groups_cancel(self):
+        """Test case for task_groups_cancel
+
+        Cancel a task group  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

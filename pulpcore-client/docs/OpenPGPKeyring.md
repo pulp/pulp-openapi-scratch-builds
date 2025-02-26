@@ -1,0 +1,34 @@
+# OpenPGPKeyring
+
+Base serializer for use with [pulpcore.app.models.Model][]  This ensures that all Serializers provide values for the 'pulp_href` field.  The class provides a default for the ``ref_name`` attribute in the ModelSerializers's ``Meta`` class. This ensures that the OpenAPI definitions of plugins are namespaced properly.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pulp_labels** | **Dict[str, Optional[str]]** |  | [optional] 
+**name** | **str** | A unique name for this repository. | 
+**description** | **str** | An optional description. | [optional] 
+**retain_repo_versions** | **int** | Retain X versions of the repository. Default is null which retains all versions. | [optional] 
+**remote** | **str** | An optional remote to use by default when syncing. | [optional] 
+
+## Example
+
+```python
+from pulpcore.client.pulpcore.models.open_pgp_keyring import OpenPGPKeyring
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of OpenPGPKeyring from a JSON string
+open_pgp_keyring_instance = OpenPGPKeyring.from_json(json)
+# print the JSON string representation of the object
+print(OpenPGPKeyring.to_json())
+
+# convert the object into a dict
+open_pgp_keyring_dict = open_pgp_keyring_instance.to_dict()
+# create an instance of OpenPGPKeyring from a dict
+open_pgp_keyring_from_dict = OpenPGPKeyring.from_dict(open_pgp_keyring_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

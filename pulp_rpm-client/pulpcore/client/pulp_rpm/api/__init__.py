@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -24,3 +22,4 @@ from pulpcore.client.pulp_rpm.api.repositories_rpm_versions_api import Repositor
 from pulpcore.client.pulp_rpm.api.rpm_comps_api import RpmCompsApi
 from pulpcore.client.pulp_rpm.api.rpm_copy_api import RpmCopyApi
 from pulpcore.client.pulp_rpm.api.rpm_prune_api import RpmPruneApi
+

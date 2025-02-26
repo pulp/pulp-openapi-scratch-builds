@@ -1,10 +1,13 @@
 # RpmUpdateRecordResponse
 
 A Serializer for UpdateRecord.
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pulp_href** | **str** |  | [optional] [readonly] 
+**prn** | **str** | The Pulp Resource Name (PRN). | [optional] [readonly] 
 **pulp_created** | **datetime** | Timestamp of creation. | [optional] [readonly] 
 **pulp_last_updated** | **datetime** | Timestamp of the last time this resource was updated. Note: for immutable resources - like content, repository versions, and publication - pulp_created and pulp_last_updated dates will be the same. | [optional] [readonly] 
 **id** | **str** | Update id (short update name, e.g. RHEA-2013:1777) | [optional] [readonly] 
@@ -22,10 +25,27 @@ Name | Type | Description | Notes
 **release** | **str** | Update release | [optional] [readonly] 
 **rights** | **str** | Copyrights | [optional] [readonly] 
 **pushcount** | **str** | Push count | [optional] [readonly] 
-**pkglist** | [**list[RpmUpdateCollectionResponse]**](RpmUpdateCollectionResponse.md) | List of packages | [optional] [readonly] 
-**references** | **list[object]** | List of references | [optional] [readonly] 
+**pkglist** | [**List[RpmUpdateCollectionResponse]**](RpmUpdateCollectionResponse.md) | List of packages | [optional] [readonly] 
+**references** | **List[object]** | List of references | [optional] [readonly] 
 **reboot_suggested** | **bool** | Reboot suggested | [optional] [readonly] 
 
+## Example
+
+```python
+from pulpcore.client.pulp_rpm.models.rpm_update_record_response import RpmUpdateRecordResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RpmUpdateRecordResponse from a JSON string
+rpm_update_record_response_instance = RpmUpdateRecordResponse.from_json(json)
+# print the JSON string representation of the object
+print(RpmUpdateRecordResponse.to_json())
+
+# convert the object into a dict
+rpm_update_record_response_dict = rpm_update_record_response_instance.to_dict()
+# create an instance of RpmUpdateRecordResponse from a dict
+rpm_update_record_response_from_dict = RpmUpdateRecordResponse.from_dict(rpm_update_record_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

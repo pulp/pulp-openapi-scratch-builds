@@ -37,22 +37,23 @@ class TestArtifactDistributionResponse(unittest.TestCase):
         # model = pulpcore.client.pulpcore.models.artifact_distribution_response.ArtifactDistributionResponse()  # noqa: E501
         if include_optional :
             return ArtifactDistributionResponse(
+                base_url = '0', 
+                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                name = '0', 
+                content_guard = '0', 
+                pulp_href = '0', 
                 pulp_created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                base_path = '0', 
-                hidden = True, 
                 pulp_labels = {
                     'key' : '0'
                     }, 
-                name = '0', 
-                content_guard = '0', 
-                pulp_last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                pulp_href = '0', 
-                base_url = '0'
+                base_path = '0', 
+                hidden = True, 
+                no_content_change_since = '0'
             )
         else :
             return ArtifactDistributionResponse(
-                base_path = '0',
                 name = '0',
+                base_path = '0',
         )
 
     def testArtifactDistributionResponse(self):

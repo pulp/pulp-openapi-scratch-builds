@@ -64,6 +64,13 @@ class TestTasksApi(unittest.TestCase):
         """
         pass
 
+    def test_profile_artifacts(self):
+        """Test case for profile_artifacts
+
+        Fetch downloadable links for profile artifacts  # noqa: E501
+        """
+        pass
+
     def test_purge(self):
         """Test case for purge
 

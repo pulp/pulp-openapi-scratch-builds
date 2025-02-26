@@ -43,6 +43,7 @@ class TestPaginatedrpmDistributionTreeResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/distribution_tree_response.rpm.DistributionTreeResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         header_version = '0', 
                         release_name = '0', 
                         release_short = '0', 
@@ -98,6 +99,7 @@ class TestPaginatedrpmDistributionTreeResponseList(unittest.TestCase):
                 results = [
                     pulpcore.client.pulp_rpm.models.rpm/distribution_tree_response.rpm.DistributionTreeResponse(
                         pulp_href = '0', 
+                        prn = '0', 
                         header_version = '0', 
                         release_name = '0', 
                         release_short = '0', 
