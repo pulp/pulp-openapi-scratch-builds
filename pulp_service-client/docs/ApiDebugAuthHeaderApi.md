@@ -1,6 +1,6 @@
 # pulpcore.client.pulp_service.ApiDebugAuthHeaderApi
 
-All URIs are relative to *https://console.redhat.com*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,10 +22,10 @@ import pulpcore.client.pulp_service
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 

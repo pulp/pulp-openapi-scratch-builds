@@ -1,47 +1,43 @@
 # pulpcore.client.pulp_service.VulnReportApi
 
-All URIs are relative to *https://console.redhat.com*
+All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](VulnReportApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | Create a vulnerability report
+[**create**](VulnReportApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/vuln_report/ | Generate vulnerability report
 [**delete**](VulnReportApi.md#delete) | **DELETE** {service_vulnerability_report_href} | Delete a vulnerability report
-[**list**](VulnReportApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
+[**list**](VulnReportApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
 [**read**](VulnReportApi.md#read) | **GET** {service_vulnerability_report_href} | Inspect a vulnerability report
 
 
 # **create**
-> ServiceVulnerabilityReportResponse create(pulp_domain, service_vulnerability_report)
+> AsyncOperationResponse create(pulp_domain, repo_version=repo_version, package_json=package_json)
 
-Create a vulnerability report
+Generate vulnerability report
 
-A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.
+Trigger a task to generate the package vulnerability report
 
 ### Example
 
-* OAuth Authentication (json_header_remote_authentication):
 * Basic Authentication (basicAuth):
 * Api Key Authentication (cookieAuth):
 
 ```python
 import pulpcore.client.pulp_service
-from pulpcore.client.pulp_service.models.service_vulnerability_report import ServiceVulnerabilityReport
-from pulpcore.client.pulp_service.models.service_vulnerability_report_response import ServiceVulnerabilityReportResponse
+from pulpcore.client.pulp_service.models.async_operation_response import AsyncOperationResponse
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulp_service.Configuration(
@@ -60,11 +56,12 @@ with pulpcore.client.pulp_service.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pulpcore.client.pulp_service.VulnReportApi(api_client)
     pulp_domain = 'pulp_domain_example' # str | 
-    service_vulnerability_report = pulpcore.client.pulp_service.ServiceVulnerabilityReport() # ServiceVulnerabilityReport | 
+    repo_version = 'repo_version_example' # str | RepositoryVersion HREF with the packages to be checked. (optional)
+    package_json = None # bytearray | package-lock.json file with the definition of dependencies to be checked. (optional)
 
     try:
-        # Create a vulnerability report
-        api_response = api_instance.create(pulp_domain, service_vulnerability_report)
+        # Generate vulnerability report
+        api_response = api_instance.create(pulp_domain, repo_version=repo_version, package_json=package_json)
         print("The response of VulnReportApi->create:\n")
         pprint(api_response)
     except Exception as e:
@@ -79,26 +76,27 @@ with pulpcore.client.pulp_service.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pulp_domain** | **str**|  | 
- **service_vulnerability_report** | [**ServiceVulnerabilityReport**](ServiceVulnerabilityReport.md)|  | 
+ **repo_version** | **str**| RepositoryVersion HREF with the packages to be checked. | [optional] 
+ **package_json** | **bytearray**| package-lock.json file with the definition of dependencies to be checked. | [optional] 
 
 ### Return type
 
-[**ServiceVulnerabilityReportResponse**](ServiceVulnerabilityReportResponse.md)
+[**AsyncOperationResponse**](AsyncOperationResponse.md)
 
 ### Authorization
 
-[json_header_remote_authentication](../README.md#json_header_remote_authentication), [basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -111,7 +109,6 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 
 ### Example
 
-* OAuth Authentication (json_header_remote_authentication):
 * Basic Authentication (basicAuth):
 * Api Key Authentication (cookieAuth):
 
@@ -120,18 +117,16 @@ import pulpcore.client.pulp_service
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulp_service.Configuration(
@@ -173,7 +168,7 @@ void (empty response body)
 
 ### Authorization
 
-[json_header_remote_authentication](../README.md#json_header_remote_authentication), [basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -197,7 +192,6 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 
 ### Example
 
-* OAuth Authentication (json_header_remote_authentication):
 * Basic Authentication (basicAuth):
 * Api Key Authentication (cookieAuth):
 
@@ -207,18 +201,16 @@ from pulpcore.client.pulp_service.models.paginatedservice_vulnerability_report_r
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulp_service.Configuration(
@@ -270,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[json_header_remote_authentication](../README.md#json_header_remote_authentication), [basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
@@ -294,7 +286,6 @@ A customized named ModelViewSet that knows how to register itself with the Pulp 
 
 ### Example
 
-* OAuth Authentication (json_header_remote_authentication):
 * Basic Authentication (basicAuth):
 * Api Key Authentication (cookieAuth):
 
@@ -304,18 +295,16 @@ from pulpcore.client.pulp_service.models.service_vulnerability_report_response i
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure HTTP basic authorization: basicAuth
 configuration = pulpcore.client.pulp_service.Configuration(
@@ -363,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[json_header_remote_authentication](../README.md#json_header_remote_authentication), [basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
 
 ### HTTP request headers
 
