@@ -317,7 +317,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -610,14 +609,13 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/',
+            resource_path='/pulp/{pulp_domain}/api/v3/contentguards/service/feature/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -866,7 +864,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -1442,14 +1439,13 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/',
+            resource_path='/pulp/{pulp_domain}/api/v3/contentguards/service/feature/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1741,7 +1737,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -2040,7 +2035,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -2333,7 +2327,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -2632,7 +2625,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -2925,7 +2917,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -3218,7 +3209,6 @@ class ContentguardsFeatureApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]

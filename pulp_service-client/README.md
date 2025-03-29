@@ -56,10 +56,10 @@ import pulpcore.client.pulp_service
 from pulpcore.client.pulp_service.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://console.redhat.com
+# Defining the host is optional and defaults to http://localhost:5001
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pulpcore.client.pulp_service.Configuration(
-    host = "https://console.redhat.com"
+    host = "http://localhost:5001"
 )
 
 
@@ -78,15 +78,15 @@ with pulpcore.client.pulp_service.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://console.redhat.com*
+All URIs are relative to *http://localhost:5001*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApiDebugAuthHeaderApi* | [**get**](docs/ApiDebugAuthHeaderApi.md#get) | **GET** /api/pulp/debug_auth_header/ | 
 *ContentguardsFeatureApi* | [**add_role**](docs/ContentguardsFeatureApi.md#add_role) | **POST** {service_feature_content_guard_href}add_role/ | Add a role
-*ContentguardsFeatureApi* | [**create**](docs/ContentguardsFeatureApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | Create a feature content guard
+*ContentguardsFeatureApi* | [**create**](docs/ContentguardsFeatureApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | Create a feature content guard
 *ContentguardsFeatureApi* | [**delete**](docs/ContentguardsFeatureApi.md#delete) | **DELETE** {service_feature_content_guard_href} | Delete a feature content guard
-*ContentguardsFeatureApi* | [**list**](docs/ContentguardsFeatureApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | List feature content guards
+*ContentguardsFeatureApi* | [**list**](docs/ContentguardsFeatureApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | List feature content guards
 *ContentguardsFeatureApi* | [**list_roles**](docs/ContentguardsFeatureApi.md#list_roles) | **GET** {service_feature_content_guard_href}list_roles/ | List roles
 *ContentguardsFeatureApi* | [**my_permissions**](docs/ContentguardsFeatureApi.md#my_permissions) | **GET** {service_feature_content_guard_href}my_permissions/ | List user permissions
 *ContentguardsFeatureApi* | [**partial_update**](docs/ContentguardsFeatureApi.md#partial_update) | **PATCH** {service_feature_content_guard_href} | Update a feature content guard
@@ -94,14 +94,15 @@ Class | Method | HTTP request | Description
 *ContentguardsFeatureApi* | [**remove_role**](docs/ContentguardsFeatureApi.md#remove_role) | **POST** {service_feature_content_guard_href}remove_role/ | Remove a role
 *ContentguardsFeatureApi* | [**update**](docs/ContentguardsFeatureApi.md#update) | **PUT** {service_feature_content_guard_href} | Update a feature content guard
 *TasksApi* | [**list**](docs/TasksApi.md#list) | **GET** /api/pulp/admin/tasks/ | List tasks
-*VulnReportApi* | [**create**](docs/VulnReportApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | Create a vulnerability report
+*VulnReportApi* | [**create**](docs/VulnReportApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/vuln_report/ | Generate vulnerability report
 *VulnReportApi* | [**delete**](docs/VulnReportApi.md#delete) | **DELETE** {service_vulnerability_report_href} | Delete a vulnerability report
-*VulnReportApi* | [**list**](docs/VulnReportApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
+*VulnReportApi* | [**list**](docs/VulnReportApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
 *VulnReportApi* | [**read**](docs/VulnReportApi.md#read) | **GET** {service_vulnerability_report_href} | Inspect a vulnerability report
 
 
 ## Documentation For Models
 
+ - [AsyncOperationResponse](docs/AsyncOperationResponse.md)
  - [MyPermissionsResponse](docs/MyPermissionsResponse.md)
  - [NestedRole](docs/NestedRole.md)
  - [NestedRoleResponse](docs/NestedRoleResponse.md)
@@ -113,7 +114,6 @@ Class | Method | HTTP request | Description
  - [ProgressReportResponse](docs/ProgressReportResponse.md)
  - [ServiceFeatureContentGuard](docs/ServiceFeatureContentGuard.md)
  - [ServiceFeatureContentGuardResponse](docs/ServiceFeatureContentGuardResponse.md)
- - [ServiceVulnerabilityReport](docs/ServiceVulnerabilityReport.md)
  - [ServiceVulnerabilityReportResponse](docs/ServiceVulnerabilityReportResponse.md)
  - [TaskResponse](docs/TaskResponse.md)
 
@@ -134,15 +134,6 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: sessionid
 - **Location**: 
-
-<a id="json_header_remote_authentication"></a>
-### json_header_remote_authentication
-
-- **Type**: OAuth
-- **Flow**: application
-- **Authorization URL**: 
-- **Scopes**: 
- - **api.console**: grant_access_to_pulp
 
 
 ## Author

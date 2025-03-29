@@ -1465,7 +1465,6 @@ class TasksApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]

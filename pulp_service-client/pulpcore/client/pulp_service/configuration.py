@@ -116,7 +116,6 @@ AuthSettings = TypedDict(
     {
         "basicAuth": BasicAuthSetting,
         "cookieAuth": APIKeyAuthSetting,
-        "json_header_remote_authentication": OAuth2AuthSetting,
     },
     total=False,
 )
@@ -225,7 +224,7 @@ conf = pulpcore.client.pulp_service.Configuration(
     ) -> None:
         """Constructor
         """
-        self._base_path = "https://console.redhat.com" if host is None else host
+        self._base_path = "http://localhost:5001" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -539,13 +538,6 @@ conf = pulpcore.client.pulp_service.Configuration(
                     'cookieAuth',
                 ),
             }
-        if self.access_token is not None:
-            auth['json_header_remote_authentication'] = {
-                'type': 'oauth2',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
         return auth
 
     def to_debug_report(self) -> str:
@@ -567,7 +559,7 @@ conf = pulpcore.client.pulp_service.Configuration(
         """
         return [
             {
-                'url': "https://console.redhat.com",
+                'url': "http://localhost:5001",
                 'description': "No description provided",
             }
         ]

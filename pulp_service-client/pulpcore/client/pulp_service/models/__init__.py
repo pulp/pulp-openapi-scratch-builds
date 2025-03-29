@@ -15,6 +15,7 @@
 
 
 # import models into model package
+from pulpcore.client.pulp_service.models.async_operation_response import AsyncOperationResponse
 from pulpcore.client.pulp_service.models.my_permissions_response import MyPermissionsResponse
 from pulpcore.client.pulp_service.models.nested_role import NestedRole
 from pulpcore.client.pulp_service.models.nested_role_response import NestedRoleResponse
@@ -26,6 +27,5 @@ from pulpcore.client.pulp_service.models.patchedservice_feature_content_guard im
 from pulpcore.client.pulp_service.models.progress_report_response import ProgressReportResponse
 from pulpcore.client.pulp_service.models.service_feature_content_guard import ServiceFeatureContentGuard
 from pulpcore.client.pulp_service.models.service_feature_content_guard_response import ServiceFeatureContentGuardResponse
-from pulpcore.client.pulp_service.models.service_vulnerability_report import ServiceVulnerabilityReport
 from pulpcore.client.pulp_service.models.service_vulnerability_report_response import ServiceVulnerabilityReportResponse
 from pulpcore.client.pulp_service.models.task_response import TaskResponse

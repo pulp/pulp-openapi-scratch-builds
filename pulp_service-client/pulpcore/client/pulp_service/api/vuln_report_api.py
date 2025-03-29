@@ -17,11 +17,11 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr
-from typing import List, Optional
+from pydantic import Field, StrictBytes, StrictInt, StrictStr
+from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
+from pulpcore.client.pulp_service.models.async_operation_response import AsyncOperationResponse
 from pulpcore.client.pulp_service.models.paginatedservice_vulnerability_report_response_list import PaginatedserviceVulnerabilityReportResponseList
-from pulpcore.client.pulp_service.models.service_vulnerability_report import ServiceVulnerabilityReport
 from pulpcore.client.pulp_service.models.service_vulnerability_report_response import ServiceVulnerabilityReportResponse
 
 from pulpcore.client.pulp_service.api_client import ApiClient, RequestSerialized
@@ -45,7 +45,8 @@ class VulnReportApi:
     @validate_call
     def create(
         self,
-        service_vulnerability_report: ServiceVulnerabilityReport,
+        repo_version: Annotated[Optional[StrictStr], Field(description="RepositoryVersion HREF with the packages to be checked.")] = None,
+        package_json: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="package-lock.json file with the definition of dependencies to be checked.")] = None,
         pulp_domain: StrictStr = "default",
         _request_timeout: Union[
             None,
@@ -59,15 +60,17 @@ class VulnReportApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ServiceVulnerabilityReportResponse:
-        """Create a vulnerability report
+    ) -> AsyncOperationResponse:
+        """Generate vulnerability report
 
-        A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.
+        Trigger a task to generate the package vulnerability report
 
         :param pulp_domain: (required)
         :type pulp_domain: str
-        :param service_vulnerability_report: (required)
-        :type service_vulnerability_report: ServiceVulnerabilityReport
+        :param repo_version: RepositoryVersion HREF with the packages to be checked.
+        :type repo_version: str
+        :param package_json: package-lock.json file with the definition of dependencies to be checked.
+        :type package_json: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,7 +95,8 @@ class VulnReportApi:
 
         _param = self._create_serialize(
             pulp_domain=pulp_domain,
-            service_vulnerability_report=service_vulnerability_report,
+            repo_version=repo_version,
+            package_json=package_json,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -100,7 +104,7 @@ class VulnReportApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ServiceVulnerabilityReportResponse",
+            '202': "AsyncOperationResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -116,7 +120,8 @@ class VulnReportApi:
     @validate_call
     def create_with_http_info(
         self,
-        service_vulnerability_report: ServiceVulnerabilityReport,
+        repo_version: Annotated[Optional[StrictStr], Field(description="RepositoryVersion HREF with the packages to be checked.")] = None,
+        package_json: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="package-lock.json file with the definition of dependencies to be checked.")] = None,
         pulp_domain: StrictStr = "default",
         _request_timeout: Union[
             None,
@@ -130,15 +135,17 @@ class VulnReportApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ServiceVulnerabilityReportResponse]:
-        """Create a vulnerability report
+    ) -> ApiResponse[AsyncOperationResponse]:
+        """Generate vulnerability report
 
-        A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.
+        Trigger a task to generate the package vulnerability report
 
         :param pulp_domain: (required)
         :type pulp_domain: str
-        :param service_vulnerability_report: (required)
-        :type service_vulnerability_report: ServiceVulnerabilityReport
+        :param repo_version: RepositoryVersion HREF with the packages to be checked.
+        :type repo_version: str
+        :param package_json: package-lock.json file with the definition of dependencies to be checked.
+        :type package_json: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,7 +170,8 @@ class VulnReportApi:
 
         _param = self._create_serialize(
             pulp_domain=pulp_domain,
-            service_vulnerability_report=service_vulnerability_report,
+            repo_version=repo_version,
+            package_json=package_json,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -171,7 +179,7 @@ class VulnReportApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ServiceVulnerabilityReportResponse",
+            '202': "AsyncOperationResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -187,7 +195,8 @@ class VulnReportApi:
     @validate_call
     def create_without_preload_content(
         self,
-        service_vulnerability_report: ServiceVulnerabilityReport,
+        repo_version: Annotated[Optional[StrictStr], Field(description="RepositoryVersion HREF with the packages to be checked.")] = None,
+        package_json: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="package-lock.json file with the definition of dependencies to be checked.")] = None,
         pulp_domain: StrictStr = "default",
         _request_timeout: Union[
             None,
@@ -202,14 +211,16 @@ class VulnReportApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create a vulnerability report
+        """Generate vulnerability report
 
-        A customized named ModelViewSet that knows how to register itself with the Pulp API router.  This viewset is discoverable by its name. \"Normal\" Django Models and Master/Detail models are supported by the ``register_with`` method.  Attributes:     lookup_field (str): The name of the field by which an object should be looked up, in         addition to any parent lookups if this ViewSet is nested. Defaults to 'pk'     endpoint_name (str): The name of the final path segment that should identify the ViewSet's         collection endpoint.     nest_prefix (str): Optional prefix under which this ViewSet should be nested. This must         correspond to the \"parent_prefix\" of a router with rest_framework_nested.NestedMixin.         None indicates this ViewSet should not be nested.     parent_lookup_kwargs (dict): Optional mapping of key names that would appear in self.kwargs         to django model filter expressions that can be used with the corresponding value from         self.kwargs, used only by a nested ViewSet to filter based on the parent object's         identity.     schema (DefaultSchema): The schema class to use by default in a viewset.
+        Trigger a task to generate the package vulnerability report
 
         :param pulp_domain: (required)
         :type pulp_domain: str
-        :param service_vulnerability_report: (required)
-        :type service_vulnerability_report: ServiceVulnerabilityReport
+        :param repo_version: RepositoryVersion HREF with the packages to be checked.
+        :type repo_version: str
+        :param package_json: package-lock.json file with the definition of dependencies to be checked.
+        :type package_json: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -234,7 +245,8 @@ class VulnReportApi:
 
         _param = self._create_serialize(
             pulp_domain=pulp_domain,
-            service_vulnerability_report=service_vulnerability_report,
+            repo_version=repo_version,
+            package_json=package_json,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -242,7 +254,7 @@ class VulnReportApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ServiceVulnerabilityReportResponse",
+            '202': "AsyncOperationResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -254,7 +266,8 @@ class VulnReportApi:
     def _create_serialize(
         self,
         pulp_domain,
-        service_vulnerability_report,
+        repo_version,
+        package_json,
         _request_auth,
         _content_type,
         _headers,
@@ -281,9 +294,11 @@ class VulnReportApi:
         # process the query parameters
         # process the header parameters
         # process the form parameters
+        if repo_version is not None:
+            _form_params.append(('repo_version', repo_version))
+        if package_json is not None:
+            _files['package_json'] = package_json
         # process the body parameter
-        if service_vulnerability_report is not None:
-            _body_params = service_vulnerability_report
 
 
         # set the HTTP header `Accept`
@@ -301,9 +316,8 @@ class VulnReportApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
+                        'multipart/form-data', 
+                        'application/x-www-form-urlencoded'
                     ]
                 )
             )
@@ -312,14 +326,13 @@ class VulnReportApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/pulp/{pulp_domain}/api/v3/vuln_report/',
+            resource_path='/pulp/{pulp_domain}/api/v3/vuln_report/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -568,7 +581,6 @@ class VulnReportApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
@@ -901,14 +913,13 @@ class VulnReportApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/pulp/{pulp_domain}/api/v3/vuln_report/',
+            resource_path='/pulp/{pulp_domain}/api/v3/vuln_report/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1200,7 +1211,6 @@ class VulnReportApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'json_header_remote_authentication', 
             'basicAuth', 
             'cookieAuth'
         ]
