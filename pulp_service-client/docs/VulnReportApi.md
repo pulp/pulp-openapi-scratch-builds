@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost:5001*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](VulnReportApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/vuln_report/ | Generate vulnerability report
+[**create**](VulnReportApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | Generate vulnerability report
 [**delete**](VulnReportApi.md#delete) | **DELETE** {service_vulnerability_report_href} | Delete a vulnerability report
-[**list**](VulnReportApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
+[**list**](VulnReportApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/vuln_report/ | List vulnerability reports
 [**read**](VulnReportApi.md#read) | **GET** {service_vulnerability_report_href} | Inspect a vulnerability report
 
 

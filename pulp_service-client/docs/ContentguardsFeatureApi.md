@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost:5001*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_role**](ContentguardsFeatureApi.md#add_role) | **POST** {service_feature_content_guard_href}add_role/ | Add a role
-[**create**](ContentguardsFeatureApi.md#create) | **POST** /pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | Create a feature content guard
+[**create**](ContentguardsFeatureApi.md#create) | **POST** /api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | Create a feature content guard
 [**delete**](ContentguardsFeatureApi.md#delete) | **DELETE** {service_feature_content_guard_href} | Delete a feature content guard
-[**list**](ContentguardsFeatureApi.md#list) | **GET** /pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | List feature content guards
+[**list**](ContentguardsFeatureApi.md#list) | **GET** /api/pulp/{pulp_domain}/api/v3/contentguards/service/feature/ | List feature content guards
 [**list_roles**](ContentguardsFeatureApi.md#list_roles) | **GET** {service_feature_content_guard_href}list_roles/ | List roles
 [**my_permissions**](ContentguardsFeatureApi.md#my_permissions) | **GET** {service_feature_content_guard_href}my_permissions/ | List user permissions
 [**partial_update**](ContentguardsFeatureApi.md#partial_update) | **PATCH** {service_feature_content_guard_href} | Update a feature content guard
