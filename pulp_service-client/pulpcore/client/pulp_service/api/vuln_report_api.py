@@ -332,7 +332,7 @@ class VulnReportApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/pulp/{pulp_domain}/api/v3/vuln_report/',
+            resource_path='/api/pulp/{pulp_domain}/api/v3/vuln_report/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -919,7 +919,7 @@ class VulnReportApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/pulp/{pulp_domain}/api/v3/vuln_report/',
+            resource_path='/api/pulp/{pulp_domain}/api/v3/vuln_report/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
